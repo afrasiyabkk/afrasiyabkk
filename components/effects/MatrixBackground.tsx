@@ -64,7 +64,7 @@ export const MatrixBackground = () => {
         drops[i] += fontSize * 0.8;
 
         // When character reaches bottom, randomly reset to top
-        if (drops[i] > canvas.height + lineLength) {
+        if (drops[i] > canvas.height + lineLength ) {
           drops[i] = (Math.random() - 0.5) * 100;
         }
       }

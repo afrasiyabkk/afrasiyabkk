@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "@/styles/globals.css";
 import { MatrixBackground } from "@/components/effects/MatrixBackground";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
   title: "Portfolio | Matrix Style",
@@ -18,10 +20,16 @@ export default function RootLayout({
         {/* Matrix Background Effect */}
         <MatrixBackground />
 
-        {/* Main Content */}
-        <div className="relative z-10 flex flex-col min-h-screen">
+        {/* Header (fixed position) */}
+        <Header />
+
+        {/* Main Content (with top padding for fixed header) */}
+        <div className="" style={{ paddingTop: "100px" }}>
           {children}
         </div>
+
+        {/* Footer */}
+        <Footer />
       </body>
     </html>
   );

@@ -1,0 +1,179 @@
+/* Matrix Theme Colors */
+:root {
+  --matrix-green: #00ff00;
+  --matrix-green-dim: #00cc00;
+  --matrix-green-bright: #0fff0f;
+  --matrix-black: #000000;
+  --matrix-dark: #0a0e27;
+  --matrix-darker: #050a16;
+  --text-primary: #00ff00;
+  --text-secondary: #00cc00;
+  --glow-color: #00ff00;
+  --accent: #ff00ff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--matrix-black);
+  color: var(--text-primary);
+  font-family: 'Courier New', Courier, monospace;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* Global Animations */
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes cursor-blink {
+  0%, 50% {
+    border-color: var(--text-primary);
+  }
+  51%, 100% {
+    border-color: transparent;
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    text-shadow: 0 0 10px var(--glow-color), 0 0 20px var(--glow-color);
+  }
+  50% {
+    text-shadow: 0 0 20px var(--glow-color), 0 0 30px var(--glow-color);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 5px var(--glow-color), inset 0 0 5px rgba(0, 255, 0, 0.1);
+  }
+  50% {
+    box-shadow: 0 0 20px var(--glow-color), inset 0 0 10px rgba(0, 255, 0, 0.2);
+  }
+}
+
+/* Utility Classes */
+.typewriter {
+  overflow: hidden;
+  border-right: 3px solid var(--text-primary);
+  white-space: nowrap;
+  animation: typewriter 3.5s steps(40, end), cursor-blink 0.75s step-end infinite;
+}
+
+.glow-text {
+  animation: glow 2s ease-in-out infinite;
+}
+
+.fade-in {
+  animation: fade-in 0.6s ease-in;
+}
+
+.slide-up {
+  animation: slide-up 0.6s ease-out;
+}
+
+.glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+/* Matrix Button Styling */
+.btn-matrix {
+  background-color: transparent;
+  border: 2px solid var(--matrix-green);
+  color: var(--matrix-green);
+  padding: 10px 20px;
+  font-family: 'Courier New', Courier, monospace;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-matrix:hover {
+  background-color: var(--matrix-green);
+  color: var(--matrix-black);
+  box-shadow: 0 0 20px var(--matrix-green), inset 0 0 20px rgba(0, 255, 0, 0.3);
+}
+
+.btn-matrix:active {
+  transform: scale(0.98);
+}
+
+/* Links */
+a {
+  color: var(--matrix-green);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+a:hover {
+  color: var(--matrix-green-bright);
+  text-shadow: 0 0 10px var(--matrix-green);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--matrix-darker);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--matrix-green);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--matrix-green-bright);
+  box-shadow: 0 0 10px var(--matrix-green);
+}
+
+/* Selection */
+::selection {
+  background-color: var(--matrix-green);
+  color: var(--matrix-black);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  body {
+    font-size: 14px;
+  }
+}

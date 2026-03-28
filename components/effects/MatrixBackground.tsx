@@ -24,48 +24,48 @@ export const MatrixBackground = () => {
 
     // English alphabet characters that fall down
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    const fontSize = 40;
+    const fontSize = 12;
+    
+    // Fill entire width with columns
     const columns = Math.ceil(canvas.width / fontSize);
     const drops: number[] = [];
 
-    // Initialize drops for each column - spread them across the full height
+    // Initialize drops for each column
     for (let i = 0; i < columns; i++) {
-      drops[i] = Math.random() * -100; // Start from top (above canvas)
+      drops[i] = Math.random() * canvas.height;
     }
 
     let animationId: number;
     const draw = () => {
-      // Slower fade for trailing effect
-      ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
+      // Slight fade for trailing effect
+      ctx.fillStyle = 'rgba(0, 0, 0, 0.2)';
       ctx.fillRect(0, 0, canvas.width, canvas.height);
 
       // Green text falling down
       ctx.fillStyle = '#00ff00';
       ctx.font = `${fontSize}px 'Courier New', monospace`;
-      ctx.globalAlpha = 0.5;
 
       for (let i = 0; i < columns; i++) {
-        // Draw multiple characters in a vertical line (creates longer streams)
-        const lineLength = 8; // Number of characters in each falling line
+        // Draw multiple characters in a vertical line (streaming effect)
+        const lineLength = 40; // Number of characters in each falling stream
         
         for (let j = 0; j < lineLength; j++) {
           const text = chars.charAt(Math.floor(Math.random() * chars.length));
           
-          // Fade effect - characters get dimmer as they go up
-          ctx.globalAlpha = 0.5 - (j * 0.05);
+          // Fade effect - characters get dimmer as they go up the stream
+          const alpha = 0.8 - (j * 0.05);
+          ctx.globalAlpha = Math.max(0.1, alpha);
           
-          // Draw characters vertically
+          // Draw characters vertically at each column
           ctx.fillText(text, i * fontSize, drops[i] - (j * fontSize));
         }
-        
-        ctx.globalAlpha = 0.5;
 
-        // Move down each frame (reduced speed)
-        drops[i] += fontSize * 0.07;
+        // Move down each frame
+        drops[i] += fontSize * 0.8;
 
-        // When character reaches bottom, reset to top
-        if (drops[i] > canvas.height) {
-          drops[i] = -fontSize;
+        // When character reaches bottom, randomly reset to top
+        if (drops[i] > canvas.height + lineLength) {
+          drops[i] = (Math.random() - 0.5) * 100;
         }
       }
 

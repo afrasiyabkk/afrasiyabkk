@@ -55,3 +55,37 @@
   font-size: 0.875rem;
   text-align: center;
 }
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .footer-container {
+    padding: 16px 20px;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    margin-bottom: 24px;
+  }
+
+  .footer-section h3 {
+    font-size: 1rem;
+  }
+
+  .footer-section h4 {
+    font-size: 0.8125rem;
+  }
+
+  .footer-description {
+    font-size: 0.8125rem;
+  }
+
+  .footer-socials {
+    gap: 12px;
+  }
+
+  .footer-copyright {
+    font-size: 0.8125rem;
+    padding: 12px 0 0 0;
+  }
+}

@@ -15,20 +15,33 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full scroll-smooth">
-      <body className="bg-black text-matrix-green min-h-screen flex flex-col relative overflow-x-hidden">
+    <html lang="en" style={{ height: '100%' }}>
+      <body style={{
+        backgroundColor: '#000000',
+        color: '#00ff00',
+        minHeight: '100vh',
+        display: 'flex',
+        flexDirection: 'column',
+        position: 'relative',
+        overflowX: 'hidden',
+      }}>
         {/* Matrix Background Effect */}
         <MatrixBackground />
 
         {/* Header (fixed position) */}
         <Header />
 
-        {/* Main Content (with top padding for fixed header) */}
-        <div className="" style={{ paddingTop: "100px" }}>
+        {/* Main Content (grows to fill space, pushing footer to bottom) */}
+        <div style={{
+          flex: 1,
+          paddingTop: '100px',
+          position: 'relative',
+          zIndex: 10,
+        }}>
           {children}
         </div>
 
-        {/* Footer */}
+        {/* Footer (always at bottom) */}
         <Footer />
       </body>
     </html>

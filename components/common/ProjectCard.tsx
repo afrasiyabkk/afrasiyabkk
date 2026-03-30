@@ -26,7 +26,7 @@ export const ProjectCard = ({ project, index = 0 }: ProjectCardProps) => {
   };
 
   return (
-    <div className="project-card" style={{ animationDelay: `${index * 0.1}s` }}>
+    <div className="project-card" style={{ "--animation-delay": `${index * 0.1}s` } as any}>
       {/* Image Carousel */}
       <div className="project-carousel">
         <img

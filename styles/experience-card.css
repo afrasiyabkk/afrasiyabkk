@@ -75,9 +75,6 @@
   margin-bottom: 16px;
 }
 
-.experience-title-section {
-}
-
 .experience-title {
   font-size: 1.35rem;
   font-weight: bold;
@@ -169,10 +166,6 @@
   position: absolute;
   left: 0;
   color: var(--matrix-green);
-}
-
-/* Technologies */
-.experience-tech {
 }
 
 .tech-heading {

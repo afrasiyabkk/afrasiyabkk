@@ -3,8 +3,7 @@
 .experience-container {
   max-width: 90%;
   margin: 0 auto;
-  padding: 30px;
-  padding-bottom: 310px;
+  padding: 30px 80px 310px 80px;
   background-color: var(--matrix-black);
   border: 2px solid var(--matrix-green);
   border-radius: 10px;

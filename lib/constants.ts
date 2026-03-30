@@ -22,6 +22,7 @@ export const NAV_LINKS = [
   { href: '/', label: 'HOME', id: 'home' },
   { href: '/projects', label: 'PROJECTS', id: 'projects' },
   { href: '/experience', label: 'EXPERIENCE', id: 'experience' },
+  { href: '/education', label: 'EDUCATION', id: 'education' },
   { href: '/skills', label: 'SKILLS', id: 'skills' },
   { href: '/about', label: 'ABOUT', id: 'about' },
   { href: '/contact', label: 'CONTACT', id: 'contact' },

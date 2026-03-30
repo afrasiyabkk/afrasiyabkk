@@ -15,7 +15,7 @@ export const ExperienceCard = ({ experience, index }: ExperienceCardProps) => {
       <div className={`timeline-dot ${experience.isCurrent ? 'current' : ''}`}></div>
 
       {/* Experience Card */}
-      <div className="experience-card">
+      <div className="experience-card" style={{ animationDelay: `${index * 0.1}s` }}>
         {/* Header with Title and Company */}
         <div className="experience-header">
           <div className="experience-title-section">

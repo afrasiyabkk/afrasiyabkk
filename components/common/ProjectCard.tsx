@@ -7,9 +7,10 @@ import '@/styles/project-card.css';
 
 interface ProjectCardProps {
   project: Project;
+  index?: number;
 }
 
-export const ProjectCard = ({ project }: ProjectCardProps) => {
+export const ProjectCard = ({ project, index = 0 }: ProjectCardProps) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   const goToPrevious = () => {
@@ -25,7 +26,7 @@ export const ProjectCard = ({ project }: ProjectCardProps) => {
   };
 
   return (
-    <div className="project-card">
+    <div className="project-card" style={{ animationDelay: `${index * 0.1}s` }}>
       {/* Image Carousel */}
       <div className="project-carousel">
         <img

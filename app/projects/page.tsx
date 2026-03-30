@@ -15,8 +15,8 @@ export default function ProjectsPage() {
         </section>
 
         <section className="projects-grid">
-          {PROJECTS.map((project) => (
-            <ProjectCard key={project.id} project={project} />
+          {PROJECTS.map((project, index) => (
+            <ProjectCard key={project.id} project={project} index={index} />
           ))}
         </section>
       </div>

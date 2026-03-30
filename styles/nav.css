@@ -5,7 +5,7 @@
 }
 
 .nav-link {
-  color: #00cc00;
+  color: var(--text-secondary);
   font-family: 'Courier New', monospace;
   font-size: 1.175rem;
   font-weight: 600;
@@ -17,12 +17,12 @@
 }
 
 .nav-link:hover {
-  color: #00ff00;
-  text-shadow: 0 0 10px #00ff00, 0 0 15px #00ff00;
+  color: var(--matrix-green);
+  text-shadow: 0 0 10px var(--matrix-green), 0 0 15px var(--matrix-green);
 }
 
 .nav-link.active {
-  color: #00ff00;
-  text-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00;
-  border-bottom: 2px solid #00ff00;
+  color: var(--matrix-green);
+  text-shadow: 0 0 10px var(--matrix-green), 0 0 20px var(--matrix-green);
+  border-bottom: 2px solid var(--matrix-green);
 }

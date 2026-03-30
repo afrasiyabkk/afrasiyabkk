@@ -4,8 +4,8 @@
   left: 0;
   right: 0;
   z-index: 50;
-  background-color: #000000;
-  border-bottom: 2px solid #00ff00;
+  background-color: var(--matrix-black);
+  border-bottom: 2px solid var(--matrix-green);
 }
 
 .header-container {
@@ -19,8 +19,8 @@
 }
 
 .header-logo {
-  color: #00ff00;
-  text-shadow: 0 0 10px #00ff00;
+  color: var(--matrix-green);
+  text-shadow: 0 0 10px var(--matrix-green);
   font-family: 'Courier New', monospace;
   font-size: 1.5rem;
   font-weight: bold;
@@ -30,16 +30,16 @@
 }
 
 .header-logo:hover {
-  color: #0fff0f;
-  text-shadow: 0 0 20px #00ff00, 0 0 30px #00ff00;
+  color: var(--matrix-green-bright);
+  text-shadow: 0 0 20px var(--matrix-green), 0 0 30px var(--matrix-green);
 }
 
 /* Hamburger Menu Button */
 .hamburger-btn {
   display: none;
   background: none;
-  border: 2px solid #00ff00;
-  color: #00ff00;
+  border: 2px solid var(--matrix-green);
+  color: var(--matrix-green);
   cursor: pointer;
   padding: 8px 12px;
   font-size: 1.5rem;
@@ -48,9 +48,9 @@
 }
 
 .hamburger-btn:hover {
-  color: #0fff0f;
-  text-shadow: 0 0 10px #00ff00;
-  border-color: #0fff0f;
+  color: var(--matrix-green-bright);
+  text-shadow: 0 0 10px var(--matrix-green);
+  border-color: var(--matrix-green-bright);
 }
 
 /* Mobile Responsive */
@@ -78,8 +78,8 @@
     left: 0;
     right: 0;
     flex-direction: column;
-    background-color: #000000;
-    border-bottom: 2px solid #00ff00;
+    background-color: var(--matrix-black);
+    border-bottom: 2px solid var(--matrix-green);
     padding: 20px 30px;
     gap: 16px;
     animation: slideDown 1s ease-out forwards;

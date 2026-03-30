@@ -1,6 +1,6 @@
 .footer {
-  background-color: #000000;
-  border-top: 2px solid #00ff00;
+  background-color: var(--matrix-black);
+  border-top: 2px solid var(--matrix-green);
   margin-top: auto;
   width: 100%;
 }
@@ -20,7 +20,7 @@
 
 .footer-section h3,
 .footer-section h4 {
-  color: #00ff00;
+  color: var(--matrix-green);
   font-weight: bold;
   margin-bottom: 8px;
 }
@@ -35,7 +35,7 @@
 }
 
 .footer-description {
-  color: #00cc00;
+  color: var(--text-secondary);
   font-size: 0.875rem;
 }
 
@@ -45,13 +45,13 @@
 }
 
 .footer-divider {
-  border-top: 1px solid #00cc00;
+  border-top: 1px solid var(--text-secondary);
   padding-top: 14px;
   padding-bottom: 14px;
 }
 
 .footer-copyright {
-  color: #00cc00;
+  color: var(--text-secondary);
   font-size: 0.875rem;
   text-align: center;
 }

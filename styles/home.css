@@ -1,0 +1,183 @@
+/* Home Page Styles */
+
+.home-container {
+  max-width: 80%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+  background-color: var(--matrix-black);
+  border: 2px solid var(--matrix-green);
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* Hero Section - Picture & Name */
+.hero-section {
+  display: flex;
+  flex-direction: row;
+  gap: 32px;
+  align-items: center;
+  padding: 10px;
+}
+
+.hero-picture {
+  flex-shrink: 0;
+  width: 192px;
+  height: 192px;
+}
+
+.hero-picture-frame {
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--matrix-green);
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--matrix-black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-picture-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-content {
+  flex: 1;
+  text-align: left;
+}
+
+.hero-name {
+  font-size: 2.5rem;
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+  color: var(--matrix-green);
+  margin-bottom: 8px;
+}
+
+.hero-surname {
+  font-size: 1.5rem;
+  font-family: 'Courier New', monospace;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.hero-designation {
+  font-size: 1rem;
+  font-family: 'Courier New', monospace;
+  color: var(--text-secondary);
+}
+
+/* Bio Section */
+.bio-section {
+  padding: 32px 0;
+  border-top: 2px solid var(--matrix-green);
+  border-bottom: 2px solid var(--matrix-green);
+}
+
+.bio-text {
+  font-size: 1.525rem;
+  font-family: 'Courier New', monospace;
+  color: var(--matrix-green);
+  line-height: 1.8;
+}
+
+/* Action Buttons Section */
+.action-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+  justify-content: center;
+  padding: 32px 0;
+  flex-wrap: wrap;
+}
+
+.action-btn {
+  padding: 12px 32px;
+  border: 2px solid var(--matrix-green);
+  background-color: transparent;
+  color: var(--matrix-green);
+  font-family: 'Courier New', monospace;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+  text-align: center;
+}
+
+.action-btn:hover {
+  background-color: var(--matrix-green);
+  color: var(--matrix-black);
+}
+
+.action-btn.primary {
+  background-color: var(--matrix-green);
+  color: var(--matrix-black);
+}
+
+.action-btn.primary:hover {
+  box-shadow: 0 0 20px var(--glow-color);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .home-container {
+    gap: 32px;
+    width: 90%;
+  }
+
+  .hero-section {
+    flex-direction: column;
+    gap: 24px;
+    padding: 32px 0;
+    text-align: center;
+  }
+
+  .hero-picture {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto;
+  }
+
+  .hero-content {
+    text-align: center;
+  }
+
+  .hero-name {
+    font-size: 1.5rem;
+  }
+
+  .skills-heading {
+    font-size: 0.7rem;
+  }
+
+  .hero-surname {
+    font-size: 1.25rem;
+  }
+
+  .hero-designation {
+    font-size: 0.9rem;
+  }
+
+  .bio-section {
+    padding: 24px 0;
+  }
+
+  .bio-text {
+    font-size: 1rem;
+  }
+
+  .action-buttons {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .action-btn {
+    width: 100%;
+  }
+}

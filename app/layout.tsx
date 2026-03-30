@@ -35,6 +35,7 @@ export default function RootLayout({
         <div style={{
           flex: 1,
           paddingTop: '100px',
+          paddingBottom: '280px',
           position: 'relative',
           zIndex: 10,
         }}>

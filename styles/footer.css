@@ -1,7 +1,11 @@
 .footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 40;
   background-color: var(--matrix-black);
   border-top: 2px solid var(--matrix-green);
-  margin-top: auto;
   width: 100%;
 }
 

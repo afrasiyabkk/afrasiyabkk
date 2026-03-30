@@ -1,0 +1,251 @@
+/* Experience Card Styles */
+
+.experience-timeline-item {
+  position: relative;
+  padding-left: 40px;
+  margin-bottom: 40px;
+}
+
+.experience-timeline-item:not(:last-child) .timeline-dot::after {
+  content: '';
+  position: absolute;
+  top: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: calc(100% + 40px);
+  background-color: var(--matrix-green-dim);
+}
+
+/* Timeline Dot */
+.timeline-dot {
+  position: absolute;
+  left: -24px;
+  top: 0;
+  width: 16px;
+  height: 16px;
+  border: 3px solid var(--matrix-green);
+  border-radius: 50%;
+  background-color: var(--matrix-black);
+  z-index: 2;
+}
+
+.timeline-dot.current {
+  width: 24px;
+  height: 24px;
+  left: -28px;
+  top: -4px;
+  background-color: var(--matrix-green);
+  box-shadow: 0 0 15px var(--matrix-green);
+}
+
+/* Experience Card */
+.experience-card {
+  border: 2px solid var(--matrix-green-dim);
+  border-radius: 8px;
+  padding: 24px;
+  background-color: transparent;
+  transition: all 0.3s ease;
+}
+
+.experience-card:hover {
+  border-color: var(--matrix-green);
+  box-shadow: 0 0 15px var(--matrix-green);
+}
+
+/* Header Section */
+.experience-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 20px;
+  margin-bottom: 16px;
+}
+
+.experience-title-section {
+}
+
+.experience-title {
+  font-size: 1.35rem;
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+  color: var(--matrix-green);
+  margin-bottom: 4px;
+}
+
+.experience-company {
+  font-size: 1.05rem;
+  font-family: 'Courier New', monospace;
+  color: var(--text-secondary);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.experience-location {
+  font-size: 0.9rem;
+  font-family: 'Courier New', monospace;
+  color: var(--text-secondary);
+}
+
+/* Date Badge */
+.experience-dates {
+  flex-shrink: 0;
+}
+
+.date-badge {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: transparent;
+  border: 2px solid var(--matrix-green-dim);
+  color: var(--text-secondary);
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-family: 'Courier New', monospace;
+  white-space: nowrap;
+}
+
+.date-badge.current {
+  background-color: var(--matrix-green);
+  color: var(--matrix-black);
+  border-color: var(--matrix-green);
+  font-weight: bold;
+  box-shadow: 0 0 10px var(--matrix-green);
+}
+
+/* Description */
+.experience-description {
+  font-size: 1rem;
+  font-family: 'Courier New', monospace;
+  color: var(--text-secondary);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+/* Responsibilities */
+.responsibilities-section {
+  margin-bottom: 20px;
+}
+
+.responsibilities-heading {
+  font-size: 0.95rem;
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+  color: var(--matrix-green);
+  margin-bottom: 12px;
+}
+
+.responsibilities-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.responsibilities-list li {
+  padding-left: 20px;
+  position: relative;
+  color: var(--text-secondary);
+  font-family: 'Courier New', monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.responsibilities-list li:before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--matrix-green);
+}
+
+/* Technologies */
+.experience-tech {
+}
+
+.tech-heading {
+  font-size: 0.95rem;
+  font-weight: bold;
+  font-family: 'Courier New', monospace;
+  color: var(--matrix-green);
+  margin-bottom: 12px;
+}
+
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tech-tag {
+  display: inline-block;
+  padding: 6px 12px;
+  background-color: transparent;
+  border: 1px solid var(--matrix-green-dim);
+  color: var(--matrix-green-dim);
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+}
+
+.tech-tag:hover {
+  border-color: var(--matrix-green);
+  color: var(--matrix-green);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .experience-timeline-item {
+    padding-left: 32px;
+    margin-bottom: 32px;
+  }
+
+  .timeline-dot {
+    left: -20px;
+    width: 12px;
+    height: 12px;
+    border-width: 2px;
+  }
+
+  .timeline-dot.current {
+    width: 18px;
+    height: 18px;
+    left: -22px;
+    top: -3px;
+  }
+
+  .experience-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .experience-title {
+    font-size: 1.1rem;
+  }
+
+  .experience-company {
+    font-size: 0.95rem;
+  }
+
+  .experience-location {
+    font-size: 0.8rem;
+  }
+
+  .date-badge {
+    font-size: 0.75rem;
+    padding: 6px 12px;
+  }
+
+  .experience-description {
+    font-size: 0.9rem;
+  }
+
+  .responsibilities-list li {
+    font-size: 0.85rem;
+  }
+
+  .tech-tag {
+    font-size: 0.7rem;
+    padding: 4px 8px;
+  }
+}

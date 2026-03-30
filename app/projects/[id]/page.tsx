@@ -1,20 +1,28 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { use } from 'react';
 import Link from 'next/link';
 import { MainLayout } from '@/components/layout/MainLayout';
 import { PROJECTS } from '@/data/projects';
 import '@/styles/project-details.css';
 
 interface ProjectDetailsPageProps {
-  params: {
+  params: Promise<{
     id: string;
-  };
+  }>;
 }
 
 export default function ProjectDetailsPage({ params }: ProjectDetailsPageProps) {
-  const project = PROJECTS.find((p) => p.id === params.id);
+  const { id } = use(params);
+  const [project, setProject] = useState<typeof PROJECTS[0] | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    // Find the project from the ID
+    const foundProject = PROJECTS.find((p) => p.id === id);
+    setProject(foundProject || null);
+  }, [id]);
 
   if (!project) {
     return (
@@ -34,13 +42,13 @@ export default function ProjectDetailsPage({ params }: ProjectDetailsPageProps) 
 
   const goToPrevious = () => {
     setCurrentImageIndex((prev) =>
-      prev === 0 ? project.images.length - 1 : prev - 1
+      prev === 0 ? project!.images.length - 1 : prev - 1
     );
   };
 
   const goToNext = () => {
     setCurrentImageIndex((prev) =>
-      prev === project.images.length - 1 ? 0 : prev + 1
+      prev === project!.images.length - 1 ? 0 : prev + 1
     );
   };
 

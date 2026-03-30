@@ -41,6 +41,36 @@
 .footer-description {
   color: var(--text-secondary);
   font-size: 0.875rem;
+  margin-bottom: 12px;
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.footer-contact p {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  margin: 0;
+}
+
+.footer-contact-link {
+  color: var(--matrix-green);
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.footer-contact-link:hover {
+  color: var(--matrix-green-bright);
+  text-shadow: 0 0 10px var(--matrix-green);
+}
+
+.footer-address {
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  opacity: 0.8;
 }
 
 .footer-socials {

@@ -1,4 +1,5 @@
 import { MainLayout } from '@/components/layout/MainLayout';
+import { PERSONAL_INFO } from '@/data/personal-info';
 import { getYearsOfExperience } from '@/lib/utils';
 import '@/styles/home.css';
 
@@ -13,7 +14,7 @@ export default function Home() {
           <div className="hero-picture">
             <div className="hero-picture-frame">
               <img
-                src="https://media.licdn.com/dms/image/v2/D4E35AQEwCp8SCSQ4JQ/profile-framedphoto-shrink_400_400/profile-framedphoto-shrink_400_400/0/1655401649125?e=1775404800&v=beta&t=EZKE6mQjeoG7AyQslkCgg_-9Ykpmmo1dqy3RXfJ9KCI"
+                src={PERSONAL_INFO.profileImage}
                 alt="Profile"
               />
             </div>
@@ -22,16 +23,34 @@ export default function Home() {
           {/* Name & Designation */}
           <div className="hero-content">
             <h1 className="hero-name">
-              Afrasiyab Nangyal Kakakhel
+              {PERSONAL_INFO.fullName}
             </h1>
             <p className="hero-designation">
-              Full Stack Developer | Team Lead
+              {PERSONAL_INFO.designation}
+            </p>
+            <h3 className="skills-heading">
+              Email
+            </h3>
+            <p className="hero-designation">
+              {PERSONAL_INFO.email}
+            </p>
+            <h3 className="skills-heading">
+              Phone / Whatsapp
+            </h3>
+            <p className="hero-designation">
+              {PERSONAL_INFO.phone}
+            </p>
+            <h3 className="skills-heading">
+              Address
+            </h3>
+            <p className="hero-designation">
+              {PERSONAL_INFO.address}
             </p>
             <h3 className="skills-heading">
               Skills
             </h3>
             <p className="hero-designation">
-              Java | Springboot | Python | Django | PHP | Laravel | React | Next.js | Vuejs | Javascript | Typescript | Jquery
+              {PERSONAL_INFO.skills}
             </p>
           </div>
         </section>

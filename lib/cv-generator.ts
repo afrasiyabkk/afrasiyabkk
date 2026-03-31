@@ -117,7 +117,7 @@ export const generateCVPDF = () => {
     doc.text('Key Responsibilities:', margin, yPosition);
     yPosition += 3;
 
-    exp.responsibilities.slice(0, 3).forEach((resp) => {
+    exp.responsibilities.forEach((resp) => {
       doc.setFont('', 'normal');
       const respLines = doc.splitTextToSize(`• ${resp}`, contentWidth - 2);
       doc.text(respLines, margin + 2, yPosition);

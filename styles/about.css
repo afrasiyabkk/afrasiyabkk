@@ -1,0 +1,264 @@
+.about-container {
+  max-width: 90%;
+  margin: 0 auto;
+  padding: 30px 80px 310px 80px;
+  background-color: var(--matrix-black);
+  border: 2px solid var(--matrix-green);
+  border-radius: 10px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.about-header-section {
+  text-align: center;
+  margin-bottom: 60px;
+  animation: fadeInDown 0.8s ease-out;
+}
+
+.about-page-title {
+  font-size: 3.5rem;
+  font-weight: bold;
+  color: #00ff00;
+  text-shadow: 0 0 10px #00ff00, 0 0 20px #00cc00;
+  margin-bottom: 15px;
+  letter-spacing: 2px;
+}
+
+.about-page-subtitle {
+  font-size: 1.1rem;
+  color: #00cc00;
+  text-shadow: 0 0 5px #00cc00;
+  opacity: 0.9;
+}
+
+.about-content {
+  margin-bottom: 50px;
+}
+
+.about-text-section {
+  margin-bottom: 45px;
+}
+
+.about-section-title {
+  font-size: 1.8rem;
+  color: #00ff00;
+  text-shadow: 0 0 10px #00ff00;
+  margin-bottom: 20px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--matrix-green-dim);
+}
+
+.about-text {
+  font-size: 1.05rem;
+  color: #00cc00;
+  line-height: 1.8;
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.about-interests-section {
+  margin-top: 40px;
+}
+
+.interest-item {
+  margin-bottom: 35px;
+  padding: 20px;
+  border: 2px solid var(--matrix-green-dim);
+  border-radius: 8px;
+  background: rgba(0, 255, 0, 0.03);
+  transition: all 0.3s ease;
+  animation: slideInUp 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.interest-item:nth-child(1) {
+  animation-delay: 0.1s;
+}
+
+.interest-item:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.interest-item:hover {
+  border-color: var(--matrix-green);
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+}
+
+.interest-title {
+  font-size: 1.4rem;
+  color: #00ff00;
+  text-shadow: 0 0 10px #00ff00;
+  margin-bottom: 10px;
+}
+
+.interest-description {
+  font-size: 1rem;
+  color: #00ee00;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.interest-contact {
+  font-size: 0.95rem;
+  color: #00cc00;
+  margin: 0;
+}
+
+.interest-contact a {
+  color: #00ff00;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.interest-contact a:hover {
+  color: #0fff0f;
+  text-shadow: 0 0 10px #00ff00;
+}
+
+.about-cta {
+  text-align: center;
+  padding: 40px;
+  border: 2px solid var(--matrix-green);
+  border-radius: 10px;
+  background: rgba(0, 255, 0, 0.05);
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.about-cta h2 {
+  font-size: 2rem;
+  color: #00ff00;
+  text-shadow: 0 0 10px #00ff00;
+  margin-bottom: 15px;
+}
+
+.about-cta p {
+  font-size: 1.05rem;
+  color: #00cc00;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.cta-links {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 15px;
+  /* max-width: 600px; */
+  margin: 0 auto;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 12px 20px;
+  background-color: transparent;
+  border: 2px solid var(--matrix-green);
+  color: var(--matrix-green);
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.cta-button:hover {
+  background-color: var(--matrix-green);
+  color: var(--matrix-black);
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.4);
+}
+
+/* Animations */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .about-page-title {
+    font-size: 2.5rem;
+  }
+
+  .about-container {
+    padding: 30px 40px 310px 40px;
+  }
+
+  .about-section-title {
+    font-size: 1.4rem;
+  }
+
+  .about-text {
+    font-size: 0.95rem;
+  }
+
+  .cta-links {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-page-title {
+    font-size: 1.8rem;
+  }
+
+  .about-page-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .about-container {
+    padding: 20px 15px 310px 15px;
+  }
+
+  .about-section-title {
+    font-size: 1.2rem;
+  }
+
+  .about-text {
+    font-size: 0.9rem;
+    text-align: left;
+  }
+
+  .interest-item {
+    padding: 15px;
+  }
+
+  .interest-title {
+    font-size: 1.2rem;
+  }
+
+  .about-cta {
+    padding: 25px 15px;
+  }
+
+  .about-cta h2 {
+    font-size: 1.4rem;
+  }
+}

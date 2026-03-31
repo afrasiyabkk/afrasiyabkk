@@ -66,6 +66,16 @@ export const Footer = () => {
                   Twitter
                 </Link>
               )}
+              {PERSONAL_INFO.discord && (
+                <Link
+                  href={PERSONAL_INFO.discord}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="footer-link"
+                >
+                  Discord
+                </Link>
+              )}
             </div>
           </div>
         </div>

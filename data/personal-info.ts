@@ -11,6 +11,7 @@ export interface PersonalInfo {
   linkedin: string;
   github?: string;
   twitter?: string;
+  discord?: string;
 }
 
 // Generate unique skill names from SKILLS data
@@ -30,4 +31,5 @@ export const PERSONAL_INFO: PersonalInfo = {
   linkedin: 'https://linkedin.com/in/afrasiyab',
   github: 'https://github.com/afrasiyab',
   twitter: 'https://twitter.com/afrasiyab',
+  discord: 'https://discordapp.com/users/YOUR_DISCORD_ID',
 };

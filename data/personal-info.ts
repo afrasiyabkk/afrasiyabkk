@@ -1,4 +1,5 @@
 import { SKILLS } from './skills';
+import { getYearsOfExperience } from '@/lib/utils';
 
 export interface PersonalInfo {
   fullName: string;
@@ -12,6 +13,7 @@ export interface PersonalInfo {
   github?: string;
   twitter?: string;
   discord?: string;
+  bio: string;
 }
 
 // Generate unique skill names from SKILLS data
@@ -32,4 +34,11 @@ export const PERSONAL_INFO: PersonalInfo = {
   github: 'https://github.com/afrasiyab',
   twitter: 'https://twitter.com/afrasiyab',
   discord: 'https://discordapp.com/users/YOUR_DISCORD_ID',
+  bio: 'Full-stack developer with over {yearsOfExperience} years of experience developing web applications, backend and frontend systems, Android applications, API integration, automation solutions, and AI-based tools. I hold a master\'s degree in Finance and International Economics, which allows me to combine a solid analytical foundation with advanced technical skills. I currently work as a Full-Stack Developer and Team Lead, where I manage junior developers, collaborate directly with clients, and oversee the end-to-end development of complex software. I have also promoted the adoption of AI-assisted development practices within the company, mastering advanced prompt engineering techniques to leverage GitHub Copilot to its full potential, significantly improving team productivity and code quality. I am often the go-to person for solving complex technical issues, thanks to a structured approach to problem analysis and the ability to provide efficient and scalable solutions, even in high-pressure environments.',
+};
+
+// Get bio with years of experience calculated and interpolated
+export const getBioWithYears = (): string => {
+  const years = getYearsOfExperience();
+  return PERSONAL_INFO.bio.replace('{yearsOfExperience}', years.toString());
 };

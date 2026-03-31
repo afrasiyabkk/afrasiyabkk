@@ -1,10 +1,10 @@
 import { MainLayout } from '@/components/layout/MainLayout';
-import { PERSONAL_INFO } from '@/data/personal-info';
-import { getYearsOfExperience } from '@/lib/utils';
+import { CVDownloadButton } from '@/components/common/CVDownloadButton';
+import { PERSONAL_INFO, getBioWithYears } from '@/data/personal-info';
 import '@/styles/home.css';
 
 export default function Home() {
-  const yearsOfExperience = getYearsOfExperience();
+  const bioText = getBioWithYears();
   return (
     <MainLayout>
       <div className="home-container">
@@ -58,23 +58,13 @@ export default function Home() {
         {/* Bio Section */}
         <section className="bio-section">
           <p className="bio-text">
-            Full-stack developer with over {yearsOfExperience} years of experience developing web applications,
-            backend and frontend systems, Android applications, API integration, automation solutions, and AI-based
-            tools. I hold a master's degree in Finance and International Economics, which
-            allows me to combine a solid analytical foundation with advanced technical skills.
-            I currently work as a Full-Stack Developer and Team Lead, where I manage junior developers,
-            collaborate directly with clients, and oversee the end-to-end development of complex
-            software. I have also promoted the adoption of AI-assisted development practices within the company,
-            mastering advanced prompt engineering techniques to leverage GitHub Copilot to its full
-            potential, significantly improving team productivity and code quality.
-            I am often the go-to person for solving complex technical issues, thanks to
-            a structured approach to problem analysis and the ability to provide efficient and scalable solutions,
-            even in high-pressure environments.
+            {bioText}
           </p>
         </section>
 
         {/* Action Buttons */}
         <section className="action-buttons">
+          <CVDownloadButton />
           <a
             href="/projects"
             className="action-btn"

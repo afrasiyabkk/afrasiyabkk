@@ -38,7 +38,7 @@ export const EXPERIENCES: Experience[] = [
     company: 'Fiverr',
     location: 'Remote',
     startDate: 'November 2020',
-    endDate: 'December 2022',
+    endDate: 'Present',
     isCurrent: false,
     technologies: ['PHP', 'Laravel', 'MySQL', 'Python', 'Django', 'JavaScript', 'jQuery', 'React.js'],
     description: 'Developed complete web and mobile applications for international clients with focus on customization and integration.',

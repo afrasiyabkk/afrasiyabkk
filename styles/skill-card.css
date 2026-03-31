@@ -1,0 +1,157 @@
+.skill-card {
+  border: 2px solid var(--matrix-green-dim);
+  border-radius: 8px;
+  padding: 20px;
+  background: rgba(0, 255, 0, 0.03);
+  backdrop-filter: blur(10px);
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  animation: slideInUp 0.6s ease-out forwards;
+  opacity: 0;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(0, 255, 0, 0.1), transparent);
+    animation: shimmer 3s infinite;
+    z-index: 0;
+  }
+}
+
+.skill-card:hover {
+  border-color: var(--matrix-green);
+  box-shadow: 0 0 20px var(--matrix-green, rgba(0, 255, 0, 0.3));
+  transform: translateY(-5px);
+}
+
+.skill-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  position: relative;
+  z-index: 1;
+}
+
+.skill-name {
+  font-size: 1.35rem;
+  font-weight: bold;
+  color: #00ff00;
+  text-shadow: 0 0 10px #00ff00;
+  margin: 0;
+}
+
+.skill-level {
+  display: inline-block;
+  padding: 4px 12px;
+  border: 1px solid;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+
+.skill-experience {
+  margin-bottom: 12px;
+  position: relative;
+  z-index: 1;
+}
+
+.experience-bar {
+  width: 100%;
+  height: 6px;
+  background: rgba(0, 255, 0, 0.15);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-bottom: 8px;
+}
+
+.experience-fill {
+  height: 100%;
+  transition: width 0.5s ease;
+  border-radius: 3px;
+}
+
+.experience-text {
+  font-size: 0.85rem;
+  color: #00cc00;
+  opacity: 0.8;
+}
+
+.skill-period {
+  font-size: 0.9rem;
+  color: #00aa00;
+  margin: 8px 0;
+  position: relative;
+  z-index: 1;
+}
+
+.skill-description {
+  font-size: 0.85rem;
+  color: #00dd00;
+  margin: 0;
+  line-height: 1.4;
+  opacity: 0.8;
+  position: relative;
+  z-index: 1;
+}
+
+/* Animations */
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .skill-card {
+    padding: 15px;
+  }
+
+  .skill-name {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .skill-card {
+    padding: 12px;
+  }
+
+  .skill-card-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .skill-name {
+    font-size: 1rem;
+  }
+
+  .skill-level {
+    font-size: 0.65rem;
+    padding: 3px 10px;
+  }
+}

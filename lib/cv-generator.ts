@@ -3,6 +3,7 @@ import { PERSONAL_INFO, getBioWithYears } from '@/data/personal-info';
 import { EXPERIENCES } from '@/data/experiences';
 import { EDUCATIONS } from '@/data/education';
 import { SKILLS } from '@/data/skills';
+import { PROJECTS } from '@/data/projects';
 
 export const generateCVPDF = () => {
   const doc = new jsPDF({
@@ -190,8 +191,40 @@ export const generateCVPDF = () => {
     doc.text(skillLines, margin + 2, yPosition);
     yPosition += skillLines.length * 3 + 3;
   });
+  // ===== PROJECTS =====
+  checkPageBreak(40);
+  addSectionTitle('PROJECTS');
 
-  // ===== FOOTER =====
+  PROJECTS.forEach((project) => {
+    checkPageBreak(12);
+
+    // Project Title
+    doc.setFontSize(11);
+    doc.setTextColor(primaryColor[0], primaryColor[1], primaryColor[2]);
+    doc.setFont('', 'bold');
+    doc.text(project.title, margin, yPosition);
+    yPosition += 4;
+
+    // Project Description
+    doc.setFontSize(10);
+    doc.setTextColor(textColor[0], textColor[1], textColor[2]);
+    doc.setFont('', 'normal');
+    const descLines = doc.splitTextToSize(project.shortDescription, contentWidth);
+    doc.text(descLines, margin, yPosition);
+    yPosition += descLines.length * 3.5 + 2;
+
+    // Technologies
+    doc.setFontSize(9);
+    doc.setFont('', 'bold');
+    doc.text('Technologies:', margin, yPosition);
+    yPosition += 3;
+
+    const techText = project.technologies.join(', ');
+    const techLines = doc.splitTextToSize(techText, contentWidth - 2);
+    doc.setFont('', 'normal');
+    doc.text(techLines, margin + 2, yPosition);
+    yPosition += techLines.length * 3 + 3;
+  });
   doc.setFontSize(8);
   doc.setTextColor(lightGray[0], lightGray[1], lightGray[2]);
   const totalPages = (doc as any).internal.pages.length - 1;

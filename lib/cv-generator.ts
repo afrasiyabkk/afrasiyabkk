@@ -62,9 +62,16 @@ export const generateCVPDF = () => {
   // Contact info
   doc.setFontSize(10);
   doc.setTextColor(textColor[0], textColor[1], textColor[2]);
-  const contactInfo = `${PERSONAL_INFO.email} | ${PERSONAL_INFO.phone} | ${PERSONAL_INFO.address}`;
+  const contactInfo = `${PERSONAL_INFO.email} | ${PERSONAL_INFO.phone}`;
   doc.text(contactInfo, margin, yPosition);
-  yPosition += 8;
+  yPosition += 4;
+
+  // Portfolio link subtly
+  doc.setFontSize(9);
+  doc.setTextColor(100, 100, 100);
+  const portfolioUrl = typeof window !== 'undefined' ? window.location.origin : (process.env.NEXT_PUBLIC_PORTFOLIO_URL || 'https://afrasiyab.github.io');
+  doc.text(`Portfolio: ${portfolioUrl}`, margin, yPosition);
+  yPosition += 6;
 
   // ===== PROFESSIONAL SUMMARY =====
   checkPageBreak(30);
@@ -194,6 +201,14 @@ export const generateCVPDF = () => {
   // ===== PROJECTS =====
   checkPageBreak(40);
   addSectionTitle('PROJECTS');
+
+  // Portfolio link (once, with padding)
+  yPosition += 2;
+  doc.setFontSize(8);
+  doc.setTextColor(120, 120, 120);
+  const portfolioProjectsUrl = typeof window !== 'undefined' ? `${window.location.origin}/projects` : `${process.env.NEXT_PUBLIC_PORTFOLIO_URL || 'https://afrasiyab.github.io'}/projects`;
+  doc.text(`View all projects on portfolio: ${portfolioProjectsUrl}`, margin, yPosition);
+  yPosition += 4;
 
   PROJECTS.forEach((project) => {
     checkPageBreak(12);

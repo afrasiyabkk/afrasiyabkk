@@ -123,13 +123,6 @@ export default function ContactPage() {
           <section className="contact-form-section">
             <h2 className="contact-section-title">Send me a Message</h2>
 
-            <div className="setup-info">
-              <p>
-                💡 <strong>Email Setup:</strong> If you haven't configured email yet, use WhatsApp or contact me directly. 
-                See README for email setup instructions.
-              </p>
-            </div>
-
             {submitted && (
               <div className="success-message">
                 ✅ Thank you! Your message has been sent. I'll get back to you soon!

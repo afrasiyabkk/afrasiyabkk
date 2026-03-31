@@ -3,28 +3,28 @@
   align-items: center;
   gap: 8px;
   padding: 12px 24px;
-  background: linear-gradient(135deg, #2962ff 0%, #1e53e5 100%);
-  border: none;
-  border-radius: 8px;
-  color: white;
+  border: 2px solid var(--matrix-green);
+  background-color: transparent;
+  color: var(--matrix-green);
+  font-family: 'Courier New', monospace;
   font-size: 1rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(41, 98, 255, 0.3);
+  border-radius: 8px;
   text-decoration: none;
   white-space: nowrap;
 }
 
 .cv-download-btn:hover:not(:disabled) {
+  background-color: var(--matrix-green);
+  color: var(--matrix-black);
+  box-shadow: 0 0 20px var(--glow-color);
   transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(41, 98, 255, 0.45);
-  background: linear-gradient(135deg, #1e53e5 0%, #1540cc 100%);
 }
 
 .cv-download-btn:active:not(:disabled) {
   transform: translateY(0);
-  box-shadow: 0 2px 10px rgba(41, 98, 255, 0.3);
 }
 
 .cv-download-btn:disabled {

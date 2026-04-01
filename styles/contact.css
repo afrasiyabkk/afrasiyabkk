@@ -25,16 +25,16 @@
 .contact-page-title {
   font-size: 3.5rem;
   font-weight: bold;
-  color: #00ff00;
-  text-shadow: 0 0 10px #00ff00, 0 0 20px #00cc00;
+  color: var(--text-primary);
+  text-shadow: 0 0 10px var(--glow-color), 0 0 20px var(--matrix-green-dim);
   margin-bottom: 15px;
   letter-spacing: 2px;
 }
 
 .contact-page-subtitle {
   font-size: 1.1rem;
-  color: #00cc00;
-  text-shadow: 0 0 5px #00cc00;
+  color: var(--text-primary);
+  text-shadow: 0 0 5px var(--glow-color);
   opacity: 0.9;
 }
 
@@ -51,8 +51,8 @@
 
 .contact-section-title {
   font-size: 1.6rem;
-  color: #00ff00;
-  text-shadow: 0 0 10px #00ff00;
+  color: var(--text-primary);
+  text-shadow: 0 0 10px var(--glow-color);
   margin-bottom: 25px;
   padding-bottom: 10px;
   border-bottom: 2px solid var(--matrix-green-dim);
@@ -75,7 +75,7 @@
 
 .info-label {
   display: block;
-  color: #00ff00;
+  color: var(--text-primary);
   font-weight: 600;
   margin-bottom: 8px;
   font-size: 0.95rem;
@@ -83,15 +83,15 @@
 
 .info-link,
 .info-text {
-  color: #00cc00;
+  color: var(--text-primary);
   text-decoration: none;
   transition: all 0.3s ease;
   font-size: 0.95rem;
 }
 
 .info-link:hover {
-  color: #0fff0f;
-  text-shadow: 0 0 10px #00ff00;
+  color: var(--matrix-green-bright);
+  text-shadow: 0 0 10px var(--glow-color);
 }
 
 .info-text {
@@ -120,14 +120,14 @@
   align-items: center;
   gap: 8px;
   cursor: pointer;
-  color: #00cc00;
+  color: var(--text-primary);
   font-weight: 500;
   transition: all 0.3s ease;
 }
 
 .toggle-label input[type='radio'] {
   cursor: pointer;
-  accent-color: #00ff00;
+  accent-color: var(--text-primary);
 }
 
 .toggle-label:hover {
@@ -146,10 +146,10 @@
 }
 
 .form-label {
-  color: #00ff00;
+  color: var(--text-primary);
   font-weight: 600;
   font-size: 0.95rem;
-  text-shadow: 0 0 5px #00ff00;
+  text-shadow: 0 0 5px var(--glow-color);
 }
 
 .form-input,
@@ -158,7 +158,7 @@
   border: 2px solid var(--matrix-green-dim);
   border-radius: 6px;
   background-color: rgba(0, 0, 0, 0.8);
-  color: #00ff00;
+  color: var(--text-primary);
   font-family: 'Courier New', monospace;
   font-size: 0.95rem;
   transition: all 0.3s ease;
@@ -167,7 +167,7 @@
 .form-input:focus,
 .form-textarea:focus {
   outline: none;
-  border-color: #00ff00;
+  border-color: var(--text-primary);
   box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
 }
 
@@ -181,8 +181,8 @@
 .form-submit-btn {
   padding: 14px 28px;
   background-color: transparent;
-  border: 2px solid #00ff00;
-  color: #00ff00;
+  border: 2px solid var(--text-primary);
+  color: var(--text-primary);
   font-weight: 600;
   font-size: 1rem;
   border-radius: 6px;
@@ -193,8 +193,8 @@
 }
 
 .form-submit-btn:hover:not(:disabled) {
-  background-color: #00ff00;
-  color: #000000;
+  background-color: var(--text-primary);
+  color: var(--matrix-black);
   box-shadow: 0 0 20px rgba(0, 255, 0, 0.4);
 }
 
@@ -208,9 +208,9 @@
   padding: 15px;
   margin-bottom: 20px;
   background-color: rgba(0, 255, 0, 0.08);
-  border: 2px solid #00cc00;
+  border: 2px solid var(--text-primary);
   border-radius: 6px;
-  color: #00cc00;
+  color: var(--text-primary);
   font-size: 0.9rem;
   line-height: 1.6;
 }
@@ -236,7 +236,7 @@
   padding: 12px;
   background-color: rgba(0, 255, 0, 0.05);
   border-left: 3px solid #00ff00;
-  color: #00cc00;
+  color: #00ff00;
   font-size: 0.9rem;
   line-height: 1.5;
 }

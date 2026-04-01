@@ -41,8 +41,8 @@
 .skill-name {
   font-size: 1.35rem;
   font-weight: bold;
-  color: #00ff00;
-  text-shadow: 0 0 10px #00ff00;
+  color: var(--text-primary);
+  text-shadow: 0 0 10px var(--glow-color);
   margin: 0;
 }
 
@@ -81,13 +81,13 @@
 
 .experience-text {
   font-size: 0.85rem;
-  color: #00cc00;
+  color: var(--text-primary);
   opacity: 0.8;
 }
 
 .skill-period {
   font-size: 0.9rem;
-  color: #00aa00;
+  color: var(--matrix-green-dim);
   margin: 8px 0;
   position: relative;
   z-index: 1;
@@ -95,7 +95,7 @@
 
 .skill-description {
   font-size: 0.85rem;
-  color: #00dd00;
+  color: var(--text-secondary);
   margin: 0;
   line-height: 1.4;
   opacity: 0.8;

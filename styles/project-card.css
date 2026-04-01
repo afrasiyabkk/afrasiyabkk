@@ -179,7 +179,7 @@
   padding: 4px 8px;
   background-color: transparent;
   border: 1px solid var(--matrix-green-dim);
-  color: var(--matrix-green-dim);
+  color: var(--matrix-green);
   font-size: 0.75rem;
   border-radius: 4px;
   font-family: 'Courier New', monospace;

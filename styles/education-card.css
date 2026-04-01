@@ -23,7 +23,7 @@
 }
 
 .education-card:hover {
-  border-color: #0fff0f;
+  border-color: var(--matrix-green-bright);
   box-shadow: 0 0 20px rgba(0, 255, 0, 0.3), inset 0 0 20px rgba(0, 255, 0, 0.05);
   transform: translateY(-5px);
 }
@@ -45,31 +45,31 @@
 .education-degree {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #00ff00;
-  text-shadow: 0 0 10px #00ff00;
+  color: var(--text-primary);
+  text-shadow: 0 0 10px var(--glow-color);
   margin-bottom: 5px;
 }
 
 .education-institution {
   font-size: 1.05rem;
-  color: #00cc00;
+  color: var(--text-primary);
   margin-bottom: 3px;
   font-weight: 500;
 }
 
 .education-location {
   font-size: 0.95rem;
-  color: #00aa00;
+  color: var(--text-primary);
   opacity: 0.85;
 }
 
 .education-date-badge {
   background: rgba(0, 255, 0, 0.1);
-  border: 1px solid #00ff00;
+  border: 1px solid var(--text-primary);
   border-radius: 6px;
   padding: 8px 15px;
   font-size: 0.9rem;
-  color: #00ff00;
+  color: var(--text-primary);
   white-space: nowrap;
   position: relative;
   z-index: 1;
@@ -83,7 +83,7 @@
 
 .education-field {
   font-size: 0.95rem;
-  color: #00cc00;
+  color: var(--text-primary);
   margin-bottom: 15px;
   position: relative;
   z-index: 1;
@@ -91,12 +91,12 @@
 
 .education-field-label {
   font-weight: 600;
-  color: #0fff0f;
+  color: var(--matrix-green-bright);
 }
 
 .education-description {
   font-size: 1rem;
-  color: #00ee00;
+  color: var(--text-primary);
   margin-bottom: 15px;
   line-height: 1.6;
   position: relative;
@@ -113,7 +113,7 @@
 
 .education-detail-item {
   font-size: 0.95rem;
-  color: #00cc00;
+  color: #00ff00;
   margin-bottom: 10px;
   padding-left: 25px;
   position: relative;

@@ -1,5 +1,5 @@
 .education-card {
-  border: 2px solid #00ff00;
+  border: 2px solid var(--text-primary);
   border-radius: 8px;
   padding: 25px;
   background: rgba(0, 255, 0, 0.05);
@@ -17,14 +17,14 @@
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(0, 255, 0, 0.1), transparent);
+    background: linear-gradient(90deg, transparent, var(--green-moderate), transparent);
     animation: shimmer 3s infinite;
   }
 }
 
 .education-card:hover {
   border-color: var(--matrix-green-bright);
-  box-shadow: 0 0 20px rgba(0, 255, 0, 0.3), inset 0 0 20px rgba(0, 255, 0, 0.05);
+  box-shadow: 0 0 20px var(--green-strong), inset 0 0 20px var(--green-light);
   transform: translateY(-5px);
 }
 

@@ -62,15 +62,15 @@
 .info-item {
   margin-bottom: 25px;
   padding: 15px;
-  border: 1px solid var(--matrix-green-dim);
+  border: 1px solid var(--matrix-green);
   border-radius: 6px;
-  background: rgba(0, 255, 0, 0.02);
+  background: var(--green-ultra-light);
   transition: all 0.3s ease;
 }
 
 .info-item:hover {
   border-color: var(--matrix-green);
-  box-shadow: 0 0 15px rgba(0, 255, 0, 0.1);
+  box-shadow: 0 0 15px var(--green-moderate);
 }
 
 .info-label {
@@ -110,9 +110,9 @@
   gap: 20px;
   margin-bottom: 20px;
   padding: 15px;
-  border: 2px solid var(--matrix-green-dim);
+  border: 2px solid var(--matrix-green);
   border-radius: 6px;
-  background: rgba(0, 255, 0, 0.02);
+  background: var(--green-ultra-light);
 }
 
 .toggle-label {
@@ -131,7 +131,7 @@
 }
 
 .toggle-label:hover {
-  color: #00ff00;
+  color: var(--text-primary);
 }
 
 .toggle-text {
@@ -155,9 +155,9 @@
 .form-input,
 .form-textarea {
   padding: 12px;
-  border: 2px solid var(--matrix-green-dim);
+  border: 2px solid var(--matrix-green);
   border-radius: 6px;
-  background-color: rgba(0, 0, 0, 0.8);
+  background-color: var(--black-overlay);
   color: var(--text-primary);
   font-family: 'Courier New', monospace;
   font-size: 0.95rem;
@@ -168,13 +168,13 @@
 .form-textarea:focus {
   outline: none;
   border-color: var(--text-primary);
-  box-shadow: 0 0 15px rgba(0, 255, 0, 0.3);
+  box-shadow: 0 0 15px var(--green-strong);
 }
 
 .form-input::placeholder,
 .form-textarea::placeholder {
-  color: #00aa00;
-  opacity: 0.6;
+  color: var(--text-primary);
+  opacity: 0.5;
 }
 
 /* Submit Button */
@@ -195,7 +195,7 @@
 .form-submit-btn:hover:not(:disabled) {
   background-color: var(--text-primary);
   color: var(--matrix-black);
-  box-shadow: 0 0 20px rgba(0, 255, 0, 0.4);
+  box-shadow: 0 0 20px var(--green-very-strong);
 }
 
 .form-submit-btn:disabled {
@@ -207,7 +207,7 @@
 .setup-info {
   padding: 15px;
   margin-bottom: 20px;
-  background-color: rgba(0, 255, 0, 0.08);
+  background-color: var(--green-subtle);
   border: 2px solid var(--text-primary);
   border-radius: 6px;
   color: var(--text-primary);
@@ -222,11 +222,11 @@
 .success-message {
   padding: 15px;
   margin-bottom: 20px;
-  background-color: rgba(0, 255, 0, 0.1);
-  border: 2px solid #00ff00;
+  background-color: var(--green-moderate);
+  border: 2px solid var(--matrix-green);
   border-radius: 6px;
-  color: #00ff00;
-  text-shadow: 0 0 5px #00ff00;
+  color: var(--text-primary);
+  text-shadow: 0 0 5px var(--glow-color);
   font-weight: 600;
   text-align: center;
 }
@@ -234,9 +234,9 @@
 .contact-note {
   margin-top: 15px;
   padding: 12px;
-  background-color: rgba(0, 255, 0, 0.05);
-  border-left: 3px solid #00ff00;
-  color: #00ff00;
+  background-color: var(--green-light);
+  border-left: 3px solid var(--matrix-green);
+  color: var(--text-primary);
   font-size: 0.9rem;
   line-height: 1.5;
 }

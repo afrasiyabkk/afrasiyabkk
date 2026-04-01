@@ -70,6 +70,17 @@ export const ProjectCard = ({ project, index = 0 }: ProjectCardProps) => {
       {/* Project Info */}
       <div className="project-content">
         <h3 className="project-title">{project.title}</h3>
+        
+        {/* Category and Company Badges */}
+        <div className="project-meta-badges">
+          <div className="meta-badge company-badge">{project.company}</div>
+          {project.categories.map((category) => (
+            <div key={category} className="meta-badge category-badge">
+              {category}
+            </div>
+          ))}
+        </div>
+        
         <p className="project-description">{project.shortDescription}</p>
 
         {/* Technologies */}

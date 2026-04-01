@@ -10,6 +10,17 @@
   --text-secondary: #00ff00;
   --glow-color: #00ff00;
   --accent: #ff00ff;
+  
+  /* Transparent green variations for backgrounds and overlays */
+  --green-ultra-light: rgba(0, 255, 0, 0.01);
+  --green-very-light: rgba(0, 255, 0, 0.02);
+  --green-light: rgba(0, 255, 0, 0.05);
+  --green-subtle: rgba(0, 255, 0, 0.08);
+  --green-moderate: rgba(0, 255, 0, 0.1);
+  --green-medium: rgba(0, 255, 0, 0.15);
+  --green-strong: rgba(0, 255, 0, 0.3);
+  --green-very-strong: rgba(0, 255, 0, 0.4);
+  --black-overlay: rgba(0, 0, 0, 0.8);
 }
 
 * {
@@ -80,10 +91,10 @@ body {
 
 @keyframes glow-pulse {
   0%, 100% {
-    box-shadow: 0 0 5px var(--glow-color), inset 0 0 5px rgba(0, 255, 0, 0.1);
+    box-shadow: 0 0 5px var(--glow-color), inset 0 0 5px var(--green-moderate);
   }
   50% {
-    box-shadow: 0 0 20px var(--glow-color), inset 0 0 10px rgba(0, 255, 0, 0.2);
+    box-shadow: 0 0 20px var(--glow-color), inset 0 0 10px var(--green-medium);
   }
 }
 

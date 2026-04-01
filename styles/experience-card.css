@@ -62,7 +62,7 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(0, 255, 0, 0.1), transparent);
+  background: linear-gradient(90deg, transparent, var(--green-moderate), transparent);
   animation: shimmer 3s infinite;
   z-index: 0;
 }

@@ -1,3 +1,15 @@
+import { EXPERIENCES } from './experiences';
+
+// Project Categories
+export const PROJECT_CATEGORIES = {
+  WEB_APP: 'Web App',
+  ANDROID: 'Android',
+  IOS: 'iOS',
+  DESKTOP_APP: 'Desktop App',
+  CLI_TOOL: 'CLI Tool',
+  BOT: 'Bot',
+} as const;
+
 export interface Project {
   id: string;
   title: string;
@@ -8,6 +20,8 @@ export interface Project {
   demoUrl?: string;
   githubUrl?: string;
   features: string[];
+  categories: string[];
+  company: string;
 }
 
 export const PROJECTS: Project[] = [
@@ -17,6 +31,8 @@ export const PROJECTS: Project[] = [
     shortDescription: 'Supermarket management and financial document system',
     description: 'A comprehensive financial module that allows users to create journal entries and statements for supermarket sales. The system provides complete management for supermarket operations with advanced financial tracking and reporting capabilities.',
     technologies: ['Java', 'Spring Boot', 'MySQL', 'React'],
+    categories: [PROJECT_CATEGORIES.WEB_APP],
+    company: EXPERIENCES[0].company,
     images: [
       'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=300&fit=crop',
       'https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=300&fit=crop',
@@ -35,6 +51,8 @@ export const PROJECTS: Project[] = [
     shortDescription: 'Italian Post mail management platform',
     description: 'A web-based system for managing registered mail services through Italian Post. The platform streamlines mail tracking and management operations with real-time updates and comprehensive reporting.',
     technologies: ['PHP', 'Laravel', 'MySQL', 'Vue.js'],
+    categories: [PROJECT_CATEGORIES.WEB_APP],
+    company: EXPERIENCES[1].company,
     images: [
       'https://images.unsplash.com/photo-1557821552-17105176677c?w=500&h=300&fit=crop',
       'https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=500&h=300&fit=crop',
@@ -52,6 +70,8 @@ export const PROJECTS: Project[] = [
     shortDescription: 'Full-featured social media platform with real-time chat',
     description: 'Worked on multiple modules of a comprehensive social media application including real-time chat functionality, Google authentication, and integrated Google Maps for location-based features.',
     technologies: ['Python', 'Django', 'Websockets', 'Channels'],
+    categories: [PROJECT_CATEGORIES.WEB_APP],
+    company: EXPERIENCES[1].company,
     images: [
       'https://images.unsplash.com/photo-1611095461304-831a04ab2d5c?w=500&h=300&fit=crop',
       'https://images.unsplash.com/photo-1625948515291-69613efd103f?w=500&h=300&fit=crop',
@@ -72,6 +92,8 @@ export const PROJECTS: Project[] = [
     shortDescription: 'Automated trading bot with configurable strategies',
     description: 'An automated cryptocurrency trading bot for Bybit exchange with configurable trading strategies, real-time market analysis, and risk management features.',
     technologies: ['Python', 'JavaScript', 'Bybit API', 'WebSockets'],
+    categories: [PROJECT_CATEGORIES.WEB_APP],
+    company: EXPERIENCES[1].company,
     images: [
       'https://images.unsplash.com/photo-1642104704394-967ef8f0bf63?w=500&h=300&fit=crop',
       'https://images.unsplash.com/photo-1639762681033-6461efb0efa1?w=500&h=300&fit=crop',
@@ -90,6 +112,8 @@ export const PROJECTS: Project[] = [
     shortDescription: 'Integrated network of web applications with control panel',
     description: 'A sophisticated ecosystem of connected web applications with a centralized control panel for management and monitoring. Provides seamless integration across multiple financial services.',
     technologies: ['React', 'Node.js', 'MongoDB', 'Docker', 'AWS'],
+    categories: [PROJECT_CATEGORIES.WEB_APP],
+    company: EXPERIENCES[1].company,
     images: [
       'https://images.unsplash.com/photo-1460925895917-aae19038bd3c?w=500&h=300&fit=crop',
       'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=300&fit=crop',
@@ -107,6 +131,8 @@ export const PROJECTS: Project[] = [
     shortDescription: 'Android app for real-time monitoring and control',
     description: 'A native Android application for monitoring and controlling the GFIN ecosystem in real-time. Provides comprehensive features for financial operations on mobile devices.',
     technologies: ['Android (Java/Kotlin)', 'Firebase', 'REST API'],
+    categories: [PROJECT_CATEGORIES.ANDROID],
+    company: EXPERIENCES[1].company,
     images: [
       'https://images.unsplash.com/photo-1512941691920-25bda29afb18?w=500&h=300&fit=crop',
       'https://images.unsplash.com/photo-1526543627102-908f5427f94a?w=500&h=300&fit=crop',
@@ -124,6 +150,8 @@ export const PROJECTS: Project[] = [
     shortDescription: 'Web service for air freight between USA/Canada and Egypt',
     description: 'A web platform providing air freight services between USA/Canada and Egypt with automated cost calculation and secure payment processing via Tap.',
     technologies: ['React', 'Node.js', 'Tap Payment API', 'Express.js'],
+    categories: [PROJECT_CATEGORIES.WEB_APP],
+    company: EXPERIENCES[1].company,
     images: [
       'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=500&h=300&fit=crop',
       'https://images.unsplash.com/photo-1492217261426-89e8f18ceffe?w=500&h=300&fit=crop',
@@ -142,6 +170,8 @@ export const PROJECTS: Project[] = [
     shortDescription: 'Automatic app development cost calculator',
     description: 'An intelligent tool that automatically calculates the cost estimate for developing web, Android, and iOS applications based on project specifications and complexity.',
     technologies: ['React', 'JavaScript', 'Node.js'],
+    categories: [PROJECT_CATEGORIES.WEB_APP],
+    company: EXPERIENCES[1].company,
     images: [
       'https://images.unsplash.com/photo-1607799632418-017d87b92431?w=500&h=300&fit=crop',
     ],
@@ -159,6 +189,8 @@ export const PROJECTS: Project[] = [
     shortDescription: 'Tailored enterprise management solutions',
     description: 'Custom-developed management systems designed to meet specific business requirements. Includes inventory, operations, and resource management functionalities.',
     technologies: ['Java', 'Spring Boot', 'PHP', 'Laravel', 'MySQL', 'React'],
+    categories: [PROJECT_CATEGORIES.WEB_APP],
+    company: EXPERIENCES[1].company,
     images: [
       'https://images.unsplash.com/photo-1551594693-46a2bb4b6f67?w=500&h=300&fit=crop',
       'https://images.unsplash.com/photo-1555689360-7d1f6871b0ee?w=500&h=300&fit=crop',
@@ -177,6 +209,8 @@ export const PROJECTS: Project[] = [
     shortDescription: 'Web automation and data collection with Google Sheets integration',
     description: 'Comprehensive desktop tools for web scraping and data automation. Automatically collects data from websites and integrates with Google Sheets for centralized data management.',
     technologies: ['Python', 'Selenium', 'Google Sheets API', 'Electron'],
+    categories: [PROJECT_CATEGORIES.DESKTOP_APP],
+    company: EXPERIENCES[1].company,
     images: [
       'https://images.unsplash.com/photo-1531746790731-6c087fecd65a?w=500&h=300&fit=crop',
       'https://images.unsplash.com/photo-1516321365853-50f8ab294c79?w=500&h=300&fit=crop',

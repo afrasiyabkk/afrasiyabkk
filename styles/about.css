@@ -64,9 +64,9 @@
 .interest-item {
   margin-bottom: 35px;
   padding: 20px;
-  border: 2px solid var(--matrix-green-dim);
+  border: 2px solid var(--matrix-green);
   border-radius: 8px;
-  background: rgba(0, 255, 0, 0.03);
+  background: var(--green-ultra-light);
   transition: all 0.3s ease;
   animation: slideInUp 0.6s ease-out forwards;
   opacity: 0;
@@ -81,8 +81,8 @@
 }
 
 .interest-item:hover {
-  border-color: var(--matrix-green);
-  box-shadow: 0 0 20px rgba(0, 255, 0, 0.2);
+  border-color: var(--text-primary);
+  box-shadow: 0 0 20px var(--green-medium);
 }
 
 .interest-title {
@@ -121,7 +121,7 @@
   padding: 40px;
   border: 2px solid var(--matrix-green);
   border-radius: 10px;
-  background: rgba(0, 255, 0, 0.05);
+  background: var(--green-light);
   animation: fadeInUp 0.8s ease-out;
 }
 
@@ -163,7 +163,7 @@
 .cta-button:hover {
   background-color: var(--matrix-green);
   color: var(--matrix-black);
-  box-shadow: 0 0 20px rgba(0, 255, 0, 0.4);
+  box-shadow: 0 0 20px var(--green-very-strong);
 }
 
 /* Animations */

@@ -49,6 +49,8 @@ export const PROJECTS: Project[] = [
       'Cron job to automatically create documents for the day after the defined interval',
       'Separate database architecture for module isolation and scalability',
       'Full backend and frontend development from scratch',
+      'Microservices architecture for service isolation and independent deployment',
+      'Deploy the Microservices to client\'s servers',
     ],
   },
   {
@@ -70,6 +72,7 @@ export const PROJECTS: Project[] = [
       'Woocommerce marketplace REST API integration with order synchronization',
       'Extensible marketplace connector architecture for multi-platform support, managed in such a way that any marketplaces orders responses are converted into the same response so that when we add more marketplaces here in the microservice, spedizioniweb needs no change to accept those orders.',
       'Real-time shipment cost calculation from multiple carriers',
+      'Deploy the Microservices to client\'s servers',
     ],
   },
   {
@@ -145,6 +148,7 @@ export const PROJECTS: Project[] = [
       'User authentication and authorization with role-based access control',
       'Complex database queries optimized for performance and scalability',
       'RESTful API design patterns with proper HTTP methods and status codes',
+      'Deployment of backend services to client\'s server',
     ],
   },
   {

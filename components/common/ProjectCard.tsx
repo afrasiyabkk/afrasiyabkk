@@ -101,7 +101,7 @@ export const ProjectCard = ({ project, index = 0 }: ProjectCardProps) => {
         <div className="project-actions">
           {project.demoUrl && (
             <a href={project.demoUrl} target="_blank" rel="noopener noreferrer" className="project-btn demo">
-              Demo
+              Go to Site
             </a>
           )}
           <Link href={`/projects/${project.id}`} className="project-btn details">

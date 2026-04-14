@@ -173,7 +173,7 @@ export default function ProjectDetailsPage({ params }: ProjectDetailsPageProps) 
                     rel="noopener noreferrer"
                     className="action-btn primary"
                   >
-                    View Demo
+                    Go to Site
                   </a>
                 )}
                 {project.githubUrl && (

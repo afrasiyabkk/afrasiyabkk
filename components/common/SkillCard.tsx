@@ -1,6 +1,7 @@
 'use client';
 
 import { Skill, calculateYearsOfExperience, SkillLevel } from '@/data/skills';
+import { getYearsOfExperience } from '@/lib/utils';
 import '@/styles/skill-card.css';
 
 interface SkillCardProps {
@@ -26,6 +27,7 @@ export const SkillCard = ({ skill }: SkillCardProps) => {
   const yearsOfExp = calculateYearsOfExperience(skill.startYear, skill.endYear);
   const endYearDisplay = skill.endYear === 'now' ? 'Present' : skill.endYear;
   const levelColor = getLevelColor(skill.level);
+  const totalYearsExp = getYearsOfExperience();
 
   return (
     <div className="skill-card" style={{ '--level-color': levelColor } as any}>
@@ -41,7 +43,7 @@ export const SkillCard = ({ skill }: SkillCardProps) => {
           <div
             className="experience-fill"
             style={{
-              width: `${Math.min((yearsOfExp / 8) * 100, 100)}%`,
+              width: `${Math.min((yearsOfExp / totalYearsExp) * 100, 100)}%`,
               backgroundColor: levelColor,
             }}
           />

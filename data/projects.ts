@@ -8,6 +8,9 @@ export const PROJECT_CATEGORIES = {
   DESKTOP_APP: 'Desktop App',
   CLI_TOOL: 'CLI Tool',
   BOT: 'Bot',
+  WEB_GAME: 'Web Game',
+  DESKTOP_GAME: 'Desktop Game',
+  MOBILE_GAME: 'Mobile Game',
 } as const;
 
 export interface Project {

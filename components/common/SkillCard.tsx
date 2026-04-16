@@ -1,6 +1,6 @@
 'use client';
 
-import { Skill, calculateYearsOfExperience, SkillLevel } from '@/data/skills';
+import { Skill, calculateYearsOfExperience, calculateSkillLevel, SkillLevel } from '@/data/skills';
 import { getYearsOfExperience } from '@/lib/utils';
 import '@/styles/skill-card.css';
 
@@ -26,15 +26,16 @@ const getLevelColor = (level: SkillLevel): string => {
 export const SkillCard = ({ skill }: SkillCardProps) => {
   const yearsOfExp = calculateYearsOfExperience(skill.startYear, skill.endYear);
   const endYearDisplay = skill.endYear === 'now' ? 'Present' : skill.endYear;
-  const levelColor = getLevelColor(skill.level);
   const totalYearsExp = getYearsOfExperience();
+  const level = calculateSkillLevel(skill.startYear, skill.endYear, totalYearsExp);
+  const levelColor = getLevelColor(level);
 
   return (
     <div className="skill-card" style={{ '--level-color': levelColor } as any}>
       <div className="skill-card-header">
         <h3 className="skill-name">{skill.name}</h3>
         <span className="skill-level" style={{ borderColor: levelColor, color: levelColor }}>
-          {skill.level}
+          {level}
         </span>
       </div>
 
@@ -43,13 +44,13 @@ export const SkillCard = ({ skill }: SkillCardProps) => {
           <div
             className="experience-fill"
             style={{
-              width: `${Math.min((yearsOfExp / totalYearsExp) * 100, 100)}%`,
+              width: `${Math.max(Math.min((yearsOfExp / totalYearsExp) * 100, 100), 1)}%`,
               backgroundColor: levelColor,
             }}
           />
         </div>
         <span className="experience-text">
-          {yearsOfExp} {yearsOfExp === 1 ? 'year' : 'years'} of experience
+          {Math.max(yearsOfExp, 1)} {Math.max(yearsOfExp, 1) === 1 ? 'year' : 'years'} of experience
         </span>
       </div>
 

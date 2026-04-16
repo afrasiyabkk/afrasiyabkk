@@ -4,11 +4,18 @@ export interface Skill {
   id: string;
   name: string;
   category: 'Frontend' | 'Backend' | 'Game Development' | 'Mobile Development' | 'Desktop' | 'Database' | 'Tools' | 'Other' | 'DevOps';
-  level: SkillLevel;
   startYear: number;
   endYear: number | 'now';
   description?: string;
 }
+
+// Adjustable percentage thresholds for skill level calculation
+// These determine what percentage of total experience qualifies for each level
+export const SKILL_LEVEL_THRESHOLDS = {
+  expert: 80,
+  advanced: 50,
+  intermediate: 30,
+} as const;
 
 // Helper function to calculate years of experience
 export const calculateYearsOfExperience = (
@@ -33,13 +40,32 @@ export const calculateYearsOfExperience = (
   return Math.max(years, 1);
 };
 
+// Helper function to calculate skill level based on percentage of total experience
+export const calculateSkillLevel = (
+  skillStartYear: number,
+  skillEndYear: number | 'now',
+  totalYearsExp: number
+): SkillLevel => {
+  const skillYears = calculateYearsOfExperience(skillStartYear, skillEndYear);
+  const percentageOfTotal = (skillYears / totalYearsExp) * 100;
+
+  if (percentageOfTotal >= SKILL_LEVEL_THRESHOLDS.expert) {
+    return 'Expert';
+  } else if (percentageOfTotal >= SKILL_LEVEL_THRESHOLDS.advanced) {
+    return 'Advanced';
+  } else if (percentageOfTotal >= SKILL_LEVEL_THRESHOLDS.intermediate) {
+    return 'Intermediate';
+  } else {
+    return 'Beginner';
+  }
+};
+
 export const SKILLS: Skill[] = [
   // Backend - Java
   {
     id: 'java',
     name: 'Java',
     category: 'Backend',
-    level: 'Expert',
     startYear: 2022,
     endYear: 'now',
     description: 'Object-oriented programming, design patterns, enterprise applications',
@@ -48,7 +74,6 @@ export const SKILLS: Skill[] = [
     id: 'springboot',
     name: 'Spring Boot',
     category: 'Backend',
-    level: 'Expert',
     startYear: 2022,
     endYear: 'now',
     description: 'REST APIs, microservices, dependency injection, data JPA',
@@ -59,7 +84,6 @@ export const SKILLS: Skill[] = [
     id: 'python',
     name: 'Python',
     category: 'Backend',
-    level: 'Advanced',
     startYear: 2021,
     endYear: 'now',
     description: 'Django, automation scripts, data processing',
@@ -68,7 +92,6 @@ export const SKILLS: Skill[] = [
     id: 'django',
     name: 'Django',
     category: 'Backend',
-    level: 'Advanced',
     startYear: 2021,
     endYear: 'now',
     description: 'Web framework, ORM, REST APIs',
@@ -79,7 +102,6 @@ export const SKILLS: Skill[] = [
     id: 'php',
     name: 'PHP',
     category: 'Backend',
-    level: 'Advanced',
     startYear: 2020,
     endYear: 2021,
     description: 'Laravel, custom backends, API development',
@@ -88,7 +110,6 @@ export const SKILLS: Skill[] = [
     id: 'laravel',
     name: 'Laravel',
     category: 'Backend',
-    level: 'Advanced',
     startYear: 2018,
     endYear: 2021,
     description: 'MVC framework, Eloquent ORM, migrations',
@@ -99,7 +120,6 @@ export const SKILLS: Skill[] = [
     id: 'react',
     name: 'React',
     category: 'Frontend',
-    level: 'Expert',
     startYear: 2022,
     endYear: 'now',
     description: 'Hooks, state management, component libraries',
@@ -110,7 +130,6 @@ export const SKILLS: Skill[] = [
     id: 'html',
     name: 'HTML',
     category: 'Frontend',
-    level: 'Expert',
     startYear: 2020,
     endYear: 'now',
     description: 'Semantic markup, accessibility, forms',
@@ -119,7 +138,6 @@ export const SKILLS: Skill[] = [
     id: 'css',
     name: 'CSS',
     category: 'Frontend',
-    level: 'Expert',
     startYear: 2020,
     endYear: 'now',
     description: 'Styling, flexbox, grid, animations, responsive design',
@@ -130,7 +148,6 @@ export const SKILLS: Skill[] = [
     id: 'nextjs',
     name: 'Next.js',
     category: 'Frontend',
-    level: 'Expert',
     startYear: 2023,
     endYear: 'now',
     description: 'SSR, SSG, API routes, file-based routing',
@@ -141,7 +158,6 @@ export const SKILLS: Skill[] = [
     id: 'vuejs',
     name: 'Vue.js',
     category: 'Frontend',
-    level: 'Intermediate',
     startYear: 2022,
     endYear: 'now',
     description: 'Composition API, component communication',
@@ -152,7 +168,6 @@ export const SKILLS: Skill[] = [
     id: 'javascript',
     name: 'JavaScript',
     category: 'Frontend',
-    level: 'Expert',
     startYear: 2020,
     endYear: 'now',
     description: 'ES6+, async/await, DOM manipulation',
@@ -163,7 +178,6 @@ export const SKILLS: Skill[] = [
     id: 'typescript',
     name: 'TypeScript',
     category: 'Frontend',
-    level: 'Advanced',
     startYear: 2024,
     endYear: 'now',
     description: 'Type safety, interfaces, generics',
@@ -174,7 +188,6 @@ export const SKILLS: Skill[] = [
     id: 'jquery',
     name: 'jQuery',
     category: 'Frontend',
-    level: 'Intermediate',
     startYear: 2020,
     endYear: 2022,
     description: 'DOM manipulation, AJAX, animations',
@@ -185,7 +198,6 @@ export const SKILLS: Skill[] = [
     id: 'postgresql',
     name: 'PostgreSQL',
     category: 'Database',
-    level: 'Advanced',
     startYear: 2022,
     endYear: 'now',
     description: 'Complex queries, indexing, performance tuning',
@@ -194,7 +206,6 @@ export const SKILLS: Skill[] = [
     id: 'mysql',
     name: 'MySQL',
     category: 'Database',
-    level: 'Advanced',
     startYear: 2020,
     endYear: 'now',
     description: 'Relational databases, normalization',
@@ -203,7 +214,6 @@ export const SKILLS: Skill[] = [
     id: 'mongodb',
     name: 'MongoDB',
     category: 'Database',
-    level: 'Intermediate',
     startYear: 2022,
     endYear: 2023,
     description: 'Document databases, collections',
@@ -214,7 +224,6 @@ export const SKILLS: Skill[] = [
     id: 'github',
     name: 'GitHub',
     category: 'Tools',
-    level: 'Expert',
     startYear: 2022,
     endYear: 'now',
     description: 'Version control, collaboration, CI/CD',
@@ -223,7 +232,6 @@ export const SKILLS: Skill[] = [
     id: 'git',
     name: 'Git',
     category: 'Tools',
-    level: 'Expert',
     startYear: 2022,
     endYear: 'now',
     description: 'Branching, merging, rebasing',
@@ -232,7 +240,6 @@ export const SKILLS: Skill[] = [
     id: 'docker',
     name: 'Docker',
     category: 'Tools',
-    level: 'Advanced',
     startYear: 2023,
     endYear: 'now',
     description: 'Containerization, images, compose',
@@ -241,7 +248,6 @@ export const SKILLS: Skill[] = [
     id: 'rest-api',
     name: 'REST API',
     category: 'Other',
-    level: 'Expert',
     startYear: 2021,
     endYear: 'now',
     description: 'API design, HTTP methods, status codes',
@@ -250,7 +256,6 @@ export const SKILLS: Skill[] = [
     id: 'copilot',
     name: 'GitHub Copilot',
     category: 'Tools',
-    level: 'Expert',
     startYear: 2024,
     endYear: 'now',
     description: 'Advanced prompt engineering, AI-assisted development',
@@ -259,7 +264,6 @@ export const SKILLS: Skill[] = [
     id: 'soap-api',
     name: 'SOAP API',
     category: 'Other',
-    level: 'Advanced',
     startYear: 2023,
     endYear: 2024,
     description: 'XML-based web services, API integration',
@@ -268,7 +272,6 @@ export const SKILLS: Skill[] = [
     id: 'excel',
     name: 'Excel',
     category: 'Tools',
-    level: 'Advanced',
     startYear: 2017,
     endYear: 'now',
     description: 'Spreadsheets, data analysis, formulas',
@@ -277,7 +280,6 @@ export const SKILLS: Skill[] = [
     id: 'quickbooks',
     name: 'QuickBooks',
     category: 'Tools',
-    level: 'Intermediate',
     startYear: 2019,
     endYear: 2020,
     description: 'Accounting software, financial management',
@@ -286,7 +288,6 @@ export const SKILLS: Skill[] = [
     id: 'accounting',
     name: 'Accounting',
     category: 'Other',
-    level: 'Intermediate',
     startYear: 2017,
     endYear: 2019,
     description: 'Financial management, compliance, reporting',
@@ -295,7 +296,6 @@ export const SKILLS: Skill[] = [
     id: 'audit',
     name: 'Audit',
     category: 'Other',
-    level: 'Intermediate',
     startYear: 2017,
     endYear: 2018,
     description: 'Audit procedures, compliance verification',
@@ -304,7 +304,6 @@ export const SKILLS: Skill[] = [
     id: 'compliance',
     name: 'Compliance',
     category: 'Other',
-    level: 'Intermediate',
     startYear: 2017,
     endYear: 2018,
     description: 'Regulatory compliance, documentation standards',
@@ -313,7 +312,6 @@ export const SKILLS: Skill[] = [
     id: 'documentation',
     name: 'Documentation',
     category: 'Tools',
-    level: 'Intermediate',
     startYear: 2017,
     endYear: 'now',
     description: 'Technical documentation, record keeping',
@@ -322,7 +320,6 @@ export const SKILLS: Skill[] = [
     id: 'nodejs',
     name: 'Node.js',
     category: 'Backend',
-    level: 'Advanced',
     startYear: 2021,
     endYear: 2022,
     description: 'Server-side JavaScript, npm, async programming',
@@ -331,7 +328,6 @@ export const SKILLS: Skill[] = [
     id: 'csharp',
     name: 'C#',
     category: 'Backend',
-    level: 'Intermediate',
     startYear: 2025,
     endYear: 'now',
     description: '.NET framework, object-oriented programming',
@@ -340,7 +336,6 @@ export const SKILLS: Skill[] = [
     id: 'fastapi',
     name: 'FastAPI',
     category: 'Backend',
-    level: 'Intermediate',
     startYear: 2025,
     endYear: 2026,
     description: 'Modern Python web framework, async support',
@@ -349,7 +344,6 @@ export const SKILLS: Skill[] = [
     id: 'unity',
     name: 'Unity',
     category: 'Game Development',
-    level: 'Intermediate',
     startYear: 2025,
     endYear: 'now',
     description: 'Game development engine, 3D graphics',
@@ -358,7 +352,6 @@ export const SKILLS: Skill[] = [
     id: 'electron',
     name: 'Electron',
     category: 'Desktop',
-    level: 'Beginner',
     startYear: 2025,
     endYear: 2026,
     description: 'Desktop application framework, cross-platform development',
@@ -367,7 +360,6 @@ export const SKILLS: Skill[] = [
     id: 'express',
     name: 'Express',
     category: 'Backend',
-    level: 'Advanced',
     startYear: 2021,
     endYear: 'now',
     description: 'Node.js web framework, middleware, routing',
@@ -376,7 +368,6 @@ export const SKILLS: Skill[] = [
     id: 'redis',
     name: 'Redis',
     category: 'Database',
-    level: 'Advanced',
     startYear: 2021,
     endYear: 'now',
     description: 'In-memory data store, caching, real-time data',
@@ -385,7 +376,6 @@ export const SKILLS: Skill[] = [
     id: 'channels',
     name: 'Channels',
     category: 'Backend',
-    level: 'Advanced',
     startYear: 2021,
     endYear: 'now',
     description: 'Django WebSockets, real-time communication',
@@ -394,7 +384,6 @@ export const SKILLS: Skill[] = [
     id: 'websockets',
     name: 'WebSockets',
     category: 'Other',
-    level: 'Advanced',
     startYear: 2021,
     endYear: 'now',
     description: 'Real-time bidirectional communication, event-driven architecture',
@@ -403,7 +392,6 @@ export const SKILLS: Skill[] = [
     id: 'bootstrap',
     name: 'Bootstrap',
     category: 'Frontend',
-    level: 'Advanced',
     startYear: 2020,
     endYear: 'now',
     description: 'CSS framework, responsive design, components',
@@ -412,7 +400,6 @@ export const SKILLS: Skill[] = [
     id: 'syncfusion',
     name: 'Syncfusion',
     category: 'Frontend',
-    level: 'Intermediate',
     startYear: 2022,
     endYear: 2023,
     description: 'UI components library, data visualization, charts',
@@ -421,7 +408,6 @@ export const SKILLS: Skill[] = [
     id: 'google-gemini-api',
     name: 'Google Gemini API',
     category: 'Other',
-    level: 'Advanced',
     startYear: 2024,
     endYear: 'now',
     description: 'AI language model, code generation, multimodal input',
@@ -430,7 +416,6 @@ export const SKILLS: Skill[] = [
     id: 'eclipse-ide-api',
     name: 'Eclipse IDE API',
     category: 'Tools',
-    level: 'Intermediate',
     startYear: 2023,
     endYear: 2024,
     description: 'Eclipse plugin development, IDE integration',
@@ -439,7 +424,6 @@ export const SKILLS: Skill[] = [
     id: 'eclipse-plugin-development',
     name: 'Eclipse Plugin Development',
     category: 'Tools',
-    level: 'Intermediate',
     startYear: 2023,
     endYear: 2024,
     description: 'Eclipse IDE plugin architecture, extension points',
@@ -448,7 +432,6 @@ export const SKILLS: Skill[] = [
     id: 'vscode-extension-api',
     name: 'VS Code Extension API',
     category: 'Tools',
-    level: 'Advanced',
     startYear: 2024,
     endYear: 'now',
     description: 'VS Code extension development, API integration',
@@ -457,7 +440,6 @@ export const SKILLS: Skill[] = [
     id: 'django-rest-framework',
     name: 'Django REST Framework',
     category: 'Backend',
-    level: 'Expert',
     startYear: 2021,
     endYear: 'now',
     description: 'REST API development with Django, serialization, authentication',
@@ -466,7 +448,6 @@ export const SKILLS: Skill[] = [
     id: 'pybit',
     name: 'PyBit',
     category: 'Other',
-    level: 'Intermediate',
     startYear: 2022,
     endYear: 2023,
     description: 'Bybit API client, cryptocurrency trading integration',
@@ -475,7 +456,6 @@ export const SKILLS: Skill[] = [
     id: 'email-service',
     name: 'Email Service',
     category: 'Other',
-    level: 'Intermediate',
     startYear: 2021,
     endYear: 'now',
     description: 'Email integration, SMTP, sending notifications',
@@ -484,7 +464,6 @@ export const SKILLS: Skill[] = [
     id: 'microservices',
     name: 'Microservices',
     category: 'Other',
-    level: 'Advanced',
     startYear: 2022,
     endYear: 'now',
     description: 'Microservices architecture, service isolation, independent deployment',

@@ -288,5 +288,31 @@ export const PROJECTS: Project[] = [
       'Secure credential storage and session management',
     ],
   },
+  {
+    id: 'desktop-ai-agent',
+    title: 'Desktop AI Agent - Autonomous Screen Interaction',
+    shortDescription: 'Desktop application enabling AI agents to analyze screenshots and autonomously perform user actions',
+    description: 'An innovative desktop AI agent application designed to automate user interactions on the screen. The system enables users to create projects and associate target applications with each project. When users provide instructions, the AI agent captures real-time screenshots, analyzes them using computer vision and language models, and makes intelligent decisions about which actions to perform. The agent returns actions as structured JSON containing commands like clicks, double-clicks, text input, and more. The application then executes these actions programmatically. Built with a hybrid architecture combining Django backend for user management, licensing, and account administration, FastAPI for local backend operations running within the Electron environment, and React for the user interface. The entire application runs as a desktop client using Electron, with FastAPI services running locally to enable offline AI processing and rapid response times. The project is currently in development and not yet complete, but demonstrates the core architecture and AI integration patterns.',
+    technologies: ['React', 'Electron', 'FastAPI', 'Python', 'Django', 'JavaScript', 'TypeScript', 'Google Gemini API'],
+    categories: [PROJECT_CATEGORIES.DESKTOP_APP],
+    company: EXPERIENCES[2].company,
+    images: [
+      '/media/desktopaiagent1.png',
+      '/media/desktopaiagent2.png',
+      '/media/desktopaiagent3.png',
+    ],
+    features: [
+      'Project management system allowing users to organize AI automation tasks by project',
+      'Application configuration interface for users to specify target applications and interaction areas',
+      'Real-time screenshot capture and analysis using AI vision capabilities',
+      'Google Gemini API integration for intelligent decision-making and action planning',
+      'Extensible AI integration architecture supporting future model swapping and provider integration',
+      'JSON-based action command system for structured task execution (click, double-click, type, scroll, etc.)',
+      'Local FastAPI backend running within Electron for offline processing and low-latency response times',
+      'Django backend for user authentication, account management, and license management',
+      'React desktop UI built with Electron for cross-platform desktop application',
+      'Action queuing and execution system for sequential automation workflows',
+    ],
+  },
 ];
 

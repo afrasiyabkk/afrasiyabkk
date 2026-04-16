@@ -1,3 +1,8 @@
+import { SKILLS } from './skills';
+
+const getSkillName = (skillId: string): string => 
+  SKILLS.find(s => s.id === skillId)?.name || skillId;
+
 export interface Experience {
   id: string;
   title: string;
@@ -20,7 +25,7 @@ export const EXPERIENCES: Experience[] = [
     startDate: 'September 2022',
     endDate: 'Present',
     isCurrent: true,
-    technologies: ['Java', 'Spring Boot', 'PostgreSQL', 'REST APIs', 'SOAP APIs', 'Vue.js', 'React', 'TypeScript'],
+    technologies: [getSkillName('java'), getSkillName('springboot'), getSkillName('postgresql'), getSkillName('rest-api'), getSkillName('soap-api'), getSkillName('vuejs'), getSkillName('react'), getSkillName('typescript')],
     description: 'Full Stack developer and team lead -> responsible for Development / Maintainance, Management of the projects and clients dealing',
     responsibilities: [
       'Responsible for the development and maintenance of multiple projects, ensuring high-quality code and timely delivery',
@@ -42,7 +47,7 @@ export const EXPERIENCES: Experience[] = [
     startDate: 'November 2020',
     endDate: 'Present',
     isCurrent: false,
-    technologies: ['PHP', 'Laravel', 'MySQL', 'Python', 'Django', 'JavaScript', 'jQuery', 'React.js'],
+    technologies: [getSkillName('php'), getSkillName('laravel'), getSkillName('mysql'), getSkillName('python'), getSkillName('django'), getSkillName('javascript'), getSkillName('jquery'), getSkillName('react')],
     description: 'Developed complete web and mobile applications for international clients with focus on customization and integration.',
     responsibilities: [
       'Complete development of Web and Mobile applications with international client base',
@@ -55,6 +60,22 @@ export const EXPERIENCES: Experience[] = [
     ],
   },
   {
+    id: 'personal-projects',
+    title: 'Personal Projects',
+    company: 'Self-Employed',
+    location: 'Remote',
+    startDate: 'November 2020',
+    endDate: 'Present',
+    isCurrent: false,
+    technologies: [getSkillName('react'), getSkillName('nodejs'), getSkillName('javascript'), getSkillName('typescript'), getSkillName('mysql'), getSkillName('unity'), getSkillName('csharp'), getSkillName('electron'), getSkillName('python'), getSkillName('django'), getSkillName('fastapi')],
+    description: 'Developed some projects for myself for the purpose of learning and experimentation and trying new ideas. And developed a game (more to come) to persue my passion for gaming and game development.',
+    responsibilities: [
+      'Full stack development of personal projects',
+      'Experimentation with new technologies and frameworks',
+      'Portfolio building and skill enhancement',
+    ],
+  },
+  {
     id: 'accountant',
     title: 'Accountant',
     company: 'Planet Tours & Travels Sharjah',
@@ -62,7 +83,7 @@ export const EXPERIENCES: Experience[] = [
     startDate: 'July 2019',
     endDate: 'September 2019',
     isCurrent: false,
-    technologies: ['QuickBooks', 'Excel', 'Accounting'],
+    technologies: [getSkillName('quickbooks'), getSkillName('excel'), getSkillName('accounting')],
     description: 'Managed accounting operations and administrative processes for tourism company.',
     responsibilities: [
       'Accounting registration, report management and support to administrative processes',
@@ -76,7 +97,7 @@ export const EXPERIENCES: Experience[] = [
     startDate: 'October 2017',
     endDate: 'February 2018',
     isCurrent: false,
-    technologies: ['Accounting', 'Documentation', 'Excel'],
+    technologies: [getSkillName('accounting'), getSkillName('documentation'), getSkillName('excel')],
     description: 'Supported accounting and administrative functions in corporate environment.',
     responsibilities: [
       'Invoice verification, documentation check, and support to administrative processes',
@@ -90,7 +111,7 @@ export const EXPERIENCES: Experience[] = [
     startDate: 'March 2017',
     endDate: 'September 2017',
     isCurrent: false,
-    technologies: ['Audit', 'Compliance', 'Documentation'],
+    technologies: [getSkillName('audit'), getSkillName('compliance'), getSkillName('documentation')],
     description: 'Provided support for audit activities and compliance functions.',
     responsibilities: [
       'Support to audit activities for FWO and Pakistan Tobacco Company',

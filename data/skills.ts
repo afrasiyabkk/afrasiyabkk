@@ -30,7 +30,7 @@ export const calculateYearsOfExperience = (
     years--;
   }
   
-  return Math.max(0, years);
+  return Math.max(years, 1);
 };
 
 export const SKILLS: Skill[] = [
@@ -105,6 +105,26 @@ export const SKILLS: Skill[] = [
     description: 'Hooks, state management, component libraries',
   },
   
+  // Frontend - HTML/CSS
+  {
+    id: 'html',
+    name: 'HTML',
+    category: 'Frontend',
+    level: 'Expert',
+    startYear: 2020,
+    endYear: 'now',
+    description: 'Semantic markup, accessibility, forms',
+  },
+  {
+    id: 'css',
+    name: 'CSS',
+    category: 'Frontend',
+    level: 'Expert',
+    startYear: 2020,
+    endYear: 'now',
+    description: 'Styling, flexbox, grid, animations, responsive design',
+  },
+
   // Frontend - Next.js
   {
     id: 'nextjs',
@@ -342,5 +362,131 @@ export const SKILLS: Skill[] = [
     startYear: 2025,
     endYear: 2026,
     description: 'Desktop application framework, cross-platform development',
+  },
+  {
+    id: 'express',
+    name: 'Express',
+    category: 'Backend',
+    level: 'Advanced',
+    startYear: 2021,
+    endYear: 'now',
+    description: 'Node.js web framework, middleware, routing',
+  },
+  {
+    id: 'redis',
+    name: 'Redis',
+    category: 'Database',
+    level: 'Advanced',
+    startYear: 2021,
+    endYear: 'now',
+    description: 'In-memory data store, caching, real-time data',
+  },
+  {
+    id: 'channels',
+    name: 'Channels',
+    category: 'Backend',
+    level: 'Advanced',
+    startYear: 2021,
+    endYear: 'now',
+    description: 'Django WebSockets, real-time communication',
+  },
+  {
+    id: 'websockets',
+    name: 'WebSockets',
+    category: 'Other',
+    level: 'Advanced',
+    startYear: 2021,
+    endYear: 'now',
+    description: 'Real-time bidirectional communication, event-driven architecture',
+  },
+  {
+    id: 'bootstrap',
+    name: 'Bootstrap',
+    category: 'Frontend',
+    level: 'Advanced',
+    startYear: 2020,
+    endYear: 'now',
+    description: 'CSS framework, responsive design, components',
+  },
+  {
+    id: 'syncfusion',
+    name: 'Syncfusion',
+    category: 'Frontend',
+    level: 'Intermediate',
+    startYear: 2022,
+    endYear: 2023,
+    description: 'UI components library, data visualization, charts',
+  },
+  {
+    id: 'google-gemini-api',
+    name: 'Google Gemini API',
+    category: 'Other',
+    level: 'Advanced',
+    startYear: 2024,
+    endYear: 'now',
+    description: 'AI language model, code generation, multimodal input',
+  },
+  {
+    id: 'eclipse-ide-api',
+    name: 'Eclipse IDE API',
+    category: 'Tools',
+    level: 'Intermediate',
+    startYear: 2023,
+    endYear: 2024,
+    description: 'Eclipse plugin development, IDE integration',
+  },
+  {
+    id: 'eclipse-plugin-development',
+    name: 'Eclipse Plugin Development',
+    category: 'Tools',
+    level: 'Intermediate',
+    startYear: 2023,
+    endYear: 2024,
+    description: 'Eclipse IDE plugin architecture, extension points',
+  },
+  {
+    id: 'vscode-extension-api',
+    name: 'VS Code Extension API',
+    category: 'Tools',
+    level: 'Advanced',
+    startYear: 2024,
+    endYear: 'now',
+    description: 'VS Code extension development, API integration',
+  },
+  {
+    id: 'django-rest-framework',
+    name: 'Django REST Framework',
+    category: 'Backend',
+    level: 'Expert',
+    startYear: 2021,
+    endYear: 'now',
+    description: 'REST API development with Django, serialization, authentication',
+  },
+  {
+    id: 'pybit',
+    name: 'PyBit',
+    category: 'Other',
+    level: 'Intermediate',
+    startYear: 2022,
+    endYear: 2023,
+    description: 'Bybit API client, cryptocurrency trading integration',
+  },
+  {
+    id: 'email-service',
+    name: 'Email Service',
+    category: 'Other',
+    level: 'Intermediate',
+    startYear: 2021,
+    endYear: 'now',
+    description: 'Email integration, SMTP, sending notifications',
+  },
+  {
+    id: 'microservices',
+    name: 'Microservices',
+    category: 'Other',
+    level: 'Advanced',
+    startYear: 2022,
+    endYear: 'now',
+    description: 'Microservices architecture, service isolation, independent deployment',
   },
 ];

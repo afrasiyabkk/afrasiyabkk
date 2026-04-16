@@ -16,5 +16,5 @@ export const getYearsOfExperience = (startMonth: number = 11, startYear: number 
     yearsOfExperience--;
   }
 
-  return yearsOfExperience;
+  return Math.max(yearsOfExperience, 1);
 };

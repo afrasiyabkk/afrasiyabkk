@@ -1,4 +1,8 @@
 import { EXPERIENCES } from './experiences';
+import { SKILLS } from './skills';
+
+const getSkillName = (skillId: string): string => 
+  SKILLS.find(s => s.id === skillId)?.name || skillId;
 
 // Project Categories
 export const PROJECT_CATEGORIES = {
@@ -33,7 +37,7 @@ export const PROJECTS: Project[] = [
     title: 'Jstore Back Office - Financial Module',
     shortDescription: 'Accounting and Cash Management Module with Dynamic Document Generation',
     description: 'A sophisticated accounting module developed entirely from scratch within the Jstore back office management system. This specialized financial system manages cashbook and cash ledger operations with intelligent document generation. The module features a flexible AccountingReasons template system that allows configuration of different accounting heads based on business requirements. Users create configurations specifying debit and credit accounting reasons, which the system uses to automatically generate financial documents by integrating real-time sales data from external supermarket services. The system maintains separate database integrity with full support for multi-cashier and multi-register environments, shows total debits and total credits value and the reconciliation (difference between debit and credit). Other then the financial module, I contributed along with a team of other developers in developing other modules of the JBO Managerment system such as Warehouse module, Inventory module, Article module. The financial module seamlessly integrates with the larger ecosystem.',
-    technologies: ['Java', 'Spring Boot', 'MySQL', 'React', 'RESTful API', 'Vue.js', 'Html', 'CSS', 'Syncfusion'],
+    technologies: [getSkillName('java'), getSkillName('springboot'), getSkillName('mysql'), getSkillName('react'), getSkillName('rest-api'), getSkillName('vuejs'), getSkillName('html'), getSkillName('css'), getSkillName('syncfusion')],
     categories: [PROJECT_CATEGORIES.WEB_APP],
     company: EXPERIENCES[0].company,
     images: [
@@ -61,7 +65,7 @@ export const PROJECTS: Project[] = [
     title: 'Spedizione Web',
     shortDescription: 'Integrated shipping management with SOAP API integration and marketplace order synchronization',
     description: 'Spedizione Web is a comprehensive shipping management platform developed that enables users to calculate shipping costs, select from multiple courier services (BRT, SDA, Poste Italiane, etc.), and manage shipments. I developed two critical microservices for this platform: (1) A microservice that integrates with Poste Italiane\'s SOAP API to enable users to directly send registered mail (raccomandata) online with streamlined document generation and tracking. (2) An Orders Management microservice using REST API that synchronizes orders from e-commerce marketplaces (Woocommerce, with expandable support for Amazon, eBay, and others) directly into the shipping system, automating shipping those orders.',
-    technologies: ['Java', 'Springboot', 'Postgres', 'SOAP API', 'REST API', 'Microservices'],
+    technologies: [getSkillName('java'), getSkillName('springboot'), getSkillName('postgresql'), getSkillName('soap-api'), getSkillName('rest-api'), getSkillName('microservices')],
     categories: [PROJECT_CATEGORIES.WEB_APP],
     company: EXPERIENCES[0].company,
     images: [
@@ -83,7 +87,7 @@ export const PROJECTS: Project[] = [
     title: 'Eclipse AI Plugin - Gemini Integration',
     shortDescription: 'AI-powered Eclipse IDE plugin with Google Gemini API for intelligent code generation',
     description: 'An intelligent Eclipse IDE plugin that seamlessly integrates Google Gemini API to provide AI-powered code generation and assistance. The plugin reads the complete project context, analyzes all currently opened files in the editor, and uses this context along with user prompts to generate intelligent code suggestions. It automatically updates existing code or creates new files based on the AI-generated output. The plugin supports multiple file formats including images and PDFs, allowing developers to include visual references and documentation in their prompts for more accurate code generation. This enables a workflow where developers can reference designs, specifications, and existing code patterns while receiving contextually-aware AI assistance directly within their IDE.',
-    technologies: ['Java', 'Eclipse IDE API', 'Google Gemini API', 'REST API', 'Eclipse Plugin Development'],
+    technologies: [getSkillName('java'), getSkillName('eclipse-ide-api'), getSkillName('google-gemini-api'), getSkillName('rest-api'), getSkillName('eclipse-plugin-development')],
     categories: [PROJECT_CATEGORIES.DESKTOP_APP],
     company: EXPERIENCES[0].company,
     images: [
@@ -107,7 +111,7 @@ export const PROJECTS: Project[] = [
     title: 'VS Code AI Plugin - Gemini Integration',
     shortDescription: 'Intelligent VS Code extension with Google Gemini API and multi-model support for AI-powered development',
     description: 'A powerful VS Code extension that integrates Google Gemini API to provide intelligent code generation and AI assistance directly within the editor. The plugin allows developers to select from available Gemini models, enabling flexibility in choosing between different model capabilities and performance characteristics. It analyzes the complete project context, reads all currently opened files in the editor, and incorporates this comprehensive information into user prompts sent to Gemini. The extension supports multiple file types including code files, images, and PDFs, allowing developers to include visual designs, specifications, and documentation references when requesting code generation. Based on Gemini\'s AI-generated responses, the plugin automatically updates existing code files or creates new files as needed, seamlessly integrating AI assistance into the development workflow.',
-    technologies: ['TypeScript', 'VS Code Extension API', 'Google Gemini API', 'REST API', 'Node.js'],
+    technologies: [getSkillName('typescript'), getSkillName('vscode-extension-api'), getSkillName('google-gemini-api'), getSkillName('rest-api'), getSkillName('nodejs')],
     categories: [PROJECT_CATEGORIES.DESKTOP_APP],
     company: EXPERIENCES[0].company,
     images: [
@@ -132,7 +136,7 @@ export const PROJECTS: Project[] = [
     title: 'Social Media Application - Backend Development',
     shortDescription: 'Comprehensive backend system for social media platform with real-time messaging',
     description: 'Contributed to the backend development of a comprehensive social media application for a client. While the complete application contains numerous modules, this work focuses on specific modules shown in the images: user profiles, posts (with stories, reels, and posts), real-time chat messaging, notifications, and search functionality. For each of these modules, architected and implemented complete RESTful API endpoints with full CRUD operations. The chat module utilizes Django Channels and WebSockets to provide real-time messaging capabilities between users with seamless connection management and event handling. These modules integrate with the larger platform ecosystem which contains additional backend services developed by other team members.',
-    technologies: ['Python', 'Django', 'Django REST Framework', 'WebSockets', 'Channels', 'Redis', 'PostgreSQL'],
+    technologies: [getSkillName('python'), getSkillName('django'), getSkillName('django-rest-framework'), getSkillName('websockets'), getSkillName('channels'), getSkillName('redis'), getSkillName('postgresql')],
     categories: [PROJECT_CATEGORIES.WEB_APP],
     company: EXPERIENCES[1].company,
     images: [
@@ -159,7 +163,7 @@ export const PROJECTS: Project[] = [
     title: 'Crypto Trading Bot Platform - Bybit Integration',
     shortDescription: 'Advanced automated trading platform with intelligent bot creation and real-time portfolio management',
     description: 'A sophisticated web-based platform for creating and managing automated cryptocurrency trading bots on the Bybit exchange. Users can create custom trading bots for any trading pair (BTCUSDT, XRPUSDT, etc.) with fine-grained configuration options. The platform allows users to set bot parameters including coin selection, number of orders, bot type (long or short), profit targets, order steps, and intelligent order recollection parameters that automatically adjust orders when market price deviates significantly. For long bots, the system places initial buy orders; for short bots, it places sell orders. Once orders begin filling, the bot automatically places opposing orders with configured profit targets. The platform includes advanced technical analysis calculations such as pivot points, support levels (1, 2, 3), and resistance levels (1, 2, 3) to help users make informed decisions. Users can search for specific orders on Bybit by order ID to check real-time status. A comprehensive dashboard displays all active orders, calculations, and market data. Real-time balance updates are provided via WebSocket connections, and users can save and reuse bot templates for faster deployment.',
-    technologies: ['Python', 'Django', 'JavaScript', 'Jquery', 'HTML', 'CSS', 'Bootstrap', 'PyBit', 'WebSockets', 'Channels', 'Redis', 'MySQL/Sqlite3'],
+    technologies: [getSkillName('python'), getSkillName('django'), getSkillName('javascript'), getSkillName('jquery'), getSkillName('html'), getSkillName('css'), getSkillName('bootstrap'), getSkillName('pybit'), getSkillName('websockets'), getSkillName('channels'), getSkillName('redis'), getSkillName('mysql')],
     categories: [PROJECT_CATEGORIES.WEB_APP],
     company: EXPERIENCES[1].company,
     images: [
@@ -197,7 +201,7 @@ export const PROJECTS: Project[] = [
     title: 'Control Panel Web - Application Monitoring & Task Management',
     shortDescription: 'Comprehensive web-based control panel for monitoring applications and managing complex recurring tasks',
     description: 'A sophisticated control panel web application designed to monitor and manage multiple connected applications with an integrated task management system. The dashboard displays overall application status with intelligent status indicators: green for operational, red for errors detected, and yellow for warning states (errors awaiting confirmation before escalation). The platform features a complex task manager allowing users to create tasks with multiple scheduling options including one-time dates, weekly recurring tasks, monthly tasks on specific days, and yearly tasks on specific months. The task display system uses advanced algorithms to intelligently show tasks on their assigned dates. Important tasks can be marked with priority and automatically appear several days before their scheduled date in a warnings view (configurable in settings). Persistent tasks that remain incomplete on their scheduled day carry over to subsequent days automatically. The Status page displays all connected applications with real-time status monitoring. Status Details provides comprehensive error information and diagnostics. The Switches section allows configuration of monitoring endpoints with flexible support for GET and POST requests at configurable intervals. The Whitelist feature enables administrators to configure specific error keywords to ignore for particular applications, preventing false alerts.',
-    technologies: ['Python', 'Django',  'JavaScript', 'Jquery', 'HTML', 'CSS', 'Bootstrap', 'MySQL/Sqlite3'],
+    technologies: [getSkillName('python'), getSkillName('django'), getSkillName('javascript'), getSkillName('jquery'), getSkillName('html'), getSkillName('css'), getSkillName('bootstrap'), getSkillName('mysql')],
     categories: [PROJECT_CATEGORIES.WEB_APP],
     company: EXPERIENCES[1].company,
     images: [
@@ -230,7 +234,7 @@ export const PROJECTS: Project[] = [
     title: 'Seven Figure Profits - Business Profitability Calculator',
     shortDescription: 'Advanced profitability calculator with multi-step analysis and departmental revenue tracking',
     description: 'A comprehensive profitability calculator platform designed to help business owners analyze and optimize their operations. The system features a two-part evaluation process: Part 1 captures detailed financial data including total revenue broken down by department, employee count, earnings, and operational costs. Users can input revenue for each department separately, creating a comprehensive financial snapshot. The system then processes this data and generates a detailed profitability report that is emailed to the user for their records. Part 2 goes beyond financial metrics by assessing the emotional profitability of each revenue-generating department through a series of rating questions, helping business owners determine not just if their departments are profitable, but if they are worth the effort and emotional investment to continue operating. This dual-analysis approach provides both quantitative financial insights and qualitative operational assessments.',
-    technologies: ['PHP', 'Laravel', 'React', 'JavaScript', 'MySQL', 'Email Service', 'RESTful API'],
+    technologies: [getSkillName('php'), getSkillName('laravel'), getSkillName('react'), getSkillName('javascript'), getSkillName('mysql'), getSkillName('email-service'), getSkillName('rest-api')],
     categories: [PROJECT_CATEGORIES.WEB_APP],
     company: EXPERIENCES[1].company,
     images: [
@@ -267,7 +271,7 @@ export const PROJECTS: Project[] = [
     title: 'Profilable - Centralized User Account System',
     shortDescription: 'Central authentication platform with advanced user profiling, customizable profile links, and dynamic badging system',
     description: 'Profilable is a centralized account management platform serving as the authentication backbone for a suite of related services including Uploadery and Pasteview. The platform enables users to register and manage their accounts in one place, then seamlessly access all connected applications using their Profilable credentials. I contributed to key features including a comprehensive profile editing system allowing users to customize their accounts, ability to add and display social media profile links and custom contact links on their profiles, an intelligent badging system that recognizes user achievements and engagement levels, and a sophisticated color customization engine that dynamically applies user-selected colors to profile names, links, and background elements based on their badge status. This creates a personalized, visually distinct user experience where higher-tier badges unlock enhanced customization options. The platform works alongside other developers to provide a unified identity and authentication system across multiple interconnected applications.',
-    technologies: ['React', 'Node.js', 'JavaScript', 'TypeScript', 'Express', 'MongoDB', 'REST API'],
+    technologies: [getSkillName('react'), getSkillName('nodejs'), getSkillName('javascript'), getSkillName('typescript'), getSkillName('express'), getSkillName('mongodb'), getSkillName('rest-api')],
     categories: [PROJECT_CATEGORIES.WEB_APP],
     company: EXPERIENCES[1].company,
     images: [
@@ -293,7 +297,7 @@ export const PROJECTS: Project[] = [
     title: 'Desktop AI Agent - Autonomous Screen Interaction',
     shortDescription: 'Desktop application enabling AI agents to analyze screenshots and autonomously perform user actions',
     description: 'An innovative desktop AI agent application designed to automate user interactions on the screen. The system enables users to create projects and associate target applications with each project. When users provide instructions, the AI agent captures real-time screenshots, analyzes them using computer vision and language models, and makes intelligent decisions about which actions to perform. The agent returns actions as structured JSON containing commands like clicks, double-clicks, text input, and more. The application then executes these actions programmatically. Built with a hybrid architecture combining Django backend for user management, licensing, and account administration, FastAPI for local backend operations running within the Electron environment, and React for the user interface. The entire application runs as a desktop client using Electron, with FastAPI services running locally to enable offline AI processing and rapid response times. The project is currently in development and not yet complete, but demonstrates the core architecture and AI integration patterns.',
-    technologies: ['React', 'Electron', 'FastAPI', 'Python', 'Django', 'JavaScript', 'TypeScript', 'Google Gemini API'],
+    technologies: [getSkillName('react'), getSkillName('electron'), getSkillName('fastapi'), getSkillName('python'), getSkillName('django'), getSkillName('javascript'), getSkillName('typescript'), getSkillName('google-gemini-api')],
     categories: [PROJECT_CATEGORIES.DESKTOP_APP],
     company: EXPERIENCES[2].company,
     images: [
@@ -312,6 +316,37 @@ export const PROJECTS: Project[] = [
       'Django backend for user authentication, account management, and license management',
       'React desktop UI built with Electron for cross-platform desktop application',
       'Action queuing and execution system for sequential automation workflows',
+    ],
+  },
+  {
+    id: 'commercial-truck-insurance',
+    title: 'Commercial Truck Insurance Pros - Insurance Quote Platform',
+    shortDescription: 'Business website with interactive questionnaire and document management for truck insurance quotes',
+    description: 'A professional business website developed for Commercial Truck Insurance Pros, a truck insurance company. The platform enables potential customers to complete a detailed questionnaire about their trucks and submit relevant documentation. The questionnaire collects comprehensive information about vehicle specifications, usage patterns, and coverage requirements. Customers can upload supporting documents directly through the platform, which are then reviewed by insurance professionals. Once the information and documents are submitted, the insurance company owner is notified and contacts the customer to discuss available insurance options and provide customized quotes.',
+    technologies: [getSkillName('react'), getSkillName('html'), getSkillName('css'), getSkillName('javascript'), getSkillName('laravel'), getSkillName('php'), getSkillName('mysql')],
+    categories: [PROJECT_CATEGORIES.WEB_APP],
+    company: EXPERIENCES[1].company,
+    images: [
+      '/media/commercialtruckinsurancepros1.png',
+      '/media/commercialtruckinsurancepros2.png',
+      '/media/commercialtruckinsurancepros3.png',
+      '/media/commercialtruckinsurancepros4.png',
+      '/media/commercialtruckinsurancepros5.png',
+      '/media/commercialtruckinsurancepros6.png',
+      '/media/commercialtruckinsurancepros7.png',
+      '/media/commercialtruckinsurancepros8.png',
+    ],
+    demoUrl: 'http://commercialtruckinsurancepros.com/',
+    features: [
+      'Interactive questionnaire for collecting truck and customer information',
+      'Multi-step form process with validation and progress tracking',
+      'Document upload functionality for supporting files and truck documentation',
+      'Secure file storage and management system',
+      'Admin dashboard for insurance professionals to review submissions',
+      'Notification system to alert owner of new quote requests',
+      'Customer contact information collection and CRM integration readiness',
+      'Responsive design for desktop and mobile access',
+      'Professional business website showcasing company services and information',
     ],
   },
 ];

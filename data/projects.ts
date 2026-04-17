@@ -349,5 +349,28 @@ export const PROJECTS: Project[] = [
       'Professional business website showcasing company services and information',
     ],
   },
+  {
+    id: 'timeflux',
+    title: 'TimeFlux - Puzzle Game',
+    shortDescription: 'Browser-based puzzle game where a time ghost repeats your actions to solve level combinations',
+    description: 'TimeFlux is an innovative web browser puzzle game where players solve puzzles by traveling through time with the help of a "time ghost." The core mechanic involves recording your actions and creating a time ghost that repeats those actions, enabling you to solve complex puzzle combinations that require synchronized movements. By leveraging this time-manipulation mechanic, players must strategically plan their moves to progress through increasingly challenging levels. Each level presents unique puzzle combinations that can only be solved by cleverly using the time ghost\'s ability to replay your recorded actions, creating a bridge between past and present to unlock solutions.',
+    technologies: [getSkillName('unity'), getSkillName('csharp')],
+    categories: [PROJECT_CATEGORIES.WEB_GAME],
+    company: EXPERIENCES[2].company,
+    images: [
+      '/media/TimeFlux1.png',
+      '/media/TimeFlux2.png',
+      '/media/TimeFlux3.png',
+    ],
+    demoUrl: 'https://afrasiyabkk.itch.io/time-flux',
+    features: [
+      'Time ghost mechanic that records and replays player actions',
+      'Synchronized puzzle solving requiring coordination between player and time ghost',
+      'Progressive difficulty with increasingly complex puzzle combinations',
+      'Browser-based web game playable across platforms',
+      'Unity 3D engine for smooth gameplay and graphics',
+      'Innovative time-manipulation gameplay mechanics',
+    ],
+  },
 ];
 

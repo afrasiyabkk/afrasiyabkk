@@ -357,6 +357,22 @@ export const SKILLS: Skill[] = [
     description: 'Desktop application framework, cross-platform development',
   },
   {
+    id: 'pyside',
+    name: 'PySide',
+    category: 'Desktop',
+    startYear: 2024,
+    endYear: 'now',
+    description: 'Python GUI framework for desktop applications, Qt bindings',
+  },
+  {
+    id: 'selenium',
+    name: 'Selenium',
+    category: 'Other',
+    startYear: 2024,
+    endYear: 'now',
+    description: 'Web automation and scraping, browser automation, cross-browser testing',
+  },
+  {
     id: 'express',
     name: 'Express',
     category: 'Backend',

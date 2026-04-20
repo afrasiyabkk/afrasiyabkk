@@ -372,5 +372,31 @@ export const PROJECTS: Project[] = [
       'Innovative time-manipulation gameplay mechanics',
     ],
   },
+  {
+    id: 'marketplace-scraper',
+    title: 'Marketplace Scraper Bot - Python Desktop Application',
+    shortDescription: 'Intelligent web scraping bot for collecting and monitoring items from Facebook Marketplace and Subito.it',
+    description: 'A sophisticated Python desktop application built with PySide that automates the collection and monitoring of item listings from popular Italian online marketplaces. Users can add links from Facebook Marketplace and Subito.it for specific product categories they want to track. The bot automatically scrapes detailed information from these pages at user-defined intervals, extracting comprehensive product data including item names, direct links, prices, locations, seller information, and other relevant details. The collected data is stored and organized for easy access and analysis. Users have flexibility in how they manage the data: they can export collected items manually through the application interface, or set up automatic periodic exports. The application seamlessly integrates with Google Sheets through API connection, enabling users to sync their scraped data directly to spreadsheets they control. This creates a comprehensive marketplace monitoring solution for price tracking, inventory analysis, and market research.',
+    technologies: [getSkillName('python'), getSkillName('pyside'), getSkillName('selenium')],
+    categories: [PROJECT_CATEGORIES.DESKTOP_APP],
+    company: EXPERIENCES[1].company,
+    images: [
+      '/media/scrappingapp1.png',
+    ],
+    features: [
+      'User-friendly interface for adding marketplace links from Facebook Marketplace and Subito.it',
+      'Web scraping using Selenium to extract item details including names, links, prices, and locations',
+      'Customizable scraping intervals allowing users to set data refresh rates',
+      'Comprehensive data extraction with product specifications',
+      'Manual export to Google Sheets functionality for on-demand data',
+      'Automatic periodic export to Google Sheets with user-configurable schedules',
+      'Google Sheets API integration for seamless data synchronization',
+      'Support for multiple marketplace data sources in single application',
+      'Data filtering and deduplication to avoid repeated entries based on unique item identifiers (e.g., links)',
+      'Error handling and retry mechanisms for robust web scraping operations',
+      'Logging and monitoring of scraping activities',
+      'Extensible architecture for adding support for additional marketplaces',
+    ],
+  },
 ];
 

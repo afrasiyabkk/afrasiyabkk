@@ -484,4 +484,12 @@ export const SKILLS: Skill[] = [
     endYear: 'now',
     description: 'Microservices architecture, service isolation, independent deployment',
   },
+  {
+    id: 'google-sheets',
+    name: 'Google Sheets',
+    category: 'Tools',
+    startYear: 2023,
+    endYear: 'now',
+    description: 'Google Sheets API, data export, automation integration',
+  },
 ];

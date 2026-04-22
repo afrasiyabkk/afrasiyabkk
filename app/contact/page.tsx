@@ -1,10 +1,11 @@
 'use client';
 
 import { useState } from 'react';
-import { PERSONAL_INFO } from '@/data/personal-info';
+import { usePersonalInfo } from '@/hooks/usePersonalInfo';
 import '@/styles/contact.css';
 
 export default function ContactPage() {
+  const personalInfo = usePersonalInfo();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -62,7 +63,7 @@ export default function ContactPage() {
         }
       } else {
         // WhatsApp - create message and open WhatsApp
-        const phoneNumber = PERSONAL_INFO.phone.replace(/\D/g, ''); // Remove non-digits
+        const phoneNumber = personalInfo.phone.replace(/\D/g, ''); // Remove non-digits
         const message = `Hi, my name is ${formData.name}\n\nEmail: ${formData.email}\n\nSubject: ${formData.subject}\n\nMessage: ${formData.message}`;
         const encodedMessage = encodeURIComponent(message);
         const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
@@ -94,26 +95,26 @@ export default function ContactPage() {
             
             <div className="info-item">
               <span className="info-label">📧 Email</span>
-              <a href={`mailto:${PERSONAL_INFO.email}`} className="info-link">
-                {PERSONAL_INFO.email}
+              <a href={`mailto:${personalInfo.email}`} className="info-link">
+                {personalInfo.email}
               </a>
             </div>
 
             <div className="info-item">
               <span className="info-label">📱 Phone / WhatsApp</span>
-              <a href={`https://wa.me/${PERSONAL_INFO.phone.replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer" className="info-link">
-                {PERSONAL_INFO.phone}
+              <a href={`https://wa.me/${personalInfo.phone.replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer" className="info-link">
+                {personalInfo.phone}
               </a>
             </div>
 
             <div className="info-item">
               <span className="info-label">📍 Location</span>
-              <p className="info-text">{PERSONAL_INFO.address}</p>
+              <p className="info-text">{personalInfo.address}</p>
             </div>
 
             <div className="info-item">
               <span className="info-label">💬 Discord</span>
-              <a href={PERSONAL_INFO.discord} target="_blank" rel="noopener noreferrer" className="info-link">
+              <a href={personalInfo.discord} target="_blank" rel="noopener noreferrer" className="info-link">
                 Join my Discord
               </a>
             </div>

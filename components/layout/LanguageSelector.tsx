@@ -2,9 +2,11 @@
 
 import { useState, useEffect } from 'react';
 import { Language, getLanguageCookie, setLanguageCookie, getPreferredLanguage } from '@/lib/language';
+import { useLanguage } from '@/context/LanguageContext';
 import '@/styles/language-selector.css';
 
 export const LanguageSelector = () => {
+  const { language: contextLanguage, setLanguage } = useLanguage();
   const [currentLanguage, setCurrentLanguage] = useState<Language>('en');
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
@@ -29,6 +31,7 @@ export const LanguageSelector = () => {
   const handleLanguageChange = (language: Language) => {
     setCurrentLanguage(language);
     setLanguageCookie(language);
+    setLanguage(language);
     setIsOpen(false);
   };
 

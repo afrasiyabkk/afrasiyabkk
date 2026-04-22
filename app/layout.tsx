@@ -3,6 +3,7 @@ import "@/styles/globals.css";
 import { MatrixBackground } from "@/components/effects/MatrixBackground";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { LanguageProvider } from "@/context/LanguageContext";
 
 export const metadata: Metadata = {
   title: "Portfolio | Matrix Style",
@@ -25,25 +26,27 @@ export default function RootLayout({
         position: 'relative',
         overflowX: 'hidden',
       }}>
-        {/* Matrix Background Effect */}
-        <MatrixBackground />
+        <LanguageProvider>
+          {/* Matrix Background Effect */}
+          <MatrixBackground />
 
-        {/* Header (fixed position) */}
-        <Header />
+          {/* Header (fixed position) */}
+          <Header />
 
-        {/* Main Content (grows to fill space, pushing footer to bottom) */}
-        <div style={{
-          flex: 1,
-          paddingTop: '100px',
-          paddingBottom: '280px',
-          position: 'relative',
-          zIndex: 10,
-        }}>
-          {children}
-        </div>
+          {/* Main Content (grows to fill space, pushing footer to bottom) */}
+          <div style={{
+            flex: 1,
+            paddingTop: '100px',
+            paddingBottom: '280px',
+            position: 'relative',
+            zIndex: 10,
+          }}>
+            {children}
+          </div>
 
-        {/* Footer (always at bottom) */}
-        <Footer />
+          {/* Footer (always at bottom) */}
+          <Footer />
+        </LanguageProvider>
       </body>
     </html>
   );

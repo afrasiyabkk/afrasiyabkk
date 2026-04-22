@@ -1,10 +1,11 @@
 'use client';
 
 import Link from 'next/link';
-import { PERSONAL_INFO } from '@/data/personal-info';
+import { usePersonalInfo } from '@/hooks/usePersonalInfo';
 import '@/styles/footer.css';
 
 export const Footer = () => {
+  const personalInfo = usePersonalInfo();
   const currentYear = new Date().getFullYear();
 
   const iconSize = 20;
@@ -53,14 +54,14 @@ export const Footer = () => {
         <div className="footer-flat">
           {/* Left: Name */}
           <div className="footer-name">
-            <h3>{PERSONAL_INFO.fullName}</h3>
+            <h3>{personalInfo.fullName}</h3>
           </div>
 
           {/* Right: Social & Contact Icons */}
           <div className="footer-icons">
-            {PERSONAL_INFO.github && (
+            {personalInfo.github && (
               <Link
-                href={PERSONAL_INFO.github}
+                href={personalInfo.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="footer-icon-link"
@@ -69,9 +70,9 @@ export const Footer = () => {
                 <GitHubIcon />
               </Link>
             )}
-            {PERSONAL_INFO.linkedin && (
+            {personalInfo.linkedin && (
               <Link
-                href={PERSONAL_INFO.linkedin}
+                href={personalInfo.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="footer-icon-link"
@@ -80,9 +81,9 @@ export const Footer = () => {
                 <LinkedInIcon />
               </Link>
             )}
-            {PERSONAL_INFO.twitter && (
+            {personalInfo.twitter && (
               <Link
-                href={PERSONAL_INFO.twitter}
+                href={personalInfo.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="footer-icon-link"
@@ -91,9 +92,9 @@ export const Footer = () => {
                 <TwitterIcon />
               </Link>
             )}
-            {PERSONAL_INFO.discord && (
+            {personalInfo.discord && (
               <Link
-                href={PERSONAL_INFO.discord}
+                href={personalInfo.discord}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="footer-icon-link"
@@ -103,16 +104,16 @@ export const Footer = () => {
               </Link>
             )}
             <a
-              href={`mailto:${PERSONAL_INFO.email}`}
+              href={`mailto:${personalInfo.email}`}
               className="footer-icon-link"
-              title={PERSONAL_INFO.email}
+              title={personalInfo.email}
             >
               <EmailIcon />
             </a>
             <a
-              href={`tel:${PERSONAL_INFO.phone}`}
+              href={`tel:${personalInfo.phone}`}
               className="footer-icon-link"
-              title={PERSONAL_INFO.phone}
+              title={personalInfo.phone}
             >
               <PhoneIcon />
             </a>
@@ -122,7 +123,7 @@ export const Footer = () => {
         {/* Copyright */}
         <div className="footer-divider">
           <p className="footer-copyright">
-            © {currentYear} {PERSONAL_INFO.fullName}. All rights reserved.
+            © {currentYear} {personalInfo.fullName}. All rights reserved.
           </p>
         </div>
       </div>

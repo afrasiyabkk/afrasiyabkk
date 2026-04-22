@@ -1,10 +1,14 @@
+'use client';
+
 import { MainLayout } from '@/components/layout/MainLayout';
 import { CVDownloadButton } from '@/components/common/CVDownloadButton';
-import { PERSONAL_INFO, getBioWithYears } from '@/data/personal-info';
+import { usePersonalInfo, usePersonalBio } from '@/hooks/usePersonalInfo';
 import '@/styles/home.css';
 
 export default function Home() {
-  const bioText = getBioWithYears();
+  const personalInfo = usePersonalInfo();
+  const bioText = usePersonalBio();
+
   return (
     <MainLayout>
       <div className="home-container">
@@ -14,7 +18,7 @@ export default function Home() {
           <div className="hero-picture">
             <div className="hero-picture-frame">
               <img
-                src={PERSONAL_INFO.profileImage}
+                src={personalInfo.profileImage}
                 alt="Profile"
               />
             </div>
@@ -23,34 +27,34 @@ export default function Home() {
           {/* Name & Designation */}
           <div className="hero-content">
             <h1 className="hero-name">
-              {PERSONAL_INFO.fullName}
+              {personalInfo.fullName}
             </h1>
             <p className="hero-designation">
-              {PERSONAL_INFO.designation}
+              {personalInfo.designation}
             </p>
             <h3 className="skills-heading">
               Email
             </h3>
             <p className="hero-designation">
-              {PERSONAL_INFO.email}
+              {personalInfo.email}
             </p>
             <h3 className="skills-heading">
               Phone / Whatsapp
             </h3>
             <p className="hero-designation">
-              {PERSONAL_INFO.phone}
+              {personalInfo.phone}
             </p>
             <h3 className="skills-heading">
               Address
             </h3>
             <p className="hero-designation">
-              {PERSONAL_INFO.address}
+              {personalInfo.address}
             </p>
             <h3 className="skills-heading">
               Skills
             </h3>
             <p className="hero-designation">
-              {PERSONAL_INFO.skills}
+              {personalInfo.skills}
             </p>
           </div>
         </section>

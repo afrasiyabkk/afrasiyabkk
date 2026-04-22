@@ -1,8 +1,12 @@
+'use client';
+
 import { MainLayout } from '@/components/layout/MainLayout';
-import { PERSONAL_INFO } from '@/data/personal-info';
+import { usePersonalInfo } from '@/hooks/usePersonalInfo';
 import '@/styles/about.css';
 
 export default function AboutPage() {
+  const personalInfo = usePersonalInfo();
+
   return (
     <MainLayout>
       <div className="about-container">
@@ -43,8 +47,8 @@ export default function AboutPage() {
                 to get in touch. It's a great way to unwind and connect with fellow enthusiasts.
               </p>
               <p className="interest-contact">
-                Contact me at <a href={`mailto:${PERSONAL_INFO.email}`}>{PERSONAL_INFO.email}</a> or{' '}
-                <a href={`tel:${PERSONAL_INFO.phone}`}>{PERSONAL_INFO.phone}</a>
+                Contact me at <a href={`mailto:${personalInfo.email}`}>{personalInfo.email}</a> or{' '}
+                <a href={`tel:${personalInfo.phone}`}>{personalInfo.phone}</a>
               </p>
             </div>
 
@@ -57,7 +61,7 @@ export default function AboutPage() {
               </p>
               <p className="interest-contact">
                 Hit me up on{' '}
-                <a href={PERSONAL_INFO.discord} target="_blank" rel="noopener noreferrer">
+                <a href={personalInfo.discord} target="_blank" rel="noopener noreferrer">
                   Discord
                 </a>
                 {' '}for gaming sessions!
@@ -70,16 +74,16 @@ export default function AboutPage() {
           <h2>Let's Connect!</h2>
           <p>Whether it's about code, table tennis, gaming, or just having a chat, I'd love to hear from you.</p>
           <div className="cta-links">
-            <a href={`mailto:${PERSONAL_INFO.email}`} className="cta-button">
+            <a href={`mailto:${personalInfo.email}`} className="cta-button">
               📧 Send Email
             </a>
-            <a href={`tel:${PERSONAL_INFO.phone}`} className="cta-button">
+            <a href={`tel:${personalInfo.phone}`} className="cta-button">
               📱 Call/WhatsApp
             </a>
-            <a href={PERSONAL_INFO.linkedin} target="_blank" rel="noopener noreferrer" className="cta-button">
+            <a href={personalInfo.linkedin} target="_blank" rel="noopener noreferrer" className="cta-button">
               💼 LinkedIn
             </a>
-            <a href={PERSONAL_INFO.discord} target="_blank" rel="noopener noreferrer" className="cta-button">
+            <a href={personalInfo.discord} target="_blank" rel="noopener noreferrer" className="cta-button">
               💬 Discord
             </a>
           </div>

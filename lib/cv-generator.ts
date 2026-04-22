@@ -1,11 +1,13 @@
 import jsPDF from 'jspdf';
-import { PERSONAL_INFO, getBioWithYears } from '@/data/personal-info';
+import { getPersonalInfo, getBioWithYears } from '@/data/personal-info';
 import { EXPERIENCES } from '@/data/experiences';
 import { EDUCATIONS } from '@/data/education';
 import { SKILLS } from '@/data/skills';
 import { PROJECTS } from '@/data/projects';
+import { Language } from '@/lib/language';
 
-export const generateCVPDF = () => {
+export const generateCVPDF = (language: Language = 'en') => {
+  const personalInfo = getPersonalInfo(language);
   const doc = new jsPDF({
     orientation: 'portrait',
     unit: 'mm',
@@ -49,20 +51,20 @@ export const generateCVPDF = () => {
   doc.setFontSize(24);
   doc.setTextColor(primaryColor[0], primaryColor[1], primaryColor[2]);
   doc.setFont('', 'bold');
-  doc.text(PERSONAL_INFO.fullName, margin, yPosition);
+  doc.text(personalInfo.fullName, margin, yPosition);
   yPosition += 10;
 
   // Designation
   doc.setFontSize(12);
   doc.setTextColor(secondaryColor[0], secondaryColor[1], secondaryColor[2]);
   doc.setFont('', 'normal');
-  doc.text(PERSONAL_INFO.designation, margin, yPosition);
+  doc.text(personalInfo.designation, margin, yPosition);
   yPosition += 6;
 
   // Contact info
   doc.setFontSize(10);
   doc.setTextColor(textColor[0], textColor[1], textColor[2]);
-  const contactInfo = `${PERSONAL_INFO.email} | ${PERSONAL_INFO.phone}`;
+  const contactInfo = `${personalInfo.email} | ${personalInfo.phone}`;
   doc.text(contactInfo, margin, yPosition);
   yPosition += 4;
 
@@ -81,7 +83,7 @@ export const generateCVPDF = () => {
   doc.setTextColor(textColor[0], textColor[1], textColor[2]);
   doc.setFont('', 'normal');
   
-  const bioText = getBioWithYears();
+  const bioText = getBioWithYears(language);
   const bioLines = doc.splitTextToSize(bioText, contentWidth);
   doc.text(bioLines, margin, yPosition);
   yPosition += bioLines.length * 3.5 + 4;
@@ -253,5 +255,5 @@ export const generateCVPDF = () => {
   }
 
   // Download the PDF
-  doc.save(`${PERSONAL_INFO.fullName.replace(/\s+/g, '_')}_CV.pdf`);
+  doc.save(`${personalInfo.fullName.replace(/\s+/g, '_')}_CV.pdf`);
 };

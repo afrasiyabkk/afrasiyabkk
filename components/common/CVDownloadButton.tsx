@@ -1,16 +1,18 @@
 'use client';
 
 import { useState } from 'react';
+import { useLanguage } from '@/context/LanguageContext';
 import { generateCVPDF } from '@/lib/cv-generator';
 import '@/styles/cv-button.css';
 
 export const CVDownloadButton = () => {
+  const { language } = useLanguage();
   const [isLoading, setIsLoading] = useState(false);
 
   const handleDownloadCV = async () => {
     setIsLoading(true);
     try {
-      generateCVPDF();
+      generateCVPDF(language);
     } catch (error) {
       console.error('Error generating CV:', error);
       alert('Error generating CV. Please try again.');

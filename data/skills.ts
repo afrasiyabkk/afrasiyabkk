@@ -3,7 +3,7 @@ export type SkillLevel = 'Expert' | 'Advanced' | 'Intermediate' | 'Beginner';
 export interface Skill {
   id: string;
   name: string;
-  category: 'Frontend' | 'Backend' | 'Game Development' | 'Mobile Development' | 'Desktop' | 'Database' | 'Tools' | 'Other' | 'DevOps';
+  category: 'Frontend' | 'Backend' | 'Game Development' | 'Mobile Development' | 'Desktop' | 'Database' | 'Tools' | 'Other' | 'DevOps' | 'Plugins' | 'External Services';
   startYear: number;
   endYear: number | 'now';
   description?: string;
@@ -239,15 +239,23 @@ export const SKILLS: Skill[] = [
   {
     id: 'docker',
     name: 'Docker',
-    category: 'Tools',
+    category: 'DevOps',
     startYear: 2023,
     endYear: 'now',
     description: 'Containerization, images, compose',
   },
   {
+    id: 'kubernetes',
+    name: 'Kubernetes',
+    category: 'DevOps',
+    startYear: 2025,
+    endYear: 2026,
+    description: 'Container orchestration, deployment, scaling',
+  },
+  {
     id: 'rest-api',
     name: 'REST API',
-    category: 'Other',
+    category: 'Backend',
     startYear: 2021,
     endYear: 'now',
     description: 'API design, HTTP methods, status codes',
@@ -263,7 +271,7 @@ export const SKILLS: Skill[] = [
   {
     id: 'soap-api',
     name: 'SOAP API',
-    category: 'Other',
+    category: 'Backend',
     startYear: 2023,
     endYear: 2024,
     description: 'XML-based web services, API integration',
@@ -383,10 +391,10 @@ export const SKILLS: Skill[] = [
   {
     id: 'redis',
     name: 'Redis',
-    category: 'Database',
+    category: 'Backend',
     startYear: 2023,
     endYear: 'now',
-    description: 'In-memory data store, caching, real-time data',
+    description: 'real-time data queue',
   },
   {
     id: 'channels',
@@ -423,7 +431,7 @@ export const SKILLS: Skill[] = [
   {
     id: 'google-gemini-api',
     name: 'Google Gemini API',
-    category: 'Other',
+    category: 'External Services',
     startYear: 2024,
     endYear: 'now',
     description: 'AI language model, code generation, multimodal input',
@@ -431,7 +439,7 @@ export const SKILLS: Skill[] = [
   {
     id: 'eclipse-ide-api',
     name: 'Eclipse IDE API',
-    category: 'Tools',
+    category: 'Plugins',
     startYear: 2023,
     endYear: 2024,
     description: 'Eclipse plugin development, IDE integration',
@@ -439,7 +447,7 @@ export const SKILLS: Skill[] = [
   {
     id: 'eclipse-plugin-development',
     name: 'Eclipse Plugin Development',
-    category: 'Tools',
+    category: 'Plugins',
     startYear: 2023,
     endYear: 2024,
     description: 'Eclipse IDE plugin architecture, extension points',
@@ -447,7 +455,7 @@ export const SKILLS: Skill[] = [
   {
     id: 'vscode-extension-api',
     name: 'VS Code Extension API',
-    category: 'Tools',
+    category: 'Plugins',
     startYear: 2024,
     endYear: 'now',
     description: 'VS Code extension development, API integration',
@@ -463,15 +471,15 @@ export const SKILLS: Skill[] = [
   {
     id: 'pybit',
     name: 'PyBit',
-    category: 'Other',
+    category: 'External Services',
     startYear: 2022,
     endYear: 2023,
     description: 'Bybit API client, cryptocurrency trading integration',
   },
   {
-    id: 'email-service',
-    name: 'Email Service',
-    category: 'Other',
+    id: 'email-smtp-integration',
+    name: 'Email SMTP Integration',
+    category: 'External Services',
     startYear: 2021,
     endYear: 'now',
     description: 'Email integration, SMTP, sending notifications',
@@ -479,7 +487,7 @@ export const SKILLS: Skill[] = [
   {
     id: 'microservices',
     name: 'Microservices',
-    category: 'Other',
+    category: 'Backend',
     startYear: 2022,
     endYear: 'now',
     description: 'Microservices architecture, service isolation, independent deployment',
@@ -487,9 +495,25 @@ export const SKILLS: Skill[] = [
   {
     id: 'google-sheets',
     name: 'Google Sheets',
-    category: 'Tools',
+    category: 'External Services',
     startYear: 2023,
     endYear: 'now',
     description: 'Google Sheets API, data export, automation integration',
+  },
+  {
+    id: 'paypal-integration',
+    name: 'PayPal Integration',
+    category: 'External Services',
+    startYear: 2024,
+    endYear: 2025,
+    description: 'PayPal API, payment processing, transaction management',
+  },
+  {
+    id: 'stripe-integration',
+    name: 'Stripe Integration',
+    category: 'External Services',
+    startYear: 2024,
+    endYear: 2025,
+    description: 'Stripe API, payment processing, subscription management',
   },
 ];

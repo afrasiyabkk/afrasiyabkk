@@ -26,3 +26,22 @@
   text-shadow: 0 0 10px var(--matrix-green), 0 0 20px var(--matrix-green);
   border-bottom: 2px solid var(--matrix-green);
 }
+
+.nav-language-selector {
+  display: flex;
+  align-items: center;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .nav {
+    flex-direction: column;
+  }
+
+  .nav-language-selector {
+    width: 100%;
+    justify-content: flex-start;
+    padding-top: 16px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}

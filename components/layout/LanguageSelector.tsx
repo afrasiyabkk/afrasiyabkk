@@ -1,0 +1,61 @@
+'use client';
+
+import { useState, useEffect } from 'react';
+import { Language, getLanguageCookie, setLanguageCookie, getPreferredLanguage } from '@/lib/language';
+import '@/styles/language-selector.css';
+
+export const LanguageSelector = () => {
+  const [currentLanguage, setCurrentLanguage] = useState<Language>('en');
+  const [isOpen, setIsOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  // Initialize language from cookie or browser preference
+  useEffect(() => {
+    const preferredLanguage = getPreferredLanguage();
+    setCurrentLanguage(preferredLanguage);
+    setMounted(true);
+  }, []);
+
+  const handleLanguageChange = (language: Language) => {
+    setCurrentLanguage(language);
+    setLanguageCookie(language);
+    setIsOpen(false);
+  };
+
+  if (!mounted) {
+    return null;
+  }
+
+  return (
+    <div className="language-selector">
+      <button
+        className="language-toggle"
+        onClick={() => setIsOpen(!isOpen)}
+        aria-label="Select language"
+        aria-expanded={isOpen}
+        title="Select Language"
+      >
+        🌐
+      </button>
+
+      {isOpen && (
+        <div className="language-dropdown">
+          <button
+            className={`language-option ${currentLanguage === 'en' ? 'active' : ''}`}
+            onClick={() => handleLanguageChange('en')}
+          >
+            <span className="language-flag">🇺🇸</span>
+            English
+          </button>
+          <button
+            className={`language-option ${currentLanguage === 'it' ? 'active' : ''}`}
+            onClick={() => handleLanguageChange('it')}
+          >
+            <span className="language-flag">🇮🇹</span>
+            Italiano
+          </button>
+        </div>
+      )}
+    </div>
+  );
+};

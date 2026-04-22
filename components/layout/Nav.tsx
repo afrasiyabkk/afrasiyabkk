@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { NAV_LINKS } from '@/lib/constants';
 import { COLORS } from '@/lib/colors';
+import { LanguageSelector } from './LanguageSelector';
 import '@/styles/nav.css';
 
 interface NavProps {
@@ -30,6 +31,9 @@ export const Nav = ({ isOpen = false, onNavClick }: NavProps) => {
           </Link>
         );
       })}
+      <div className="nav-language-selector">
+        <LanguageSelector />
+      </div>
     </nav>
   );
 };

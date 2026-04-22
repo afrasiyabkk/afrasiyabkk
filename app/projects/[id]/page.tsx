@@ -5,7 +5,7 @@ import { use } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { MainLayout } from '@/components/layout/MainLayout';
-import { PROJECTS } from '@/data/projects';
+import { useProjects, useProjectDetailsPageData } from '@/hooks/usePersonalInfo';
 import '@/styles/project-details.css';
 
 interface ProjectDetailsPageProps {
@@ -16,15 +16,17 @@ interface ProjectDetailsPageProps {
 
 export default function ProjectDetailsPage({ params }: ProjectDetailsPageProps) {
   const { id } = use(params);
-  const [project, setProject] = useState<typeof PROJECTS[0] | null>(null);
+  const projects = useProjects();
+  const pageData = useProjectDetailsPageData();
+  const [project, setProject] = useState<typeof projects[0] | null>(null);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     // Find the project from the ID
-    const foundProject = PROJECTS.find((p) => p.id === id);
+    const foundProject = projects.find((p) => p.id === id);
     setProject(foundProject || null);
-  }, [id]);
+  }, [id, projects]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -55,10 +57,10 @@ export default function ProjectDetailsPage({ params }: ProjectDetailsPageProps) 
       <MainLayout>
         <div className="project-details-container">
           <div className="project-not-found">
-            <h1>Project Not Found</h1>
-            <p>The project you're looking for doesn't exist.</p>
+            <h1>{pageData.projectNotFound}</h1>
+            <p>{pageData.projectNotFoundMessage}</p>
             <Link href="/projects" className="back-btn">
-              Back to Projects
+              {pageData.backToProjects}
             </Link>
           </div>
         </div>
@@ -83,7 +85,7 @@ export default function ProjectDetailsPage({ params }: ProjectDetailsPageProps) 
       <MainLayout>
         <div className="project-details-container">
           <Link href="/projects" className="back-link">
-            ← Back to Projects
+            ← {pageData.backToProjects}
           </Link>
 
           <div className="project-details-grid">
@@ -138,13 +140,13 @@ export default function ProjectDetailsPage({ params }: ProjectDetailsPageProps) 
               <h1 className="details-title">{project.title}</h1>
 
               <div className="description-box">
-                <h2 className="section-heading">About</h2>
+                <h2 className="section-heading">{pageData.aboutSection}</h2>
                 <p className="project-full-description">{project.description}</p>
               </div>
 
               {/* Technologies */}
               <div className="tech-section">
-                <h2 className="section-heading">Technologies Used</h2>
+                <h2 className="section-heading">{pageData.technologiesSection}</h2>
                 <div className="tech-list">
                   {project.technologies.map((tech, index) => (
                     <span key={index} className="tech-tag">
@@ -156,7 +158,7 @@ export default function ProjectDetailsPage({ params }: ProjectDetailsPageProps) 
 
               {/* Features */}
               <div className="features-section">
-                <h2 className="section-heading">Technical Features</h2>
+                <h2 className="section-heading">{pageData.featuresSection}</h2>
                 <ul className="features-list">
                   {project.features.map((feature, index) => (
                     <li key={index}>{feature}</li>
@@ -173,7 +175,7 @@ export default function ProjectDetailsPage({ params }: ProjectDetailsPageProps) 
                     rel="noopener noreferrer"
                     className="action-btn primary"
                   >
-                    Go to Site
+                    {pageData.goToSiteBtn}
                   </a>
                 )}
                 {project.githubUrl && (
@@ -183,7 +185,7 @@ export default function ProjectDetailsPage({ params }: ProjectDetailsPageProps) 
                     rel="noopener noreferrer"
                     className="action-btn secondary"
                   >
-                    GitHub
+                    {pageData.githubBtn}
                   </a>
                 )}
               </div>

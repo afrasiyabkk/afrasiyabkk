@@ -3,10 +3,12 @@
 import { useState, useMemo } from 'react';
 import { MainLayout } from '@/components/layout/MainLayout';
 import { ProjectCard } from '@/components/common/ProjectCard';
-import { PROJECTS } from '@/data/projects';
+import { useProjects, useProjectsPageData } from '@/hooks/usePersonalInfo';
 import '@/styles/projects.css';
 
 export default function ProjectsPage() {
+  const projects = useProjects();
+  const pageData = useProjectsPageData();
   const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
   const [selectedCompanies, setSelectedCompanies] = useState<string[]>([]);
   const [filterOpen, setFilterOpen] = useState(false);
@@ -14,26 +16,26 @@ export default function ProjectsPage() {
   // Get unique categories and companies
   const categories = useMemo(() => {
     const cats = new Set<string>();
-    PROJECTS.forEach(p => p.categories.forEach(cat => cats.add(cat)));
+    projects.forEach(p => p.categories.forEach(cat => cats.add(cat)));
     return Array.from(cats).sort();
-  }, []);
+  }, [projects]);
 
   const companies = useMemo(() => {
     const comps = new Set<string>();
-    PROJECTS.forEach(p => comps.add(p.company));
+    projects.forEach(p => comps.add(p.company));
     return Array.from(comps).sort();
-  }, []);
+  }, [projects]);
 
   // Filter projects
   const filteredProjects = useMemo(() => {
-    return PROJECTS.filter(project => {
+    return projects.filter(project => {
       const categoryMatch = selectedCategories.length === 0 || 
         project.categories.some(cat => selectedCategories.includes(cat));
       const companyMatch = selectedCompanies.length === 0 || 
         selectedCompanies.includes(project.company);
       return categoryMatch && companyMatch;
     });
-  }, [selectedCategories, selectedCompanies]);
+  }, [selectedCategories, selectedCompanies, projects]);
 
   const toggleCategory = (category: string) => {
     setSelectedCategories(prev =>
@@ -60,10 +62,8 @@ export default function ProjectsPage() {
     <MainLayout>
       <div className="projects-container">
         <section className="projects-header">
-          <h1 className="projects-title">My Projects</h1>
-          <p className="projects-subtitle">
-            A collection of work showcasing my technical expertise and problem-solving abilities
-          </p>
+          <h1 className="projects-title">{pageData.title}</h1>
+          <p className="projects-subtitle">{pageData.subtitle}</p>
         </section>
 
         {/* Filters Accordion */}
@@ -72,14 +72,14 @@ export default function ProjectsPage() {
             className="accordion-header"
             onClick={() => setFilterOpen(!filterOpen)}
           >
-            <span className="accordion-title">🔍 Filter Projects</span>
+            <span className="accordion-title">{pageData.filterTitle}</span>
             <span className={`accordion-icon ${filterOpen ? 'open' : ''}`}>▼</span>
           </button>
 
           {filterOpen && (
             <div className="accordion-content">
               <div className="filter-section">
-                <h3 className="filter-title">Categories</h3>
+                <h3 className="filter-title">{pageData.categoriesLabel}</h3>
                 <div className="filter-options">
                   {categories.map(category => (
                     <button
@@ -94,7 +94,7 @@ export default function ProjectsPage() {
               </div>
 
               <div className="filter-section">
-                <h3 className="filter-title">Company</h3>
+                <h3 className="filter-title">{pageData.companyLabel}</h3>
                 <div className="filter-options">
                   {companies.map(company => (
                     <button
@@ -110,7 +110,7 @@ export default function ProjectsPage() {
 
               {(selectedCategories.length > 0 || selectedCompanies.length > 0) && (
                 <button className="clear-filters-btn" onClick={clearFilters}>
-                  Clear Filters
+                  {pageData.clearFiltersBtn}
                 </button>
               )}
             </div>
@@ -119,7 +119,7 @@ export default function ProjectsPage() {
 
         {/* Projects Count */}
         <div className="projects-count">
-          Showing {filteredProjects.length} of {PROJECTS.length} projects
+          {pageData.showingText.replace('{current}', String(filteredProjects.length)).replace('{total}', String(projects.length))}
         </div>
 
         {/* Projects Grid */}
@@ -130,7 +130,7 @@ export default function ProjectsPage() {
             ))
           ) : (
             <div className="no-projects">
-              <p>No projects match your filter criteria</p>
+              <p>{pageData.noProjectsText}</p>
             </div>
           )}
         </section>

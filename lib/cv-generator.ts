@@ -3,12 +3,13 @@ import { getPersonalInfo, getBioWithYears } from '@/data/personal-info';
 import { getExperiences } from '@/data/experiences';
 import { EDUCATIONS } from '@/data/education';
 import { SKILLS } from '@/data/skills';
-import { PROJECTS } from '@/data/projects';
+import { getProjects } from '@/data/projects';
 import { Language } from '@/lib/language';
 
 export const generateCVPDF = (language: Language = 'en') => {
   const personalInfo = getPersonalInfo(language);
   const experiences = getExperiences(language);
+  const projects = getProjects(language);
   
   const doc = new jsPDF({
     orientation: 'portrait',
@@ -214,7 +215,7 @@ export const generateCVPDF = (language: Language = 'en') => {
   doc.text(`View all projects on portfolio: ${portfolioProjectsUrl}`, margin, yPosition);
   yPosition += 4;
 
-  PROJECTS.forEach((project) => {
+  projects.forEach((project) => {
     checkPageBreak(12);
 
     // Project Title

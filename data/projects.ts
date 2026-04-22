@@ -1,5 +1,6 @@
 import { EXPERIENCES } from './experiences';
 import { SKILLS } from './skills';
+import { Language } from '@/lib/language';
 
 const getSkillName = (skillId: string): string => 
   SKILLS.find(s => s.id === skillId)?.name || skillId;
@@ -31,7 +32,7 @@ export interface Project {
   company: string;
 }
 
-export const PROJECTS: Project[] = [
+export const PROJECTS_EN: Project[] = [
   {
     id: 'jbo',
     title: 'Jstore Back Office - Financial Module',
@@ -465,4 +466,525 @@ export const PROJECTS: Project[] = [
     demoUrl: 'https://database.aromaspecialist.com/signin_page.php',
   },
 ];
+
+// Italian Version
+export const PROJECTS_IT: Project[] = [
+  {
+    id: 'jbo',
+    title: 'Jstore Back Office - Modulo Finanziario',
+    shortDescription: 'Modulo Contabilità e Gestione Cassa con Generazione Dinamica di Documenti',
+    description: 'Un modulo contabile sofisticato sviluppato da zero nel sistema di gestione back office Jstore. Questo sistema finanziario specializzato gestisce operazioni di cassa e giornale di cassa con generazione intelligente di documenti. Il modulo presenta un sistema di template flessibile AccountingReasons che consente la configurazione di diverse voci di contabilità in base ai requisiti aziendali. Gli utenti creano configurazioni specificando le ragioni di addebito e accredito, che il sistema utilizza per generare automaticamente documenti finanziari integrando i dati di vendita in tempo reale da servizi di supermercato esterni. Il sistema mantiene l\'integrità del database separato con supporto completo per ambienti multi-cassa e multi-registratore, mostra il valore totale debiti e crediti e la riconciliazione (differenza tra debiti e crediti). Oltre al modulo finanziario, ho contribuito insieme a un team di altri sviluppatori nello sviluppo di altri moduli del sistema di gestione JBO come modulo Magazzino, modulo Inventario, modulo Articoli. Il modulo finanziario si integra perfettamente nell\'ecosistema più ampio.',
+    technologies: [getSkillName('java'), getSkillName('springboot'), getSkillName('postgresql'), getSkillName('rest-api'), getSkillName('vuejs'), getSkillName('html'), getSkillName('css'), getSkillName('syncfusion')],
+    categories: [PROJECT_CATEGORIES.WEB_APP],
+    company: EXPERIENCES[0].company,
+    images: [
+      '/media/finanziario1.png',
+      '/media/finanziario2.png',
+      '/media/finanziario3.png',
+      '/media/finanziario4.png',
+      '/media/finanziario5.png',
+      '/media/finanziario6.png',
+    ],
+    features: [
+      'Integrazione API esterna per recuperare le informazioni di vendita del supermercato da servizi esterni',
+      'Calcoli complessi per calcolare i valori dei documenti finanziari basati sui dati di vendita e sulle ragioni contabili configurate',
+      'Query complesse (usando JPA e Criteria Builder) per filtrare i documenti in base a vari criteri',
+      'Job Cron per recuperare automaticamente informazioni come (negozio, azienda, canale di vendita, insegna, IVA ecc.) dai servizi esterni dopo un intervallo definito',
+      'Job Cron per creare automaticamente documenti per il giorno dopo l\'intervallo definito',
+      'Architettura database separata per isolamento e scalabilità dei moduli',
+      'Sviluppo completo backend e frontend da zero',
+      'Architettura microservizi per isolamento dei servizi e deployment indipendente',
+      'Distribuzione dei microservizi sui server del cliente',
+    ],
+  },
+  {
+    id: 'spedizione-web',
+    title: 'Spedizione Web',
+    shortDescription: 'Gestione spedizioni integrata con integrazione SOAP API e sincronizzazione ordini marketplace',
+    description: 'Spedizione Web è una piattaforma completa di gestione spedizioni sviluppata che consente agli utenti di calcolare i costi di spedizione, selezionare da più servizi corriere (BRT, SDA, Poste Italiane, ecc.) e gestire spedizioni. Ho sviluppato due microservizi critici per questa piattaforma: (1) Un microservizio che si integra con l\'API SOAP di Poste Italiane per consentire agli utenti di inviare direttamente raccomandate online con generazione di documenti e tracciamento snelliti. (2) Un microservizio di gestione ordini usando API REST che sincronizza gli ordini dai marketplace di e-commerce (Woocommerce, con supporto espandibile per Amazon, eBay e altri) direttamente nel sistema di spedizione, automatizzando le spedizioni di quegli ordini.',
+    technologies: [getSkillName('java'), getSkillName('springboot'), getSkillName('postgresql'), getSkillName('soap-api'), getSkillName('rest-api'), getSkillName('microservices')],
+    categories: [PROJECT_CATEGORIES.WEB_APP],
+    company: EXPERIENCES[0].company,
+    images: [
+      '/media/spedizioniweb1.png',
+      '/media/spedizioniweb2.png',
+    ],
+    features: [
+      'Integrazione API SOAP di Poste Italiane per operazioni di raccomandata',
+      'Architettura microservizi per isolamento dei servizi e deployment indipendente',
+      'Microservizio di gestione ordini con pattern API REST',
+      'Integrazione API REST di Woocommerce con sincronizzazione ordini',
+      'Architettura connettore marketplace estensibile per supporto multi-piattaforma, gestita in modo tale che le risposte degli ordini di qualsiasi marketplace vengono convertite nella stessa risposta in modo che quando aggiungiamo più marketplace qui nel microservizio, spedizioniweb non ha bisogno di modifiche per accettare quegli ordini.',
+      'Calcolo costi spedizione in tempo reale da più vettori',
+      'Distribuzione dei microservizi sui server del cliente',
+    ],
+  },
+  {
+    id: 'eclipse-ai-plugin',
+    title: 'Plugin Eclipse AI - Integrazione Gemini',
+    shortDescription: 'Plugin Eclipse IDE con alimentazione AI e integrazione API Google Gemini per generazione codice intelligente',
+    description: 'Un intelligente plugin Eclipse IDE che si integra perfettamente con l\'API Google Gemini per fornire generazione di codice e assistenza alimentata da AI. Il plugin legge il contesto di progetto completo, analizza tutti i file attualmente aperti nell\'editor e utilizza questo contesto insieme ai prompt dell\'utente per generare suggerimenti di codice intelligenti. Aggiorna automaticamente il codice esistente o crea nuovi file in base all\'output generato da AI. Il plugin supporta più formati di file incluse immagini e PDF, consentendo agli sviluppatori di includere riferimenti visivi e documentazione nei loro prompt per una generazione di codice più accurata. Ciò consente un flusso di lavoro in cui gli sviluppatori possono fare riferimento a design, specifiche e pattern di codice esistenti mentre ricevono assistenza AI consapevole del contesto direttamente nel loro IDE.',
+    technologies: [getSkillName('java'), getSkillName('eclipse-ide-api'), getSkillName('google-gemini-api'), getSkillName('eclipse-plugin-development')],
+    categories: [PROJECT_CATEGORIES.DESKTOP_APP],
+    company: EXPERIENCES[0].company,
+    images: [
+      '/media/eclipseaiplugin1.png',
+      '/media/eclipseaiplugin2.png',
+    ],
+    features: [
+      'Integrazione API Google Gemini per generazione di codice avanzata',
+      'Analisi contesto progetto e lettura file intelligente da workspace editor',
+      'Aggregazione contesto multi-file per fornire comprensione di codice completa a Gemini',
+      'Supporto per più tipi di file incluse immagini (PNG, JPG, GIF) e PDF per generazione di codice basata su riferimenti',
+      'Aggiornamento codice automatico e creazione di nuovi file basati su output generato da AI',
+      'Architettura plugin Eclipse IDE per integrazione IDE perfetta e coerenza UI/UX',
+      'Elaborazione prompt consapevole del contesto che allega contenuti file rilevanti e struttura progetto ai prompt dell\'utente',
+      'Generazione di codice in tempo reale con sincronizzazione automatica ai file di progetto',
+      'Design estensibile per supportare modelli AI aggiuntivi e API oltre a Gemini',
+    ],
+  },
+  {
+    id: 'vscode-ai-plugin',
+    title: 'Plugin VS Code AI - Integrazione Gemini',
+    shortDescription: 'Estensione VS Code intelligente con API Google Gemini e supporto multi-modello per sviluppo alimentato da AI',
+    description: 'Una potente estensione VS Code che integra l\'API Google Gemini per fornire generazione di codice e assistenza AI intelligente direttamente nell\'editor. Il plugin consente agli sviluppatori di selezionare dai modelli Gemini disponibili, abilitando flessibilità nella scelta tra diverse capacità di modello e caratteristiche di prestazioni. Analizza il contesto di progetto completo, legge tutti i file attualmente aperti nell\'editor e incorpora queste informazioni complete nei prompt dell\'utente inviati a Gemini. L\'estensione supporta più tipi di file inclusi file di codice, immagini e PDF, consentendo agli sviluppatori di includere design visivi, specifiche e riferimenti di documentazione quando richiede la generazione di codice. Basato sulle risposte generate da AI di Gemini, il plugin aggiorna automaticamente i file di codice esistenti o crea nuovi file secondo necessità, integrando perfettamente l\'assistenza AI nel flusso di lavoro di sviluppo.',
+    technologies: [getSkillName('typescript'), getSkillName('vscode-extension-api'), getSkillName('google-gemini-api')],
+    categories: [PROJECT_CATEGORIES.DESKTOP_APP],
+    company: EXPERIENCES[0].company,
+    images: [
+      '/media/vscodeaiplugin1.png',
+    ],
+    features: [
+      'Integrazione API Google Gemini con capacità di selezione modello multi-modello',
+      'Selettore modello dinamico per scegliere da modelli Gemini disponibili in base al caso d\'uso',
+      'Analisi contesto progetto completo e lettura file intelligente da workspace editor',
+      'Aggregazione contesto multi-file con file aperti automaticamente inclusi nei prompt',
+      'Supporto per più tipi di file inclusi file di codice, immagini (PNG, JPG, GIF) e PDF',
+      'Miglioramento prompt intelligente che allega automaticamente contenuti file rilevanti e struttura progetto',
+      'Aggiornamento codice automatico e creazione di nuovi file basati su output generato da AI',
+      'Sincronizzazione codice in tempo reale con aggiornamenti file automatici che riflettono i suggerimenti di AI',
+      'Architettura estensione VS Code con integrazione IDE nativa e coerenza UI',
+      'Design estensibile per supportare modelli AI aggiuntivi e API oltre a Gemini',
+      'Generazione codice consapevole della sintassi con rilevamento linguaggio e preservazione della formattazione',
+    ],
+  },
+  {
+    id: 'social-media-app',
+    title: 'Applicazione Social Media - Sviluppo Backend',
+    shortDescription: 'Sistema backend completo per piattaforma social media con messaggistica in tempo reale',
+    description: 'Contributo allo sviluppo backend di un\'applicazione social media completa per un cliente. Mentre l\'applicazione completa contiene numerosi moduli, questo lavoro si concentra su specifici moduli mostrati nelle immagini: profili utente, post (con storie, reels e post), chat messaggistica in tempo reale, notifiche e funzionalità di ricerca. Per ciascuno di questi moduli, ho architettato e implementato endpoint API RESTful completi con operazioni CRUD complete. Il modulo chat utilizza Django Channels e WebSocket per fornire capacità di messaggistica in tempo reale tra gli utenti con gestione di connessioni e gestione di eventi perfette. Questi moduli si integrano con l\'ecosistema della piattaforma più ampio che contiene servizi backend aggiuntivi sviluppati da altri membri del team.',
+    technologies: [getSkillName('python'), getSkillName('django'), getSkillName('django-rest-framework'), getSkillName('websockets'), getSkillName('channels'), getSkillName('redis'), getSkillName('mysql')],
+    categories: [PROJECT_CATEGORIES.WEB_APP],
+    company: EXPERIENCES[1].company,
+    images: [
+      '/media/socialmediabe1.png',
+      '/media/socialmediabe2.png',
+      '/media/socialmediabe3.png',
+      '/media/socialmediabe4.png',
+      '/media/socialmediabe5.png',
+      '/media/socialmediabe6.png',
+      '/media/socialmediabe7.png',
+    ],
+    features: [
+      'Sistema di messaggistica chat in tempo reale usando Django Channels e WebSocket per consegna di messaggi istantanea',
+      'Avvisi di notifica in tempo reale usando integrazione firebase per notifiche push agli utenti',
+      'Algoritmi di ricerca per cercare utenti, post, storie e contenuti su tutta la piattaforma',
+      'Autenticazione e autorizzazione utente con controllo di accesso basato su ruoli',
+      'Query database complesse ottimizzate per prestazioni e scalabilità',
+      'Pattern di design API RESTful con metodi HTTP e codici di stato appropriati',
+      'Distribuzione dei servizi backend al server del cliente',
+    ],
+  },
+  {
+    id: 'crypto-trading-bot',
+    title: 'Piattaforma Bot Trading Crypto - Integrazione Bybit',
+    shortDescription: 'Piattaforma di trading automatizzato avanzata con creazione bot intelligente e gestione portafoglio in tempo reale',
+    description: 'Una piattaforma sofisticata basata su web per creare e gestire bot di trading di criptovalute automatizzati sulla borsa Bybit. Gli utenti possono creare bot di trading personalizzati per qualsiasi coppia di trading (BTCUSDT, XRPUSDT, ecc.) con opzioni di configurazione granulare. La piattaforma consente agli utenti di impostare parametri bot inclusa la selezione moneta, numero di ordini, tipo di bot (lungo o corto), obiettivi di profitto, step ordini e parametri intelligenti di ricollect ordini che regolano automaticamente gli ordini quando il prezzo di mercato si discosta in modo significativo. Per bot lunghi, il sistema posiziona ordini di acquisto iniziali; per bot corti, posiziona ordini di vendita. Una volta che gli ordini iniziano a riempirsi, il bot posiziona automaticamente ordini opposti con obiettivi di profitto configurati. La piattaforma include calcoli avanzati di analisi tecnica come punti pivot, livelli di supporto (1, 2, 3) e livelli di resistenza (1, 2, 3) per aiutare gli utenti a prendere decisioni informate. Gli utenti possono cercare ordini specifici su Bybit per ID ordine per controllare lo stato in tempo reale. Un dashboard completo visualizza tutti gli ordini attivi, i calcoli e i dati di mercato. Gli aggiornamenti di saldo in tempo reale sono forniti tramite connessioni WebSocket e gli utenti possono salvare e riutilizzare template di bot per distribuzione più rapida.',
+    technologies: [getSkillName('python'), getSkillName('django'), getSkillName('javascript'), getSkillName('jquery'), getSkillName('html'), getSkillName('css'), getSkillName('bootstrap'), getSkillName('pybit'), getSkillName('websockets'), getSkillName('channels'), getSkillName('redis'), getSkillName('mysql')],
+    categories: [PROJECT_CATEGORIES.WEB_APP],
+    company: EXPERIENCES[1].company,
+    images: [
+      '/media/bybittrading1.png',
+      '/media/bybittrading2.png',
+      '/media/bybittrading3.png',
+      '/media/bybittrading4.png',
+      '/media/bybittrading5.png',
+      '/media/bybittrading6.png',
+      '/media/bybittrading7.png',
+      '/media/bybittrading8.png',
+      '/media/bybittrading9.png',
+      '/media/bybittrading10.png',
+      '/media/bybittrading11.png',
+    ],
+    features: [
+      'Integrazione libreria Pybit per comunicazione Bybit API affidabile e operazioni di trading',
+      'Gestione connessione WebSocket (con channels e redis) per saldo live',
+      'Autenticazione utente e integrazione autenticatore Google per accesso sicuro alla piattaforma',
+      'Creazione e configurazione bot per qualsiasi coppia di trading di criptovalute su Bybit',
+      'Parametri bot flessibili: selezione moneta, quantità ordini, tipo di bot (lungo/corto), obiettivi di profitto e step ordini',
+      'Sistema intelligente di ricollect ordini che regola gli ordini quando il prezzo di mercato si discosta dagli ordini posizionati',
+      'Posizionamento ordini dinamico: bot lunghi posizionano ordini di acquisto, bot corti posizionano ordini di vendita come ordini primari',
+      'Posizionamento ordini opposti automatico con obiettivi di profitto configurati una volta che gli ordini iniziali iniziano a riempirsi',
+      'Template bot riutilizzabili per distribuzione rapida di bot e configurazione',
+      'Calcoli avanzati di analisi tecnica: punti pivot, livelli di supporto (1, 2, 3), livelli di resistenza (1, 2, 3)',
+      'Funzionalità di ricerca ordini Bybit per ID ordine per controllo dello stato di ordine in tempo reale',
+      'Tabella di gestione ordini completa che visualizza tutti gli ordini attivi e storici',
+      'Logica di trading complessa per decision-making automatica basata su condizioni di mercato',
+      'Supporto trading multi-coppia con gestione simultanea di bot',
+    ],
+  },
+  {
+    id: 'control-panel-web',
+    title: 'Control Panel Web - Monitoraggio Applicazioni e Gestione Attività',
+    shortDescription: 'Pannello di controllo completo basato su web per monitoraggio applicazioni e gestione di attività ricorrenti complesse',
+    description: 'Un\'applicazione di pannello di controllo sofisticata progettata per monitorare e gestire più applicazioni connesse con un sistema integrato di gestione attività. Il dashboard visualizza lo stato complessivo dell\'applicazione con indicatori di stato intelligenti: verde per operativo, rosso per errori rilevati e giallo per stati di avviso (errori in attesa di conferma prima dell\'escalation). La piattaforma presenta un gestore attività complesso che consente agli utenti di creare attività con multiple opzioni di pianificazione incluse date una tantum, attività ricorrenti settimanali, attività mensili in giorni specifici e attività annuali in mesi specifici. Il sistema di visualizzazione attività utilizza algoritmi avanzati per mostrare intelligentemente le attività sulle loro date assegnate. Le attività importanti possono essere contrassegnate con priorità e appariranno automaticamente diversi giorni prima della loro data pianificata in una visualizzazione avvisi (configurabile nelle impostazioni). Le attività persistenti che rimangono incomplete sulla loro data pianificata si trasferiscono automaticamente ai giorni successivi. La pagina Stato visualizza tutte le applicazioni connesse con monitoraggio dello stato in tempo reale. Dettagli di Stato fornisce informazioni di errore comprehensive e diagnostica. La sezione Switch consente la configurazione dei punti finali di monitoraggio con supporto flessibile per richieste GET e POST a intervalli configurabili. La funzione Whitelist consente agli amministratori di configurare parole chiave di errore specifiche da ignorare per applicazioni particolari, prevenendo falsi allarmi.',
+    technologies: [getSkillName('python'), getSkillName('django'), getSkillName('javascript'), getSkillName('jquery'), getSkillName('html'), getSkillName('css'), getSkillName('bootstrap'), getSkillName('mysql')],
+    categories: [PROJECT_CATEGORIES.WEB_APP],
+    company: EXPERIENCES[1].company,
+    images: [
+      '/media/controlpanelweb1.png',
+      '/media/controlpanelweb2.png',
+      '/media/controlpanelweb3.png',
+      '/media/controlpanelweb4.png',
+      '/media/controlpanelweb5.png',
+      '/media/controlpanelweb6.png',
+      '/media/controlpanelweb7.png',
+    ],
+    features: [
+      'Sistema indicatore di stato intelligente con tre stati: verde (operativo), rosso (errore), giallo (avviso/in attesa di conferma)',
+      'Dashboard di stato dell\'applicazione complessivo che mostra la salute aggregata di tutte le applicazioni monitorate',
+      'Gestore attività complesso con pianificazione flessibile: date una tantum, settimanale, mensile (giorni specifici) e annuale (mesi specifici)',
+      'Algoritmo di visualizzazione attività avanzato per pianificazione e presentazione intelligente su date corrette',
+      'Prioritizzazione attività importante con finestra di pre-notifica configurabile (visualizza attività giorni prima della loro data pianificata)',
+      'Sistema attività persistente che trasferisce automaticamente le attività incomplete ai giorni successivi',
+      'Pagina di stato che visualizza tutte le applicazioni connesse con monitoraggio dello stato in tempo reale',
+      'Pagina Dettagli di Stato che fornisce informazioni di errore comprehensive e dettagli diagnostici',
+      'Pagina di configurazione Switch per l\'aggiunta di punti finali di monitoraggio con supporto richieste GET/POST',
+      'Intervalli di monitoraggio configurabili per controlli di salute dell\'applicazione periodici',
+      'Sistema di gestione whitelist per ignorare parole chiave di errore specifiche per applicazioni particolari',
+      'Logica di filtro di errore per prevenire falsi allarmi basati su parole chiave whitelisted',
+      'Monitoraggio multi-applicazione con configurazione indipendente per applicazione',
+    ],
+  },
+  {
+    id: 'sevenfigureprofits',
+    title: 'Seven Figure Profits - Calcolatore Redditività Commerciale',
+    shortDescription: 'Calcolatore redditività avanzato con analisi multi-step e tracciamento ricavi dipartimentali',
+    description: 'Una piattaforma completa di calcolo della redditività progettata per aiutare i proprietari di aziende ad analizzare e ottimizzare le loro operazioni. Il sistema presenta un processo di valutazione in due parti: la parte 1 acquisisce dati finanziari dettagliati inclusi i ricavi totali suddivisi per dipartimento, numero di dipendenti, guadagni e costi operativi. Gli utenti possono inserire i ricavi per ogni dipartimento separatamente, creando un\'istantanea finanziaria completa. Il sistema quindi elabora questi dati e genera un rapporto di redditività dettagliato che viene inviato per email all\'utente per i suoi registri. La parte 2 va oltre le metriche finanziarie valutando la redditività emotiva di ciascun dipartimento generatore di ricavi attraverso una serie di domande di valutazione, aiutando i proprietari di aziende a determinare non solo se i loro dipartimenti sono redditizi, ma se sono degni dello sforzo e dell\'investimento emotivo per continuare a operare. Questo approccio di analisi duplice fornisce sia intuizioni finanziarie quantitative che valutazioni operative qualitative.',
+    technologies: [getSkillName('php'), getSkillName('laravel'), getSkillName('react'), getSkillName('javascript'), getSkillName('mysql'), getSkillName('email-smtp-integration'), getSkillName('rest-api')],
+    categories: [PROJECT_CATEGORIES.WEB_APP],
+    company: EXPERIENCES[1].company,
+    images: [
+      '/media/sevenfigureprofits1.png',
+      '/media/sevenfigureprofits2.png',
+      '/media/sevenfigureprofits3.png',
+      '/media/sevenfigureprofits4.png',
+      '/media/sevenfigureprofits5.png',
+      '/media/sevenfigureprofits6.png',
+      '/media/sevenfigureprofits7.png',
+      '/media/sevenfigureprofits8.png',
+      '/media/sevenfigureprofits9.png',
+    ],
+    features: [
+      'Integrazione email SMTP per consegna report automatica agli utenti',
+      'Wizard di analisi redditività multi-step con interfaccia utente intuitiva',
+      'Parte 1: Raccolta dati finanziari completa inclusi ricavi totali, scomposizione ricavi dipartimentali, numero di dipendenti, guadagni e costi operativi',
+      'Tracciamento ricavi dipartimentali con voce ricavi individuale per ogni dipartimento commerciale',
+      'Calcoli finanziari avanzati e calcolo metriche di redditività',
+      'Generazione report automatica con analisi finanziaria dettagliata',
+      'Parte 2: Valutazione redditività emotiva con domande di valutazione configurabili',
+      'Sistema di valutazione multi-domanda per valutare il valore di ogni dipartimento generatore di ricavi',
+      'Questionario specifico per dipartimento che valuta la facilità di lavoro e il valore ROI',
+      'Intuizioni di redditività finanziaria ed emotiva combinate per valutazione aziendale olistica',
+      'Dashboard amichevole per l\'utente che visualizza tutti i dati dipartimentali e i risultati di analisi',
+      'Persistenza report e tracciamento storico delle valutazioni di redditività',
+      'Design reattivo per accesso desktop e mobile',
+      'Gestione dati sicura per informazioni finanziarie aziendali sensibili',
+    ],
+    demoUrl: 'https://sevenfigureprofits.net/',
+  },
+  {
+    id: 'profilable',
+    title: 'Profilable - Sistema Account Utente Centralizzato',
+    shortDescription: 'Piattaforma autenticazione centrale con profilo utente avanzato, link profilo personalizzabili e sistema badge dinamico',
+    description: 'Profilable è una piattaforma di gestione account centralizzata che funge da spina dorsale di autenticazione per una suite di servizi correlati inclusi Uploadery e Pasteview. La piattaforma consente agli utenti di registrare e gestire i loro account in un unico posto, quindi accedere perfettamente a tutte le applicazioni connesse utilizzando le loro credenziali Profilable. Ho contribuito a funzionalità chiave incluso un sistema di modifica profilo completo che consente agli utenti di personalizzare i loro account, capacità di aggiungere e visualizzare link profilo social media e link di contatto personalizzati sui loro profili, un sistema di badge intelligente che riconosce i risultati e i livelli di coinvolgimento dell\'utente e un motore di personalizzazione colore sofisticato che applica dinamicamente i colori selezionati dall\'utente ai nomi profilo, link e elementi di sfondo in base al loro stato di badge. Questo crea un\'esperienza utente personalizzata e visivamente distinta dove i badge di livello superiore sblocchino opzioni di personalizzazione migliorate. La piattaforma funziona insieme ad altri sviluppatori per fornire un sistema di identità e autenticazione unificato su più applicazioni interconnesse.',
+    technologies: [getSkillName('react'), getSkillName('nodejs'), getSkillName('javascript'), getSkillName('typescript'), getSkillName('express'), getSkillName('mongodb'), getSkillName('rest-api')],
+    categories: [PROJECT_CATEGORIES.WEB_APP],
+    company: EXPERIENCES[1].company,
+    images: [
+      '/media/profilable1.png',
+      '/media/profilable2.png',
+      '/media/profilable3.png',
+      '/media/profilable4.png',
+      '/media/profilable5.png',
+    ],
+    demoUrl: 'https://test.profilable.com',
+    features: [
+      'Sistema di registrazione e gestione account utente centralizzato',
+      'Gateway di autenticazione unificato per applicazioni connesse (Uploadery, Pasteview)',
+      'Interfaccia di modifica profilo completa con informazioni utente personalizzabili',
+      'Archiviazione link social media e link personalizzati con visualizzazione dinamica sui profili utente',
+      'Sistema di badge intelligente che riconosce risultati e traguardi di coinvolgimento dell\'utente',
+      'Motore di personalizzazione colore dinamico con restrizioni di badge-tier (nomi profilo, link, sfondi)',
+      'Archiviazione credenziali sicura e gestione sessione',
+    ],
+  },
+  {
+    id: 'desktop-ai-agent',
+    title: 'Desktop AI Agent - Interazione Schermo Autonoma',
+    shortDescription: 'Applicazione desktop che abilita agenti AI a analizzare schermate e eseguire autonomamente azioni utente',
+    description: 'Un\'applicazione innovativa di agente AI desktop progettata per automatizzare le interazioni dell\'utente sullo schermo. Il sistema abilita gli utenti a creare progetti e associare applicazioni target con ogni progetto. Quando gli utenti forniscono istruzioni, l\'agente AI cattura schermate in tempo reale, le analizza utilizzando computer vision e modelli di linguaggio e prende decisioni intelligenti su quali azioni eseguire. L\'agente restituisce azioni come JSON strutturato contenente comandi come clic, doppi clic, input di testo e altro. L\'applicazione quindi esegue queste azioni programmaticamente. Costruito con un\'architettura ibrida che combina backend Django per gestione utente, licensing e amministrazione account, FastAPI per operazioni backend locale in esecuzione all\'interno dell\'ambiente Electron e React per l\'interfaccia utente. L\'intera applicazione è in esecuzione come client desktop usando Electron, con servizi FastAPI in esecuzione localmente per abilitare l\'elaborazione AI offline e tempi di risposta rapidi. Il progetto è attualmente in sviluppo e non ancora completo, ma dimostra l\'architettura centrale e i pattern di integrazione AI.',
+    technologies: [getSkillName('react'), getSkillName('electron'), getSkillName('fastapi'), getSkillName('python'), getSkillName('django'), getSkillName('javascript'), getSkillName('typescript'), getSkillName('google-gemini-api')],
+    categories: [PROJECT_CATEGORIES.DESKTOP_APP],
+    company: EXPERIENCES[2].company,
+    images: [
+      '/media/desktopaiagent1.png',
+      '/media/desktopaiagent2.png',
+      '/media/desktopaiagent3.png',
+    ],
+    features: [
+      'Sistema di gestione progetti che consente agli utenti di organizzare attività di automazione AI per progetto',
+      'Interfaccia di configurazione applicazione per gli utenti per specificare applicazioni target e aree di interazione',
+      'Cattura e analisi screenshot in tempo reale utilizzando capacità AI vision',
+      'Integrazione API Google Gemini per decision-making intelligente e pianificazione azioni',
+      'Architettura di integrazione AI estensibile che supporta futuro model swapping e integrazione provider',
+      'Sistema di comandi azioni basato su JSON per esecuzione attività strutturata (clic, doppio clic, digita, scorri, ecc.)',
+      'Backend FastAPI locale in esecuzione all\'interno di Electron per elaborazione offline e tempi di risposta bassa latenza',
+      'Backend Django per autenticazione utente, gestione account e gestione licenze',
+      'UI desktop React costruita con Electron per applicazione desktop cross-platform',
+      'Sistema di queuing e esecuzione azioni per flussi di lavoro di automazione sequenziale',
+    ],
+  },
+  {
+    id: 'commercial-truck-insurance',
+    title: 'Commercial Truck Insurance Pros - Piattaforma Preventivo Assicurativo',
+    shortDescription: 'Sito web aziendale con questionario interattivo e gestione documenti per preventivi assicurazione camion',
+    description: 'Un sito web professionale sviluppato per Commercial Truck Insurance Pros, un\'azienda di assicurazione camion. La piattaforma abilita i potenziali clienti a completare un questionario dettagliato sui loro camion e inviare documentazione rilevante. Il questionario raccoglie informazioni comprehensive sulle specifiche del veicolo, pattern di utilizzo e requisiti di copertura. I clienti possono caricare documenti di supporto direttamente attraverso la piattaforma, che vengono poi rivisti da professionisti assicurativi. Una volta che le informazioni e i documenti vengono inviati, il proprietario dell\'azienda assicurativa viene notificato e contatta il cliente per discutere delle opzioni di assicurazione disponibili e fornire preventivi personalizzati.',
+    technologies: [getSkillName('react'), getSkillName('html'), getSkillName('css'), getSkillName('javascript'), getSkillName('laravel'), getSkillName('php'), getSkillName('mysql')],
+    categories: [PROJECT_CATEGORIES.WEB_APP],
+    company: EXPERIENCES[1].company,
+    images: [
+      '/media/commercialtruckinsurancepros1.png',
+      '/media/commercialtruckinsurancepros2.png',
+      '/media/commercialtruckinsurancepros3.png',
+      '/media/commercialtruckinsurancepros4.png',
+      '/media/commercialtruckinsurancepros5.png',
+      '/media/commercialtruckinsurancepros6.png',
+      '/media/commercialtruckinsurancepros7.png',
+      '/media/commercialtruckinsurancepros8.png',
+    ],
+    demoUrl: 'http://commercialtruckinsurancepros.com/',
+    features: [
+      'Questionario interattivo per raccolta informazioni camion e cliente',
+      'Processo form multi-step con convalida e tracciamento progresso',
+      'Funzionalità caricamento documento per file di supporto e documentazione camion',
+      'Sistema di archiviazione file sicuro e gestione',
+      'Dashboard amministratore per professionisti assicurativi per revisionare i invii',
+      'Sistema di notifica per avvisare il proprietario di nuove richieste di preventivo',
+      'Raccolta informazioni contatto cliente e readiness integrazione CRM',
+      'Design reattivo per accesso desktop e mobile',
+      'Sito web aziendale professionale che mostra i servizi aziendali e le informazioni',
+    ],
+  },
+  {
+    id: 'timeflux',
+    title: 'TimeFlux - Gioco Puzzle',
+    shortDescription: 'Gioco puzzle basato su browser dove uno spettro temporale ripete le tue azioni per risolvere combinazioni livelli',
+    description: 'TimeFlux è un innovativo gioco puzzle basato su browser dove i giocatori risolvono i puzzle viaggiando nel tempo con l\'aiuto di uno "spettro temporale". Il meccanismo principale coinvolge la registrazione delle tue azioni e la creazione di uno spettro temporale che ripete quelle azioni, abilitandoti a risolvere combinazioni di puzzle complesse che richiedono movimenti sincronizzati. Sfruttando questo meccanismo di manipolazione del tempo, i giocatori devono pianificare strategicamente le loro mosse per progredire attraverso livelli sempre più impegnativi. Ogni livello presenta combinazioni di puzzle uniche che possono essere risolte solo utilizzando intelligentemente l\'abilità dello spettro temporale di riprodurre le tue azioni registrate, creando un ponte tra passato e presente per sbloccare soluzioni.',
+    technologies: [getSkillName('unity'), getSkillName('csharp')],
+    categories: [PROJECT_CATEGORIES.WEB_GAME],
+    company: EXPERIENCES[2].company,
+    images: [
+      '/media/TimeFlux1.png',
+      '/media/TimeFlux2.png',
+      '/media/TimeFlux3.png',
+    ],
+    demoUrl: 'https://afrasiyabkk.itch.io/time-flux',
+    features: [
+      'Meccanismo spettro temporale che registra e riproduce azioni del giocatore',
+      'Risoluzione puzzle sincronizzata che richiede coordinamento tra giocatore e spettro temporale',
+      'Difficoltà progressiva con combinazioni di puzzle sempre più complesse',
+      'Gioco basato su browser giocabile su piattaforme',
+      'Engine Unity 3D per gameplay fluido e grafica',
+      'Meccaniche di gameplay innovativo di manipolazione del tempo',
+    ],
+  },
+  {
+    id: 'marketplace-scraper',
+    title: 'Bot Marketplace Scraper - Applicazione Desktop Python',
+    shortDescription: 'Bot web scraping intelligente per raccolta e monitoraggio oggetti da Facebook Marketplace e Subito.it',
+    description: 'Una sofisticata applicazione desktop Python costruita con PySide che automatizza la raccolta e il monitoraggio degli annunci di oggetti dai popolari marketplace online italiani. Gli utenti possono aggiungere link da Facebook Marketplace e Subito.it per categorie di prodotti specifiche che vogliono tracciare. Il bot raschia automaticamente le informazioni dettagliate da queste pagine a intervalli definiti dall\'utente, estraendo dati di prodotto completi inclusi nomi articoli, link diretti, prezzi, posizioni, informazioni venditore e altri dettagli rilevanti. I dati raccolti sono archiviati e organizzati per accesso e analisi facili. Gli utenti hanno flessibilità in come gestiscono i dati: possono esportare i dati raccolti manualmente attraverso l\'interfaccia dell\'applicazione o impostare esportazioni periodiche automatiche. L\'applicazione si integra perfettamente con Google Sheets tramite connessione API, abilitando gli utenti a sincronizzare i loro dati raschiati direttamente ai fogli che controllano. Questo crea una soluzione completa di monitoraggio marketplace per tracciamento prezzo, analisi inventario e ricerca di mercato.',
+    technologies: [getSkillName('python'), getSkillName('pyside'), getSkillName('selenium'), getSkillName('google-sheets')],
+    categories: [PROJECT_CATEGORIES.DESKTOP_APP],
+    company: EXPERIENCES[1].company,
+    images: [
+      '/media/scrappingapp1.png',
+    ],
+    features: [
+      'Interfaccia amichevole per aggiunta link marketplace da Facebook Marketplace e Subito.it',
+      'Web scraping usando Selenium per estrazione dettagli articoli inclusi nomi, link, prezzi e posizioni',
+      'Intervalli scraping personalizzabili che permettono agli utenti di impostare tassi di refresh dati',
+      'Estrazione dati completa con specifiche prodotto',
+      'Funzionalità esportazione manuale a Google Sheets per on-demand data',
+      'Esportazione periodica automatica a Google Sheets con pianificazione configurabile dall\'utente',
+      'Integrazione API Google Sheets per sincronizzazione dati perfetta',
+      'Supporto per multiple fonti dati marketplace in singola applicazione',
+      'Filtro dati e deduplicazione per evitare voci ripetute basate su identificatori articoli unici (es. link)',
+      'Gestione errori e meccanismi retry per operazioni web scraping robuste',
+      'Logging e monitoraggio di attività scraping',
+      'Architettura estensibile per aggiunta supporto per marketplace aggiuntivi',
+    ],
+  },
+  {
+    id: 'marketplace-notification-system',
+    title: 'Sistema Avviso Notifica Marketplace - Applicazione Desktop Python',
+    shortDescription: 'Sistema avviso prezzo intelligente che monitora scrappe marketplace e invia notifiche email per criteri corrispondenti',
+    description: 'Una sofisticata applicazione desktop Python costruita con PySide6 che monitora i dati degli articoli marketplace esportati su Google Sheets dal Bot Marketplace Scraper. I criteri di ricerca sono archiviati come dati strutturati direttamente in una tabella Google Sheets. L\'applicazione legge periodicamente questi criteri da Google Sheets, li analizza in un formato strutturato e applica un complesso algoritmo di corrispondenza per confrontare ogni articolo raschiato rispetto a tutti i criteri definiti. Quando vengono trovati articoli corrispondenti, il sistema invia automaticamente notifiche email all\'indirizzo email specificato e contrassegna quegli articoli come notificati in Google Sheets per prevenire avvisi duplicati. L\'applicazione fornisce un\'interfaccia amichevole per l\'utente per la gestione dei criteri, la visualizzazione della cronologia di notifica e la configurazione delle impostazioni email, creando una soluzione completa di monitoraggio prezzo e avviso automatizzato.',
+    technologies: [getSkillName('python'), getSkillName('pyside'), getSkillName('google-sheets'), getSkillName('email-smtp-integration')],
+    categories: [PROJECT_CATEGORIES.DESKTOP_APP],
+    company: EXPERIENCES[1].company,
+    images: [
+      '/media/notificationapp1.png',
+      '/media/notificationapp2.png',
+    ],
+    features: [
+      'Criteri di ricerca archiviati e gestiti in tabella Google Sheets',
+      'Lettura e analisi periodica dei criteri da Google Sheets',
+      'Supporto per molteplici criteri di ricerca con specifiche prodotto e intervalli di prezzo',
+      'Algoritmo di corrispondenza complesso per confronto intelligente articolo-a-criterio',
+      'Integrazione Google Sheets in tempo reale per lettura articoli marketplace raschiati',
+      'Sistema notifica email automatizzato quando vengono trovati articoli corrispondenti',
+      'Prevenzione duplicati contrassegnando articoli notificati in Google Sheets',
+      'Tracciamento cronologia notifiche e visualizzazione',
+      'Gestione configurazione email (impostazioni SMTP, indirizzi destinatari)',
+      'Intervalli scansione configurabili per analisi dati marketplace',
+      'Interfaccia amichevole per l\'utente per gestione criteri e notifiche',
+      'Gestione errori e logging per consegna notifiche e sincronizzazione dati',
+      'Supporto per molteplici criteri di ricerca simultanei',
+      'Integrazione perfetta con flusso di lavoro Bot Marketplace Scraper',
+    ],
+  },
+  {
+    id: 'aroma-specialist-database',
+    title: 'Aroma Specialist - Database Oli Essenziali e Preoccupazioni',
+    shortDescription: 'Piattaforma database completa per oli essenziali e preoccupazioni sanitarie con pannello amministratore per gestione contenuti',
+    description: 'Una piattaforma database specializzata progettata per Aroma Specialist, fornendo agli studenti autorizzati informazioni dettagliate su oli essenziali e preoccupazioni sanitarie. La piattaforma presenta un database completo di oli e preoccupazioni, ognuno con descrizioni dettagliate che coprono proprietà, usi, benefici e informazioni di sicurezza. Gli studenti possono cercare e sfogliare il database completo per imparare su diversi oli e le loro applicazioni per varie preoccupazioni sanitarie. La piattaforma include un pannello amministratore completo che consente agli amministratori di gestire tutto il contenuto di sistema e gli utenti: aggiungi o rimuovi oli e preoccupazioni dal database, modifica descrizioni oli e preoccupazioni, gestisci account utente studenti e amministratori, configura livelli di accesso e permessi. Il design reattivo assicura accesso perfetto su dispositivi desktop e mobile, abilitando agli studenti di fare riferimento alle informazioni ovunque. Costruito con PHP, HTML, CSS e Bootstrap, la piattaforma priorizza usabilità e manutenibilità.',
+    technologies: [getSkillName('php'), getSkillName('html'), getSkillName('css'), getSkillName('bootstrap'), getSkillName('mysql'), getSkillName('jquery')],
+    categories: [PROJECT_CATEGORIES.WEB_APP],
+    company: EXPERIENCES[1].company,
+    images: [
+      '/media/databasearomaspecialist1.png',
+      '/media/databasearomaspecialist2.png',
+      '/media/databasearomaspecialist3.png',
+      '/media/databasearomaspecialist4.png',
+      '/media/databasearomaspecialist5.png',
+      '/media/databasearomaspecialist6.png',
+      '/media/databasearomaspecialist7.png',
+      '/media/databasearomaspecialist8.png',
+    ],
+    features: [
+      'Database completo di oli essenziali con descrizioni e proprietà dettagliate',
+      'Database preoccupazioni sanitarie con informazioni comprehensive e rimedi',
+      'Relazioni cross-reference tra oli e le loro applicazioni per varie preoccupazioni',
+      'Funzionalità di ricerca per gli studenti per trovare oli e preoccupazioni per nome o proprietà',
+      'Dashboard studente per accesso e apprendimento dal database',
+      'Pannello amministratore completo per gestione contenuti',
+      'Capacità di aggiungere nuovi oli e preoccupazioni con descrizioni dettagliate',
+      'Modifica e rimozione di oli e preoccupazioni esistenti dal database',
+      'Sistema di gestione account utente per studenti e amministratori',
+      'Configurazione livello di accesso e gestione permessi',
+      'Autenticazione utente con sistema di login sicuro',
+      'Controllo di accesso basato su ruoli (studente, amministratore, super amministratore)',
+      'Design reattivo per dispositivi desktop, tablet e mobile',
+      'Struttura database organizzata per recupero e sfoglia dati efficienti',
+      'Modifica documentazione dettagliata per proprietà oli e informazioni preoccupazioni',
+    ],
+    demoUrl: 'https://database.aromaspecialist.com/signin_page.php',
+  },
+];
+
+// Get projects based on language
+export const getProjects = (language: Language): Project[] => {
+  return language === 'it' ? PROJECTS_IT : PROJECTS_EN;
+};
+
+// Legacy export for backward compatibility
+export const PROJECTS = PROJECTS_EN;
+
+// Projects Page Translations
+export interface ProjectsPageData {
+  title: string;
+  subtitle: string;
+  filterTitle: string;
+  categoriesLabel: string;
+  companyLabel: string;
+  clearFiltersBtn: string;
+  showingText: string; // "Showing X of Y projects"
+  noProjectsText: string;
+}
+
+export const PROJECTS_PAGE_EN: ProjectsPageData = {
+  title: 'My Projects',
+  subtitle: 'A collection of work showcasing my technical expertise and problem-solving abilities',
+  filterTitle: '🔍 Filter Projects',
+  categoriesLabel: 'Categories',
+  companyLabel: 'Company',
+  clearFiltersBtn: 'Clear Filters',
+  showingText: 'Showing {current} of {total} projects',
+  noProjectsText: 'No projects match your filter criteria',
+};
+
+export const PROJECTS_PAGE_IT: ProjectsPageData = {
+  title: 'I Miei Progetti',
+  subtitle: 'Una raccolta di lavori che mostrano la mia competenza tecnica e capacità di risoluzione dei problemi',
+  filterTitle: '🔍 Filtra Progetti',
+  categoriesLabel: 'Categorie',
+  companyLabel: 'Azienda',
+  clearFiltersBtn: 'Cancella Filtri',
+  showingText: 'Visualizzazione {current} di {total} progetti',
+  noProjectsText: 'Nessun progetto corrisponde ai criteri di filtro',
+};
+
+// Project Details Page Translations
+export interface ProjectDetailsPageData {
+  backToProjects: string;
+  projectNotFound: string;
+  projectNotFoundMessage: string;
+  aboutSection: string;
+  technologiesSection: string;
+  featuresSection: string;
+  goToSiteBtn: string;
+  githubBtn: string;
+}
+
+export const PROJECT_DETAILS_EN: ProjectDetailsPageData = {
+  backToProjects: 'Back to Projects',
+  projectNotFound: 'Project Not Found',
+  projectNotFoundMessage: "The project you're looking for doesn't exist.",
+  aboutSection: 'About',
+  technologiesSection: 'Technologies Used',
+  featuresSection: 'Technical Features',
+  goToSiteBtn: 'Go to Site',
+  githubBtn: 'GitHub',
+};
+
+export const PROJECT_DETAILS_IT: ProjectDetailsPageData = {
+  backToProjects: 'Torna ai Progetti',
+  projectNotFound: 'Progetto Non Trovato',
+  projectNotFoundMessage: 'Il progetto che stai cercando non esiste.',
+  aboutSection: 'Chi Siamo',
+  technologiesSection: 'Tecnologie Utilizzate',
+  featuresSection: 'Caratteristiche Tecniche',
+  goToSiteBtn: 'Vai al Sito',
+  githubBtn: 'GitHub',
+};
+
+// Get translations based on language
+export const getProjectsPageData = (language: Language): ProjectsPageData => {
+  return language === 'it' ? PROJECTS_PAGE_IT : PROJECTS_PAGE_EN;
+};
+
+export const getProjectDetailsPageData = (language: Language): ProjectDetailsPageData => {
+  return language === 'it' ? PROJECT_DETAILS_IT : PROJECT_DETAILS_EN;
+};
 

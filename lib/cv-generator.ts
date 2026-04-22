@@ -1,7 +1,7 @@
 import jsPDF from 'jspdf';
 import { getPersonalInfo, getBioWithYears } from '@/data/personal-info';
 import { getExperiences } from '@/data/experiences';
-import { EDUCATIONS } from '@/data/education';
+import { getEducations } from '@/data/education';
 import { SKILLS } from '@/data/skills';
 import { getProjects } from '@/data/projects';
 import { Language } from '@/lib/language';
@@ -9,6 +9,7 @@ import { Language } from '@/lib/language';
 export const generateCVPDF = (language: Language = 'en') => {
   const personalInfo = getPersonalInfo(language);
   const experiences = getExperiences(language);
+  const educations = getEducations(language);
   const projects = getProjects(language);
   
   const doc = new jsPDF({
@@ -154,7 +155,7 @@ export const generateCVPDF = (language: Language = 'en') => {
   checkPageBreak(30);
   addSectionTitle('EDUCATION');
 
-  EDUCATIONS.forEach((edu) => {
+  educations.forEach((edu) => {
     checkPageBreak(15);
 
     // Degree

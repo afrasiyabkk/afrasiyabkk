@@ -54,10 +54,6 @@ export const SkillCard = ({ skill }: SkillCardProps) => {
         </span>
       </div>
 
-      <p className="skill-period">
-        {skill.startYear} - {endYearDisplay}
-      </p>
-
       {skill.description && (
         <p className="skill-description">{skill.description}</p>
       )}

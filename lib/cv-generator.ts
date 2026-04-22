@@ -1,6 +1,6 @@
 import jsPDF from 'jspdf';
 import { getPersonalInfo, getBioWithYears } from '@/data/personal-info';
-import { EXPERIENCES } from '@/data/experiences';
+import { getExperiences } from '@/data/experiences';
 import { EDUCATIONS } from '@/data/education';
 import { SKILLS } from '@/data/skills';
 import { PROJECTS } from '@/data/projects';
@@ -8,6 +8,8 @@ import { Language } from '@/lib/language';
 
 export const generateCVPDF = (language: Language = 'en') => {
   const personalInfo = getPersonalInfo(language);
+  const experiences = getExperiences(language);
+  
   const doc = new jsPDF({
     orientation: 'portrait',
     unit: 'mm',
@@ -92,7 +94,7 @@ export const generateCVPDF = (language: Language = 'en') => {
   checkPageBreak(40);
   addSectionTitle('PROFESSIONAL EXPERIENCE');
 
-  EXPERIENCES.forEach((exp, index) => {
+  experiences.forEach((exp, index) => {
     checkPageBreak(18);
 
     // Job Title and Company

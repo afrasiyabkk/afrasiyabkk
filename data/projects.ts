@@ -37,7 +37,7 @@ export const PROJECTS: Project[] = [
     title: 'Jstore Back Office - Financial Module',
     shortDescription: 'Accounting and Cash Management Module with Dynamic Document Generation',
     description: 'A sophisticated accounting module developed entirely from scratch within the Jstore back office management system. This specialized financial system manages cashbook and cash ledger operations with intelligent document generation. The module features a flexible AccountingReasons template system that allows configuration of different accounting heads based on business requirements. Users create configurations specifying debit and credit accounting reasons, which the system uses to automatically generate financial documents by integrating real-time sales data from external supermarket services. The system maintains separate database integrity with full support for multi-cashier and multi-register environments, shows total debits and total credits value and the reconciliation (difference between debit and credit). Other then the financial module, I contributed along with a team of other developers in developing other modules of the JBO Managerment system such as Warehouse module, Inventory module, Article module. The financial module seamlessly integrates with the larger ecosystem.',
-    technologies: [getSkillName('java'), getSkillName('springboot'), getSkillName('mysql'), getSkillName('react'), getSkillName('rest-api'), getSkillName('vuejs'), getSkillName('html'), getSkillName('css'), getSkillName('syncfusion')],
+    technologies: [getSkillName('java'), getSkillName('springboot'), getSkillName('postgresql'), getSkillName('rest-api'), getSkillName('vuejs'), getSkillName('html'), getSkillName('css'), getSkillName('syncfusion')],
     categories: [PROJECT_CATEGORIES.WEB_APP],
     company: EXPERIENCES[0].company,
     images: [
@@ -87,7 +87,7 @@ export const PROJECTS: Project[] = [
     title: 'Eclipse AI Plugin - Gemini Integration',
     shortDescription: 'AI-powered Eclipse IDE plugin with Google Gemini API for intelligent code generation',
     description: 'An intelligent Eclipse IDE plugin that seamlessly integrates Google Gemini API to provide AI-powered code generation and assistance. The plugin reads the complete project context, analyzes all currently opened files in the editor, and uses this context along with user prompts to generate intelligent code suggestions. It automatically updates existing code or creates new files based on the AI-generated output. The plugin supports multiple file formats including images and PDFs, allowing developers to include visual references and documentation in their prompts for more accurate code generation. This enables a workflow where developers can reference designs, specifications, and existing code patterns while receiving contextually-aware AI assistance directly within their IDE.',
-    technologies: [getSkillName('java'), getSkillName('eclipse-ide-api'), getSkillName('google-gemini-api'), getSkillName('rest-api'), getSkillName('eclipse-plugin-development')],
+    technologies: [getSkillName('java'), getSkillName('eclipse-ide-api'), getSkillName('google-gemini-api'), getSkillName('eclipse-plugin-development')],
     categories: [PROJECT_CATEGORIES.DESKTOP_APP],
     company: EXPERIENCES[0].company,
     images: [
@@ -111,7 +111,7 @@ export const PROJECTS: Project[] = [
     title: 'VS Code AI Plugin - Gemini Integration',
     shortDescription: 'Intelligent VS Code extension with Google Gemini API and multi-model support for AI-powered development',
     description: 'A powerful VS Code extension that integrates Google Gemini API to provide intelligent code generation and AI assistance directly within the editor. The plugin allows developers to select from available Gemini models, enabling flexibility in choosing between different model capabilities and performance characteristics. It analyzes the complete project context, reads all currently opened files in the editor, and incorporates this comprehensive information into user prompts sent to Gemini. The extension supports multiple file types including code files, images, and PDFs, allowing developers to include visual designs, specifications, and documentation references when requesting code generation. Based on Gemini\'s AI-generated responses, the plugin automatically updates existing code files or creates new files as needed, seamlessly integrating AI assistance into the development workflow.',
-    technologies: [getSkillName('typescript'), getSkillName('vscode-extension-api'), getSkillName('google-gemini-api'), getSkillName('rest-api'), getSkillName('nodejs')],
+    technologies: [getSkillName('typescript'), getSkillName('vscode-extension-api'), getSkillName('google-gemini-api')],
     categories: [PROJECT_CATEGORIES.DESKTOP_APP],
     company: EXPERIENCES[0].company,
     images: [
@@ -136,7 +136,7 @@ export const PROJECTS: Project[] = [
     title: 'Social Media Application - Backend Development',
     shortDescription: 'Comprehensive backend system for social media platform with real-time messaging',
     description: 'Contributed to the backend development of a comprehensive social media application for a client. While the complete application contains numerous modules, this work focuses on specific modules shown in the images: user profiles, posts (with stories, reels, and posts), real-time chat messaging, notifications, and search functionality. For each of these modules, architected and implemented complete RESTful API endpoints with full CRUD operations. The chat module utilizes Django Channels and WebSockets to provide real-time messaging capabilities between users with seamless connection management and event handling. These modules integrate with the larger platform ecosystem which contains additional backend services developed by other team members.',
-    technologies: [getSkillName('python'), getSkillName('django'), getSkillName('django-rest-framework'), getSkillName('websockets'), getSkillName('channels'), getSkillName('redis'), getSkillName('postgresql')],
+    technologies: [getSkillName('python'), getSkillName('django'), getSkillName('django-rest-framework'), getSkillName('websockets'), getSkillName('channels'), getSkillName('redis'), getSkillName('mysql')],
     categories: [PROJECT_CATEGORIES.WEB_APP],
     company: EXPERIENCES[1].company,
     images: [
@@ -234,7 +234,7 @@ export const PROJECTS: Project[] = [
     title: 'Seven Figure Profits - Business Profitability Calculator',
     shortDescription: 'Advanced profitability calculator with multi-step analysis and departmental revenue tracking',
     description: 'A comprehensive profitability calculator platform designed to help business owners analyze and optimize their operations. The system features a two-part evaluation process: Part 1 captures detailed financial data including total revenue broken down by department, employee count, earnings, and operational costs. Users can input revenue for each department separately, creating a comprehensive financial snapshot. The system then processes this data and generates a detailed profitability report that is emailed to the user for their records. Part 2 goes beyond financial metrics by assessing the emotional profitability of each revenue-generating department through a series of rating questions, helping business owners determine not just if their departments are profitable, but if they are worth the effort and emotional investment to continue operating. This dual-analysis approach provides both quantitative financial insights and qualitative operational assessments.',
-    technologies: [getSkillName('php'), getSkillName('laravel'), getSkillName('react'), getSkillName('javascript'), getSkillName('mysql'), getSkillName('email-service'), getSkillName('rest-api')],
+    technologies: [getSkillName('php'), getSkillName('laravel'), getSkillName('react'), getSkillName('javascript'), getSkillName('mysql'), getSkillName('email-smtp-integration'), getSkillName('rest-api')],
     categories: [PROJECT_CATEGORIES.WEB_APP],
     company: EXPERIENCES[1].company,
     images: [
@@ -403,7 +403,7 @@ export const PROJECTS: Project[] = [
     title: 'Marketplace Notification Alert System - Python Desktop Application',
     shortDescription: 'Intelligent price alert system that monitors marketplace scrapes and sends email notifications for matching criteria',
     description: 'A sophisticated Python desktop application built with PySide6 that monitors marketplace item data exported to Google Sheets by the Marketplace Scraper Bot. Search criteria are stored as structured data directly in a Google Sheets table. The application periodically reads this criteria from Google Sheets, parses it into a structured format, and applies a complex matching algorithm to compare each scraped item against all defined criteria. When matching items are found, the system automatically sends email notifications to the specified email address and marks those items as notified in Google Sheets to prevent duplicate alerts. The application provides a user-friendly interface for managing criteria, viewing notification history, and configuring email settings, creating a complete automated price monitoring and alert solution.',
-    technologies: [getSkillName('python'), getSkillName('pyside'), getSkillName('google-sheets'), getSkillName('email-service')],
+    technologies: [getSkillName('python'), getSkillName('pyside'), getSkillName('google-sheets'), getSkillName('email-smtp-integration')],
     categories: [PROJECT_CATEGORIES.DESKTOP_APP],
     company: EXPERIENCES[1].company,
     images: [
@@ -432,7 +432,7 @@ export const PROJECTS: Project[] = [
     title: 'Aroma Specialist - Essential Oils & Concerns Database',
     shortDescription: 'Comprehensive database platform for essential oils and health concerns with admin panel for content management',
     description: 'A specialized database platform designed for Aroma Specialist, providing authorized students with detailed information about essential oils and health concerns. The platform features a comprehensive database of oils and concerns, each with detailed descriptions covering properties, uses, benefits, and safety information. Students can search and browse the complete database to learn about different oils and their applications for various health concerns. The platform includes a full-featured admin panel that allows administrators to manage all system content and users: add or remove oils and concerns from the database, edit oil and concern descriptions, manage student and admin user accounts, configure access levels and permissions. The responsive design ensures seamless access across desktop and mobile devices, allowing students to reference information anywhere. Built with PHP, HTML, CSS, and Bootstrap, the platform prioritizes usability and maintainability.',
-    technologies: [getSkillName('php'), getSkillName('html'), getSkillName('css'), getSkillName('bootstrap'), getSkillName('mysql')],
+    technologies: [getSkillName('php'), getSkillName('html'), getSkillName('css'), getSkillName('bootstrap'), getSkillName('mysql'), getSkillName('jquery')],
     categories: [PROJECT_CATEGORIES.WEB_APP],
     company: EXPERIENCES[1].company,
     images: [

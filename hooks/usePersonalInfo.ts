@@ -2,6 +2,7 @@ import { useLanguage } from '@/context/LanguageContext';
 import { getPersonalInfo, getBioWithYears, PersonalInfo } from '@/data/personal-info';
 import { getExperiences, getExperiencePageData, Experience, ExperiencePageData } from '@/data/experiences';
 import { getEducations, getEducationPageData, Education, EducationPageData } from '@/data/education';
+import { getSkills, getSkillsPageData, getCategoryTranslations, Skill, SkillsPageData, CategoryTranslations } from '@/data/skills';
 import { getProjects, getProjectsPageData, getProjectDetailsPageData, Project, ProjectsPageData, ProjectDetailsPageData } from '@/data/projects';
 import { Language } from '@/lib/language';
 
@@ -33,6 +34,21 @@ export const useEducations = (): Education[] => {
 export const useEducationPageData = (): EducationPageData => {
   const { language } = useLanguage();
   return getEducationPageData(language as Language);
+};
+
+export const useSkills = (): Skill[] => {
+  const { language } = useLanguage();
+  return getSkills(language as Language);
+};
+
+export const useSkillsPageData = (): SkillsPageData => {
+  const { language } = useLanguage();
+  return getSkillsPageData(language as Language);
+};
+
+export const useCategoryTranslations = (): CategoryTranslations => {
+  const { language } = useLanguage();
+  return getCategoryTranslations(language as Language);
 };
 
 export const useProjects = (): Project[] => {

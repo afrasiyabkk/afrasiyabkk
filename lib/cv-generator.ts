@@ -2,7 +2,7 @@ import jsPDF from 'jspdf';
 import { getPersonalInfo, getBioWithYears } from '@/data/personal-info';
 import { getExperiences } from '@/data/experiences';
 import { getEducations } from '@/data/education';
-import { SKILLS } from '@/data/skills';
+import { getSkills } from '@/data/skills';
 import { getProjects } from '@/data/projects';
 import { Language } from '@/lib/language';
 
@@ -10,6 +10,7 @@ export const generateCVPDF = (language: Language = 'en') => {
   const personalInfo = getPersonalInfo(language);
   const experiences = getExperiences(language);
   const educations = getEducations(language);
+  const skills = getSkills(language);
   const projects = getProjects(language);
   
   const doc = new jsPDF({
@@ -183,12 +184,12 @@ export const generateCVPDF = (language: Language = 'en') => {
   checkPageBreak(40);
   addSectionTitle('TECHNICAL SKILLS');
 
-  const skillCategories = Array.from(new Set(SKILLS.map(s => s.category)));
+  const skillCategories = Array.from(new Set(skills.map(s => s.category)));
   
   skillCategories.forEach((category) => {
     checkPageBreak(8);
     
-    const categorySkills = SKILLS.filter(s => s.category === category);
+    const categorySkills = skills.filter(s => s.category === category);
     const skillNames = categorySkills.map(s => s.name).join(', ');
 
     doc.setFontSize(10);

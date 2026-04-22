@@ -9,6 +9,25 @@ export interface Skill {
   description?: string;
 }
 
+export interface SkillsPageData {
+  title: string;
+  subtitle: string;
+}
+
+export interface CategoryTranslations {
+  Frontend: string;
+  Backend: string;
+  'Game Development': string;
+  'Mobile Development': string;
+  Desktop: string;
+  Database: string;
+  Tools: string;
+  Other: string;
+  DevOps: string;
+  Plugins: string;
+  'External Services': string;
+}
+
 // Adjustable percentage thresholds for skill level calculation
 // These determine what percentage of total experience qualifies for each level
 export const SKILL_LEVEL_THRESHOLDS = {
@@ -60,7 +79,7 @@ export const calculateSkillLevel = (
   }
 };
 
-export const SKILLS: Skill[] = [
+export const SKILLS_EN: Skill[] = [
   // Backend - Java
   {
     id: 'java',
@@ -517,3 +536,519 @@ export const SKILLS: Skill[] = [
     description: 'Stripe API, payment processing, subscription management',
   },
 ];
+
+// Italian Version
+export const SKILLS_IT: Skill[] = [
+  // Backend - Java
+  {
+    id: 'java',
+    name: 'Java',
+    category: 'Backend',
+    startYear: 2022,
+    endYear: 'now',
+    description: 'Programmazione orientata agli oggetti, pattern di design, applicazioni enterprise',
+  },
+  {
+    id: 'springboot',
+    name: 'Spring Boot',
+    category: 'Backend',
+    startYear: 2022,
+    endYear: 'now',
+    description: 'API REST, microservizi, iniezione di dipendenze, JPA',
+  },
+  
+  // Backend - Python
+  {
+    id: 'python',
+    name: 'Python',
+    category: 'Backend',
+    startYear: 2021,
+    endYear: 'now',
+    description: 'Django, script di automazione, elaborazione dati',
+  },
+  {
+    id: 'django',
+    name: 'Django',
+    category: 'Backend',
+    startYear: 2021,
+    endYear: 'now',
+    description: 'Framework web, ORM, API REST',
+  },
+  
+  // Backend - PHP
+  {
+    id: 'php',
+    name: 'PHP',
+    category: 'Backend',
+    startYear: 2020,
+    endYear: 2021,
+    description: 'Laravel, backend personalizzati, sviluppo API',
+  },
+  {
+    id: 'laravel',
+    name: 'Laravel',
+    category: 'Backend',
+    startYear: 2020,
+    endYear: 2021,
+    description: 'Framework MVC, ORM Eloquent, migrazioni',
+  },
+  
+  // Frontend - React
+  {
+    id: 'react',
+    name: 'React',
+    category: 'Frontend',
+    startYear: 2023,
+    endYear: 'now',
+    description: 'Hooks, gestione dello stato, librerie di componenti',
+  },
+  
+  // Frontend - HTML/CSS
+  {
+    id: 'html',
+    name: 'HTML',
+    category: 'Frontend',
+    startYear: 2020,
+    endYear: 'now',
+    description: 'Markup semantico, accessibilità, moduli',
+  },
+  {
+    id: 'css',
+    name: 'CSS',
+    category: 'Frontend',
+    startYear: 2020,
+    endYear: 'now',
+    description: 'Stile, flexbox, grid, animazioni, design reattivo',
+  },
+
+  // Frontend - Next.js
+  {
+    id: 'nextjs',
+    name: 'Next.js',
+    category: 'Frontend',
+    startYear: 2023,
+    endYear: 'now',
+    description: 'SSR, SSG, rotte API, routing basato su file',
+  },
+  
+  // Frontend - Vue.js
+  {
+    id: 'vuejs',
+    name: 'Vue.js',
+    category: 'Frontend',
+    startYear: 2022,
+    endYear: 'now',
+    description: 'Composition API, comunicazione tra componenti',
+  },
+  
+  // Frontend - JavaScript
+  {
+    id: 'javascript',
+    name: 'JavaScript',
+    category: 'Frontend',
+    startYear: 2020,
+    endYear: 'now',
+    description: 'ES6+, async/await, manipolazione del DOM',
+  },
+  
+  // Frontend - TypeScript
+  {
+    id: 'typescript',
+    name: 'TypeScript',
+    category: 'Frontend',
+    startYear: 2023,
+    endYear: 'now',
+    description: 'Sicurezza dei tipi, interfacce, generici',
+  },
+  
+  // Frontend - jQuery
+  {
+    id: 'jquery',
+    name: 'jQuery',
+    category: 'Frontend',
+    startYear: 2020,
+    endYear: 2022,
+    description: 'Manipolazione del DOM, AJAX, animazioni',
+  },
+  
+  // Database
+  {
+    id: 'postgresql',
+    name: 'PostgreSQL',
+    category: 'Database',
+    startYear: 2022,
+    endYear: 'now',
+    description: 'Query complesse, indicizzazione, ottimizzazione delle prestazioni',
+  },
+  {
+    id: 'mysql',
+    name: 'MySQL',
+    category: 'Database',
+    startYear: 2020,
+    endYear: 'now',
+    description: 'Database relazionali, normalizzazione',
+  },
+  {
+    id: 'mongodb',
+    name: 'MongoDB',
+    category: 'Database',
+    startYear: 2022,
+    endYear: 2023,
+    description: 'Database di documenti, collezioni',
+  },
+  
+  // Tools & Other
+  {
+    id: 'github',
+    name: 'GitHub',
+    category: 'Tools',
+    startYear: 2022,
+    endYear: 'now',
+    description: 'Controllo versione, collaborazione, CI/CD',
+  },
+  {
+    id: 'git',
+    name: 'Git',
+    category: 'Tools',
+    startYear: 2022,
+    endYear: 'now',
+    description: 'Branch, merge, rebase',
+  },
+  {
+    id: 'docker',
+    name: 'Docker',
+    category: 'DevOps',
+    startYear: 2023,
+    endYear: 'now',
+    description: 'Containerizzazione, immagini, compose',
+  },
+  {
+    id: 'kubernetes',
+    name: 'Kubernetes',
+    category: 'DevOps',
+    startYear: 2025,
+    endYear: 2026,
+    description: 'Orchestrazione container, distribuzione, scalabilità',
+  },
+  {
+    id: 'rest-api',
+    name: 'REST API',
+    category: 'Backend',
+    startYear: 2021,
+    endYear: 'now',
+    description: 'Progettazione API, metodi HTTP, codici di stato',
+  },
+  {
+    id: 'copilot',
+    name: 'GitHub Copilot',
+    category: 'Tools',
+    startYear: 2024,
+    endYear: 'now',
+    description: 'Engineering prompt avanzato, sviluppo assistito da AI',
+  },
+  {
+    id: 'soap-api',
+    name: 'SOAP API',
+    category: 'Backend',
+    startYear: 2023,
+    endYear: 2024,
+    description: 'Servizi web basati su XML, integrazione API',
+  },
+  {
+    id: 'excel',
+    name: 'Excel',
+    category: 'Tools',
+    startYear: 2017,
+    endYear: 'now',
+    description: 'Fogli di calcolo, analisi dati, formule',
+  },
+  {
+    id: 'quickbooks',
+    name: 'QuickBooks',
+    category: 'Tools',
+    startYear: 2019,
+    endYear: 2020,
+    description: 'Software di contabilità, gestione finanziaria',
+  },
+  {
+    id: 'accounting',
+    name: 'Accounting',
+    category: 'Other',
+    startYear: 2017,
+    endYear: 2019,
+    description: 'Gestione finanziaria, conformità, reportistica',
+  },
+  {
+    id: 'audit',
+    name: 'Audit',
+    category: 'Other',
+    startYear: 2017,
+    endYear: 2018,
+    description: 'Procedure di audit, verifica di conformità',
+  },
+  {
+    id: 'compliance',
+    name: 'Compliance',
+    category: 'Other',
+    startYear: 2017,
+    endYear: 2018,
+    description: 'Conformità normativa, standard di documentazione',
+  },
+  {
+    id: 'documentation',
+    name: 'Documentation',
+    category: 'Tools',
+    startYear: 2017,
+    endYear: 'now',
+    description: 'Documentazione tecnica, conservazione dei dati',
+  },
+  {
+    id: 'nodejs',
+    name: 'Node.js',
+    category: 'Backend',
+    startYear: 2021,
+    endYear: 2022,
+    description: 'JavaScript lato server, npm, programmazione asincrona',
+  },
+  {
+    id: 'csharp',
+    name: 'C#',
+    category: 'Backend',
+    startYear: 2025,
+    endYear: 'now',
+    description: 'Framework .NET, programmazione orientata agli oggetti',
+  },
+  {
+    id: 'fastapi',
+    name: 'FastAPI',
+    category: 'Backend',
+    startYear: 2025,
+    endYear: 2026,
+    description: 'Framework web Python moderno, supporto asincrono',
+  },
+  {
+    id: 'unity',
+    name: 'Unity',
+    category: 'Game Development',
+    startYear: 2025,
+    endYear: 'now',
+    description: 'Engine di sviluppo giochi, grafica 3D',
+  },
+  {
+    id: 'electron',
+    name: 'Electron',
+    category: 'Desktop',
+    startYear: 2025,
+    endYear: 2026,
+    description: 'Framework di applicazioni desktop, sviluppo cross-platform',
+  },
+  {
+    id: 'pyside',
+    name: 'PySide',
+    category: 'Desktop',
+    startYear: 2024,
+    endYear: 'now',
+    description: 'Framework GUI Python per applicazioni desktop, binding Qt',
+  },
+  {
+    id: 'selenium',
+    name: 'Selenium',
+    category: 'Other',
+    startYear: 2024,
+    endYear: 'now',
+    description: 'Automazione web e scraping, automazione browser, testing cross-browser',
+  },
+  {
+    id: 'express',
+    name: 'Express',
+    category: 'Backend',
+    startYear: 2021,
+    endYear: 2022,
+    description: 'Framework web Node.js, middleware, routing',
+  },
+  {
+    id: 'redis',
+    name: 'Redis',
+    category: 'Backend',
+    startYear: 2023,
+    endYear: 'now',
+    description: 'Coda di dati in tempo reale',
+  },
+  {
+    id: 'channels',
+    name: 'Channels',
+    category: 'Backend',
+    startYear: 2023,
+    endYear: 'now',
+    description: 'WebSocket Django, comunicazione in tempo reale',
+  },
+  {
+    id: 'websockets',
+    name: 'WebSockets',
+    category: 'Other',
+    startYear: 2021,
+    endYear: 'now',
+    description: 'Comunicazione bidirezionale in tempo reale, architettura guidata da eventi',
+  },
+  {
+    id: 'bootstrap',
+    name: 'Bootstrap',
+    category: 'Frontend',
+    startYear: 2020,
+    endYear: 'now',
+    description: 'Framework CSS, design reattivo, componenti',
+  },
+  {
+    id: 'syncfusion',
+    name: 'Syncfusion',
+    category: 'Frontend',
+    startYear: 2022,
+    endYear: 'now',
+    description: 'Libreria di componenti UI, visualizzazione dati, grafici',
+  },
+  {
+    id: 'google-gemini-api',
+    name: 'Google Gemini API',
+    category: 'External Services',
+    startYear: 2024,
+    endYear: 'now',
+    description: 'Modello di linguaggio AI, generazione di codice, input multimodale',
+  },
+  {
+    id: 'eclipse-ide-api',
+    name: 'Eclipse IDE API',
+    category: 'Plugins',
+    startYear: 2023,
+    endYear: 2024,
+    description: 'Sviluppo plugin Eclipse, integrazione IDE',
+  },
+  {
+    id: 'eclipse-plugin-development',
+    name: 'Eclipse Plugin Development',
+    category: 'Plugins',
+    startYear: 2023,
+    endYear: 2024,
+    description: 'Architettura plugin Eclipse IDE, punti di estensione',
+  },
+  {
+    id: 'vscode-extension-api',
+    name: 'VS Code Extension API',
+    category: 'Plugins',
+    startYear: 2024,
+    endYear: 'now',
+    description: 'Sviluppo estensioni VS Code, integrazione API',
+  },
+  {
+    id: 'django-rest-framework',
+    name: 'Django REST Framework',
+    category: 'Backend',
+    startYear: 2022,
+    endYear: 'now',
+    description: 'Sviluppo API REST con Django, serializzazione, autenticazione',
+  },
+  {
+    id: 'pybit',
+    name: 'PyBit',
+    category: 'External Services',
+    startYear: 2022,
+    endYear: 2023,
+    description: 'Client API Bybit, integrazione trading criptovalute',
+  },
+  {
+    id: 'email-smtp-integration',
+    name: 'Email SMTP Integration',
+    category: 'External Services',
+    startYear: 2021,
+    endYear: 'now',
+    description: 'Integrazione email, SMTP, invio notifiche',
+  },
+  {
+    id: 'microservices',
+    name: 'Microservices',
+    category: 'Backend',
+    startYear: 2022,
+    endYear: 'now',
+    description: 'Architettura microservizi, isolamento servizi, deployment indipendente',
+  },
+  {
+    id: 'google-sheets',
+    name: 'Google Sheets',
+    category: 'External Services',
+    startYear: 2023,
+    endYear: 'now',
+    description: 'API Google Sheets, esportazione dati, integrazione automazione',
+  },
+  {
+    id: 'paypal-integration',
+    name: 'PayPal Integration',
+    category: 'External Services',
+    startYear: 2024,
+    endYear: 2025,
+    description: 'API PayPal, elaborazione pagamenti, gestione transazioni',
+  },
+  {
+    id: 'stripe-integration',
+    name: 'Stripe Integration',
+    category: 'External Services',
+    startYear: 2024,
+    endYear: 2025,
+    description: 'API Stripe, elaborazione pagamenti, gestione abbonamenti',
+  },
+];
+
+// Skills Page Translations
+export const SKILLS_PAGE_EN: SkillsPageData = {
+  title: 'Technical Skills',
+  subtitle: 'My expertise across different technologies and frameworks',
+};
+
+export const SKILLS_PAGE_IT: SkillsPageData = {
+  title: 'Competenze Tecniche',
+  subtitle: 'La mia esperienza in diverse tecnologie e framework',
+};
+
+export const CATEGORY_TRANSLATIONS_EN: CategoryTranslations = {
+  Frontend: 'Frontend',
+  Backend: 'Backend',
+  'Game Development': 'Game Development',
+  'Mobile Development': 'Mobile Development',
+  Desktop: 'Desktop',
+  Database: 'Database',
+  Tools: 'Tools',
+  Other: 'Other',
+  DevOps: 'DevOps',
+  Plugins: 'Plugins',
+  'External Services': 'External Services',
+};
+
+export const CATEGORY_TRANSLATIONS_IT: CategoryTranslations = {
+  Frontend: 'Frontend',
+  Backend: 'Backend',
+  'Game Development': 'Sviluppo Giochi',
+  'Mobile Development': 'Sviluppo Mobile',
+  Desktop: 'Desktop',
+  Database: 'Database',
+  Tools: 'Strumenti',
+  Other: 'Altro',
+  DevOps: 'DevOps',
+  Plugins: 'Plugin',
+  'External Services': 'Servizi Esterni',
+};
+
+// Get data based on language
+import { Language } from '@/lib/language';
+
+export const getSkills = (language: Language): Skill[] => {
+  return language === 'it' ? SKILLS_IT : SKILLS_EN;
+};
+
+export const getSkillsPageData = (language: Language): SkillsPageData => {
+  return language === 'it' ? SKILLS_PAGE_IT : SKILLS_PAGE_EN;
+};
+
+export const getCategoryTranslations = (language: Language): CategoryTranslations => {
+  return language === 'it' ? CATEGORY_TRANSLATIONS_IT : CATEGORY_TRANSLATIONS_EN;
+};
+
+// Legacy export for backward compatibility
+export const SKILLS = SKILLS_EN;

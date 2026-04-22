@@ -2,6 +2,7 @@
 
 import { Skill, calculateYearsOfExperience, calculateSkillLevel, SkillLevel } from '@/data/skills';
 import { getYearsOfExperience } from '@/lib/utils';
+import { useLanguage } from '@/context/LanguageContext';
 import '@/styles/skill-card.css';
 
 interface SkillCardProps {
@@ -24,11 +25,31 @@ const getLevelColor = (level: SkillLevel): string => {
 };
 
 export const SkillCard = ({ skill }: SkillCardProps) => {
+  const { language } = useLanguage();
   const yearsOfExp = calculateYearsOfExperience(skill.startYear, skill.endYear);
   const endYearDisplay = skill.endYear === 'now' ? 'Present' : skill.endYear;
   const totalYearsExp = getYearsOfExperience();
   const level = calculateSkillLevel(skill.startYear, skill.endYear, totalYearsExp);
   const levelColor = getLevelColor(level);
+
+  // Experience text translations
+  const experienceLabels = {
+    en: {
+      year: 'year',
+      years: 'years',
+      of: 'of',
+      experience: 'experience',
+    },
+    it: {
+      year: 'anno',
+      years: 'anni',
+      of: 'di',
+      experience: 'esperienza',
+    },
+  };
+
+  const labels = experienceLabels[language as keyof typeof experienceLabels] || experienceLabels.en;
+  const yearLabel = Math.max(yearsOfExp, 1) === 1 ? labels.year : labels.years;
 
   return (
     <div className="skill-card" style={{ '--level-color': levelColor } as any}>
@@ -50,7 +71,7 @@ export const SkillCard = ({ skill }: SkillCardProps) => {
           />
         </div>
         <span className="experience-text">
-          {Math.max(yearsOfExp, 1)} {Math.max(yearsOfExp, 1) === 1 ? 'year' : 'years'} of experience
+          {Math.max(yearsOfExp, 1)} {yearLabel} {labels.of} {labels.experience}
         </span>
       </div>
 

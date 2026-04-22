@@ -8,12 +8,22 @@ export const LanguageSelector = () => {
   const [currentLanguage, setCurrentLanguage] = useState<Language>('en');
   const [isOpen, setIsOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   // Initialize language from cookie or browser preference
   useEffect(() => {
     const preferredLanguage = getPreferredLanguage();
     setCurrentLanguage(preferredLanguage);
     setMounted(true);
+    
+    // Check if mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
   }, []);
 
   const handleLanguageChange = (language: Language) => {
@@ -27,18 +37,20 @@ export const LanguageSelector = () => {
   }
 
   return (
-    <div className="language-selector">
-      <button
-        className="language-toggle"
-        onClick={() => setIsOpen(!isOpen)}
-        aria-label="Select language"
-        aria-expanded={isOpen}
-        title="Select Language"
-      >
-        🌐
-      </button>
+    <div className={`language-selector ${isMobile ? 'mobile-view' : 'desktop-view'}`}>
+      {!isMobile && (
+        <button
+          className="language-toggle"
+          onClick={() => setIsOpen(!isOpen)}
+          aria-label="Select language"
+          aria-expanded={isOpen}
+          title="Select Language"
+        >
+          🌐
+        </button>
+      )}
 
-      {isOpen && (
+      {(isOpen || isMobile) && (
         <div className="language-dropdown">
           <button
             className={`language-option ${currentLanguage === 'en' ? 'active' : ''}`}

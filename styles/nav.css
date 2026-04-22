@@ -30,6 +30,7 @@
 .nav-language-selector {
   display: flex;
   align-items: center;
+  width: 100%;
 }
 
 /* Mobile Responsive */
@@ -41,7 +42,5 @@
   .nav-language-selector {
     width: 100%;
     justify-content: flex-start;
-    padding-top: 16px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
   }
 }

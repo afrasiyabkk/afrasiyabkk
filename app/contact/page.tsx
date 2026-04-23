@@ -1,11 +1,12 @@
 'use client';
 
 import { useState } from 'react';
-import { usePersonalInfo } from '@/hooks/usePersonalInfo';
+import { usePersonalInfo, useContactPageData } from '@/hooks/usePersonalInfo';
 import '@/styles/contact.css';
 
 export default function ContactPage() {
   const personalInfo = usePersonalInfo();
+  const pageData = useContactPageData();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -82,51 +83,51 @@ export default function ContactPage() {
     <div className="contact-page-wrapper">
       <div className="contact-container">
         <section className="contact-header-section">
-          <h1 className="contact-page-title">Get in Touch</h1>
+          <h1 className="contact-page-title">{pageData.title}</h1>
           <p className="contact-page-subtitle">
-            Have a question or proposal? I'd love to hear from you!
+            {pageData.subtitle}
           </p>
         </section>
 
         <div className="contact-content">
           {/* Contact Info */}
           <section className="contact-info-section">
-            <h2 className="contact-section-title">Contact Information</h2>
+            <h2 className="contact-section-title">{pageData.contactInfoTitle}</h2>
             
             <div className="info-item">
-              <span className="info-label">📧 Email</span>
+              <span className="info-label">{pageData.contactInfoLabels.email}</span>
               <a href={`mailto:${personalInfo.email}`} className="info-link">
                 {personalInfo.email}
               </a>
             </div>
 
             <div className="info-item">
-              <span className="info-label">📱 Phone / WhatsApp</span>
+              <span className="info-label">{pageData.contactInfoLabels.phone}</span>
               <a href={`https://wa.me/${personalInfo.phone.replace(/\D/g, '')}`} target="_blank" rel="noopener noreferrer" className="info-link">
                 {personalInfo.phone}
               </a>
             </div>
 
             <div className="info-item">
-              <span className="info-label">📍 Location</span>
+              <span className="info-label">{pageData.contactInfoLabels.location}</span>
               <p className="info-text">{personalInfo.address}</p>
             </div>
 
             <div className="info-item">
-              <span className="info-label">💬 Discord</span>
+              <span className="info-label">{pageData.contactInfoLabels.discord}</span>
               <a href={personalInfo.discord} target="_blank" rel="noopener noreferrer" className="info-link">
-                Join my Discord
+                {pageData.discordLinkText}
               </a>
             </div>
           </section>
 
           {/* Contact Form */}
           <section className="contact-form-section">
-            <h2 className="contact-section-title">Send me a Message</h2>
+            <h2 className="contact-section-title">{pageData.formSectionTitle}</h2>
 
             {submitted && (
               <div className="success-message">
-                ✅ Thank you! Your message has been sent. I'll get back to you soon!
+                {pageData.successMessage}
               </div>
             )}
 
@@ -141,7 +142,7 @@ export default function ContactPage() {
                     checked={contactMethod === 'email'}
                     onChange={() => setContactMethod('email')}
                   />
-                  <span className="toggle-text">📧 Email</span>
+                  <span className="toggle-text">{pageData.contactMethodOptions.email}</span>
                 </label>
                 <label className="toggle-label">
                   <input
@@ -151,14 +152,14 @@ export default function ContactPage() {
                     checked={contactMethod === 'whatsapp'}
                     onChange={() => setContactMethod('whatsapp')}
                   />
-                  <span className="toggle-text">💬 WhatsApp</span>
+                  <span className="toggle-text">{pageData.contactMethodOptions.whatsapp}</span>
                 </label>
               </div>
 
               {/* Form Fields */}
               <div className="form-group">
                 <label htmlFor="name" className="form-label">
-                  Name *
+                  {pageData.formLabels.name}
                 </label>
                 <input
                   type="text"
@@ -168,13 +169,13 @@ export default function ContactPage() {
                   onChange={handleInputChange}
                   required
                   className="form-input"
-                  placeholder="Your name"
+                  placeholder={pageData.formPlaceholders.name}
                 />
               </div>
 
               <div className="form-group">
                 <label htmlFor="email" className="form-label">
-                  Email *
+                  {pageData.formLabels.email}
                 </label>
                 <input
                   type="email"
@@ -184,13 +185,13 @@ export default function ContactPage() {
                   onChange={handleInputChange}
                   required
                   className="form-input"
-                  placeholder="your@email.com"
+                  placeholder={pageData.formPlaceholders.email}
                 />
               </div>
 
               <div className="form-group">
                 <label htmlFor="subject" className="form-label">
-                  Subject *
+                  {pageData.formLabels.subject}
                 </label>
                 <input
                   type="text"
@@ -200,13 +201,13 @@ export default function ContactPage() {
                   onChange={handleInputChange}
                   required
                   className="form-input"
-                  placeholder="What is this about?"
+                  placeholder={pageData.formPlaceholders.subject}
                 />
               </div>
 
               <div className="form-group">
                 <label htmlFor="message" className="form-label">
-                  Message *
+                  {pageData.formLabels.message}
                 </label>
                 <textarea
                   id="message"
@@ -215,7 +216,7 @@ export default function ContactPage() {
                   onChange={handleInputChange}
                   required
                   className="form-textarea"
-                  placeholder="Your message here..."
+                  placeholder={pageData.formPlaceholders.message}
                   rows={6}
                 />
               </div>
@@ -225,13 +226,13 @@ export default function ContactPage() {
                 disabled={loading}
                 className="form-submit-btn"
               >
-                {loading ? 'Sending...' : `Send via ${contactMethod === 'email' ? 'Email' : 'WhatsApp'}`}
+                {loading ? pageData.submitButtonText.sending : (contactMethod === 'email' ? pageData.submitButtonText.email : pageData.submitButtonText.whatsapp)}
               </button>
             </form>
 
             {contactMethod === 'whatsapp' && (
               <p className="contact-note">
-                💡 WhatsApp will open in a new window with your message pre-filled.
+                {pageData.whatsappNote}
               </p>
             )}
           </section>

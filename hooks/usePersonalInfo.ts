@@ -4,6 +4,7 @@ import { getExperiences, getExperiencePageData, Experience, ExperiencePageData }
 import { getEducations, getEducationPageData, Education, EducationPageData } from '@/data/education';
 import { getSkills, getSkillsPageData, getCategoryTranslations, Skill, SkillsPageData, CategoryTranslations } from '@/data/skills';
 import { getProjects, getProjectsPageData, getProjectDetailsPageData, Project, ProjectsPageData, ProjectDetailsPageData } from '@/data/projects';
+import { getAboutPageData, AboutPageData } from '@/data/about';
 import { Language } from '@/lib/language';
 
 export const usePersonalInfo = (): PersonalInfo => {
@@ -64,4 +65,9 @@ export const useProjectsPageData = (): ProjectsPageData => {
 export const useProjectDetailsPageData = (): ProjectDetailsPageData => {
   const { language } = useLanguage();
   return getProjectDetailsPageData(language as Language);
+};
+
+export const useAboutPageData = (): AboutPageData => {
+  const { language } = useLanguage();
+  return getAboutPageData(language as Language);
 };

@@ -2,6 +2,7 @@
 
 import { MainLayout } from '@/components/layout/MainLayout';
 import { CVDownloadButton } from '@/components/common/CVDownloadButton';
+import { CopyButton } from '@/components/common/CopyButton';
 import { usePersonalInfo, usePersonalBio } from '@/hooks/usePersonalInfo';
 import '@/styles/home.css';
 
@@ -50,12 +51,14 @@ export default function Home() {
             <p className="hero-designation">
               {personalInfo.address}
             </p>
+            <CopyButton text={personalInfo.address} />
             <h3 className="skills-heading">
               Skills
             </h3>
             <p className="hero-designation">
               {personalInfo.skills}
             </p>
+            <CopyButton text={personalInfo.skills} />
           </div>
         </section>
 
@@ -64,6 +67,7 @@ export default function Home() {
           <p className="bio-text">
             {bioText}
           </p>
+          <CopyButton text={bioText} />
         </section>
 
         {/* Action Buttons */}

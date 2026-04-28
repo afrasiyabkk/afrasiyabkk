@@ -1,0 +1,51 @@
+/* Copy Button - Matches Social Icons Design */
+.copy-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border: none;
+  background-color: transparent;
+  color: var(--matrix-green);
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.copy-button:hover {
+  color: var(--matrix-green);
+  text-shadow: 0 0 10px var(--matrix-green);
+  transform: scale(1.15);
+}
+
+.copy-button:active {
+  transform: scale(0.95);
+}
+
+.copy-button.copied {
+  text-shadow: 0 0 15px var(--matrix-green);
+  animation: pulse 0.3s ease-out;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .copy-button {
+    padding: 5px;
+    font-size: 15px;
+  }
+}
+

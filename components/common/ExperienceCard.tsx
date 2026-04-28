@@ -1,6 +1,7 @@
 'use client';
 
 import { Experience } from '@/data/experiences';
+import { CopyButton } from '@/components/common/CopyButton';
 import '@/styles/experience-card.css';
 
 interface ExperienceCardProps {
@@ -9,6 +10,11 @@ interface ExperienceCardProps {
 }
 
 export const ExperienceCard = ({ experience, index }: ExperienceCardProps) => {
+  const responsibilitiesText = experience.responsibilities
+    .map((r, i) => `${i + 1}. ${r}`)
+    .join('\n');
+  const dateRange = `${experience.startDate} - ${experience.endDate}`;
+
   return (
     <div className="experience-timeline-item">
       {/* Timeline Dot */}
@@ -19,14 +25,15 @@ export const ExperienceCard = ({ experience, index }: ExperienceCardProps) => {
         {/* Header with Title and Company */}
         <div className="experience-header">
           <div className="experience-title-section">
-            <h3 className="experience-title">{experience.title}</h3>
-            <p className="experience-company">{experience.company}</p>
-            <p className="experience-location">{experience.location}</p>
+            <h3 className="experience-title">{experience.title}</h3> <CopyButton text={experience.title} />
+            <p className="experience-company">{experience.company}</p> <CopyButton text={experience.company} />
+            <p className="experience-location">{experience.location}</p> <CopyButton text={experience.location} />
           </div>
           <div className="experience-dates">
             <span className={`date-badge ${experience.isCurrent ? 'current' : ''}`}>
               {experience.startDate} - {experience.endDate}
             </span>
+            <CopyButton text={dateRange} />
           </div>
         </div>
 
@@ -41,6 +48,7 @@ export const ExperienceCard = ({ experience, index }: ExperienceCardProps) => {
               <li key={idx}>{responsibility}</li>
             ))}
           </ul>
+          <CopyButton text={responsibilitiesText} />
         </div>
 
         {/* Technologies */}

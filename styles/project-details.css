@@ -8,6 +8,9 @@
   border: 2px solid var(--matrix-green);
   border-radius: 10px;
   margin-bottom: 20px;
+  overflow-x: hidden;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .back-link {
@@ -306,17 +309,61 @@
 
 @media (max-width: 768px) {
   .project-details-container {
-    max-width: 90%;
-    padding: 20px;
-    padding-bottom: 310px;
+    max-width: 95%;
+    width: 100%;
+    padding: 20px 16px 280px 16px;
+    overflow-x: hidden;
+    box-sizing: border-box;
   }
 
   .project-details-grid {
     gap: 24px;
   }
 
+  /* Images Section Mobile */
+  .images-section {
+    gap: 16px;
+  }
+
+  .main-image {
+    padding-bottom: 100%;
+    width: 100%;
+    max-height: 400px;
+  }
+
+  .main-image img {
+    object-fit: contain;
+  }
+
+  .details-carousel-btn {
+    padding: 10px 14px;
+    font-size: 1.8rem;
+    z-index: 25;
+  }
+
+  .details-carousel-btn.prev {
+    left: 8px;
+  }
+
+  .details-carousel-btn.next {
+    right: 8px;
+  }
+
+  .thumbnail {
+    width: 70px;
+    height: 70px;
+  }
+
+  .image-thumbnails {
+    gap: 10px;
+    padding: 12px 0;
+    overflow-x: auto;
+  }
+
+  /* Content Section Mobile */
   .details-title {
     font-size: 1.5rem;
+    word-break: break-word;
   }
 
   .section-heading {
@@ -340,19 +387,92 @@
     font-size: 0.85rem;
     padding-left: 20px;
   }
+}
+
+/* Extra small devices */
+@media (max-width: 480px) {
+  .project-details-container {
+    max-width: 100%;
+    width: 100%;
+    padding: 16px 12px 250px 12px;
+    margin: 0;
+    border-radius: 0;
+    overflow-x: hidden;
+  }
+
+  .back-link {
+    font-size: 0.9rem;
+    margin-bottom: 16px;
+  }
+
+  .project-details-grid {
+    gap: 16px;
+  }
+
+  .images-section {
+    gap: 12px;
+  }
+
+  .main-image {
+    padding-bottom: 120%;
+    max-height: 280px;
+  }
 
   .details-carousel-btn {
-    padding: 8px 12px;
-    font-size: 1.5rem;
+    padding: 6px 8px;
+    font-size: 1.3rem;
+  }
+
+  .details-carousel-btn.prev {
+    left: 4px;
+  }
+
+  .details-carousel-btn.next {
+    right: 4px;
   }
 
   .thumbnail {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
+    flex-shrink: 0;
   }
 
   .image-thumbnails {
     gap: 8px;
+  }
+
+  .details-title {
+    font-size: 1.1rem;
+    word-break: break-word;
+  }
+
+  .section-heading {
+    font-size: 0.95rem;
+  }
+
+  .project-full-description {
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+
+  .tech-tag {
+    padding: 4px 8px;
+    font-size: 0.65rem;
+  }
+
+  .features-list li {
+    font-size: 0.8rem;
+    padding-left: 16px;
+  }
+
+  .details-actions {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .action-btn {
+    padding: 12px 16px;
+    font-size: 0.9rem;
   }
 }
 

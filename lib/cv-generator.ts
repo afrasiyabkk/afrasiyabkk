@@ -217,7 +217,11 @@ export const generateCVPDF = (language: Language = 'en') => {
   yPosition += 2;
   doc.setFontSize(8);
   doc.setTextColor(120, 120, 120);
-  const portfolioProjectsUrl = typeof window !== 'undefined' ? `${window.location.origin}/projects` : `${process.env.NEXT_PUBLIC_PORTFOLIO_URL || 'https://afrasiyab.github.io'}/projects`;
+  let portfolioProjectsUrl = typeof window !== 'undefined' ? `${window.location.origin}/projects` : `${process.env.NEXT_PUBLIC_PORTFOLIO_URL || 'https://afrasiyabkk.github.io'}/projects`;
+  // Add /afrasiyabkk only if on GitHub Pages
+  if (typeof window !== 'undefined' && window.location.origin.includes('github.io')) {
+    portfolioProjectsUrl = typeof window !== 'undefined' ? `${window.location.origin}/afrasiyabkk/projects` : `${process.env.NEXT_PUBLIC_PORTFOLIO_URL || 'https://afrasiyabkk.github.io'}/afrasiyabkk/projects`;
+  }
   doc.text(`View all projects on portfolio: ${portfolioProjectsUrl}`, margin, yPosition);
   yPosition += 4;
 

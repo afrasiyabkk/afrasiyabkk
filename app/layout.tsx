@@ -6,7 +6,7 @@ import { Footer } from "@/components/layout/Footer";
 import { LanguageProvider } from "@/context/LanguageContext";
 
 export const metadata: Metadata = {
-  title: "Portfolio | Matrix Style",
+  title: "Afrasiyab Nangyal Kakakhel",
   description: "A matrix-style portfolio site showcasing projects, experience, and skills",
 };
 

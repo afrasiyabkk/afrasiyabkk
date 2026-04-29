@@ -30,7 +30,7 @@ export const NAV_LINKS = [
 
 // Site Config
 export const SITE_CONFIG = {
-  title: 'Portfolio | Matrix Style',
+  title: 'Afrasiyab Nangyal Kakakhel',
   description: 'A matrix-style portfolio site showcasing projects, experience, and skills',
   author: 'Your Name',
   language: 'en',

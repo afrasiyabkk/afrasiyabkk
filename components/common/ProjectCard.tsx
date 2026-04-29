@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import { Project } from '@/data/projects';
+import { getImagePath } from '@/lib/utils';
 import '@/styles/project-card.css';
 
 interface ProjectCardProps {
@@ -30,7 +31,7 @@ export const ProjectCard = ({ project, index = 0 }: ProjectCardProps) => {
       {/* Image Carousel */}
       <div className="project-carousel">
         <img
-          src={project.images[currentImageIndex]}
+          src={getImagePath(project.images[currentImageIndex])}
           alt={project.title}
           className="project-image"
         />

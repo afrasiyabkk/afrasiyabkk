@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { getImagePath } from '@/lib/utils';
 import { createPortal } from 'react-dom';
 import { MainLayout } from '@/components/layout/MainLayout';
 import { CVDownloadButton } from '@/components/common/CVDownloadButton';
@@ -45,7 +46,7 @@ export default function Home() {
             <div className="hero-picture">
               <div className="hero-picture-frame">
                 <img
-                  src={personalInfo.profileImage}
+                  src={getImagePath(personalInfo.profileImage)}
                   alt="Profile"
                   onClick={() => setIsModalOpen(true)}
                   style={{ cursor: 'pointer' }}
@@ -135,7 +136,7 @@ export default function Home() {
           <div className="image-modal" onClick={() => setIsModalOpen(false)}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
               <img
-                src={personalInfo.profileImage}
+                src={getImagePath(personalInfo.profileImage)}
                 alt="Profile"
                 className="modal-image"
               />

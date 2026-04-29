@@ -18,3 +18,18 @@ export const getYearsOfExperience = (startMonth: number = 11, startYear: number 
 
   return Math.max(yearsOfExperience, 1);
 };
+
+/**
+ * Get the correct image path with basePath prefix for production
+ * Locally: /media/image.png
+ * Production (GitHub Pages): /afrasiyabkk/media/image.png
+ */
+export const getImagePath = (path: string): string => {
+  if (typeof window === 'undefined') {
+    // Server-side rendering
+    const basePath = process.env.NODE_ENV === 'production' ? '/afrasiyabkk' : '';
+    return basePath + path;
+  }
+  // Client-side: Next.js handles basePath automatically for relative paths
+  return path;
+};

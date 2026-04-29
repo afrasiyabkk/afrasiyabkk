@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
+import { getImagePath } from '@/lib/utils';
 import { Project, ProjectDetailsPageData } from '@/data/projects';
 
 interface ProjectDetailsClientProps {
@@ -65,7 +66,7 @@ export default function ProjectDetailsClient({
           <div className="images-section">
             <div className="main-image" onClick={() => setIsModalOpen(true)}>
               <img
-                src={project.images[currentImageIndex]}
+                src={getImagePath(project.images[currentImageIndex])}
                 alt={project.title}
                 style={{ cursor: 'pointer' }}
               />
@@ -171,7 +172,7 @@ export default function ProjectDetailsClient({
           <div className="image-modal" onClick={() => setIsModalOpen(false)}>
             <div className="modal-content" onClick={(e) => e.stopPropagation()}>
               <img
-                src={project.images[currentImageIndex]}
+                src={getImagePath(project.images[currentImageIndex])}
                 alt={project.title}
                 className="modal-image"
               />

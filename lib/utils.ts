@@ -22,13 +22,13 @@ export const getYearsOfExperience = (startMonth: number = 11, startYear: number 
 /**
  * Get the correct image path with basePath prefix for production
  * Locally: /media/image.png
- * Production (GitHub Pages): /afrasiyabkk/media/image.png
+ * Production (GitHub Pages): /afrasiyabkk/media/image.png?v=1 (with cache-buster)
  */
 export const getImagePath = (path: string): string => {
   if (typeof window === 'undefined') {
     // Server-side rendering
     const basePath = process.env.NODE_ENV === 'production' ? '/afrasiyabkk' : '';
-    return basePath + path;
+    return basePath + path + (process.env.NODE_ENV === 'production' ? '?v=1' : '');
   }
   // Client-side: Next.js handles basePath automatically for relative paths
   return path;

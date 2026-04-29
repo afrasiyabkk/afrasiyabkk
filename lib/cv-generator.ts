@@ -76,7 +76,11 @@ export const generateCVPDF = (language: Language = 'en') => {
   // Portfolio link subtly
   doc.setFontSize(9);
   doc.setTextColor(100, 100, 100);
-  const portfolioUrl = typeof window !== 'undefined' ? window.location.origin : (process.env.NEXT_PUBLIC_PORTFOLIO_URL || 'https://afrasiyab.github.io');
+  let portfolioUrl = typeof window !== 'undefined' ? window.location.origin : (process.env.NEXT_PUBLIC_PORTFOLIO_URL || 'https://afrasiyabkk.github.io');
+  // Add /afrasiyabkk only if on GitHub Pages
+  if (typeof window !== 'undefined' && window.location.origin.includes('github.io')) {
+    portfolioUrl += '/afrasiyabkk';
+  }
   doc.text(`Portfolio: ${portfolioUrl}`, margin, yPosition);
   yPosition += 6;
 

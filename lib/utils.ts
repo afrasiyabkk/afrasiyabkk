@@ -25,11 +25,7 @@ export const getYearsOfExperience = (startMonth: number = 11, startYear: number 
  * Production (GitHub Pages): /afrasiyabkk/media/image.png?v=1 (with cache-buster)
  */
 export const getImagePath = (path: string): string => {
-  if (typeof window === 'undefined') {
-    // Server-side rendering
-    const basePath = process.env.NODE_ENV === 'production' ? '/afrasiyabkk' : '';
-    return basePath + path + (process.env.NODE_ENV === 'production' ? '?v=1' : '');
-  }
-  // Client-side: Next.js handles basePath automatically for relative paths
-  return path;
+  const basePath = process.env.NODE_ENV === 'production' ? '/afrasiyabkk' : '';
+  const cacheBuster = process.env.NODE_ENV === 'production' ? '?v=1' : '';
+  return basePath + path + cacheBuster;
 };

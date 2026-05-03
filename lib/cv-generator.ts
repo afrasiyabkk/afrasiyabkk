@@ -64,14 +64,14 @@ export const generateCVPDF = (language: Language = 'en') => {
   doc.text(personalInfo.designation, margin, yPosition);
   yPosition += 6;
 
-  doc.setFontSize(10);
+  doc.setFontSize(12);
   doc.setTextColor(textColor[0], textColor[1], textColor[2]);
   const contactInfo = `${personalInfo.email} | ${personalInfo.phone}`;
   doc.text(contactInfo, margin, yPosition);
-  yPosition += 4;
+  yPosition += 6;
 
   // Portfolio link
-  doc.setFontSize(9);
+  doc.setFontSize(12);
   doc.setTextColor(textColor[0], textColor[1], textColor[2]);
   doc.setFont('Helvetica', 'normal');
   doc.text('Portfolio: ', margin, yPosition);
@@ -123,7 +123,7 @@ export const generateCVPDF = (language: Language = 'en') => {
     doc.setTextColor(textColor[0], textColor[1], textColor[2]);
     doc.setFont('Helvetica', 'normal');
     doc.text(exp.location, margin, yPosition);
-    yPosition += 3;
+    yPosition += 4;
 
     doc.setFontSize(10);
     doc.setTextColor(textColor[0], textColor[1], textColor[2]);
@@ -135,14 +135,14 @@ export const generateCVPDF = (language: Language = 'en') => {
     doc.setFontSize(9);
     doc.setTextColor(primaryColor[0], primaryColor[1], primaryColor[2]);
     doc.setFont('Helvetica', 'bold');
-    doc.text('Key Responsibilities:', margin, yPosition);
+    doc.text('Key Responsibilities:', margin + 2, yPosition);
     yPosition += 4;
 
     exp.responsibilities.forEach((resp) => {
       doc.setTextColor(textColor[0], textColor[1], textColor[2]);
       doc.setFont('Helvetica', 'normal');
-      const respLines = doc.splitTextToSize(`• ${resp}`, contentWidth - 2);
-      doc.text(respLines, margin + 2, yPosition);
+      const respLines = doc.splitTextToSize(`• ${resp}`, contentWidth - 4);
+      doc.text(respLines, margin + 4, yPosition);
       yPosition += respLines.length * 3 + 2;
     });
 
@@ -151,14 +151,14 @@ export const generateCVPDF = (language: Language = 'en') => {
     doc.setTextColor(primaryColor[0], primaryColor[1], primaryColor[2]);
     doc.setFont('Helvetica', 'bold');
     doc.setFontSize(9);
-    doc.text('Technologies:', margin, yPosition);
+    doc.text('Technologies:', margin + 2, yPosition);
     yPosition += 4;
 
     const expTechText = exp.technologies.join(', ');
-    const expTechLines = doc.splitTextToSize(expTechText, contentWidth - 2);
+    const expTechLines = doc.splitTextToSize(expTechText, contentWidth - 4);
     doc.setTextColor(textColor[0], textColor[1], textColor[2]);
     doc.setFont('Helvetica', 'normal');
-    doc.text(expTechLines, margin + 2, yPosition);
+    doc.text(expTechLines, margin + 4, yPosition);
     yPosition += expTechLines.length * 3 + 6;
   });
 
@@ -223,7 +223,7 @@ export const generateCVPDF = (language: Language = 'en') => {
   addSectionTitle('PROJECTS');
 
   yPosition += 2;
-  doc.setFontSize(8);
+  doc.setFontSize(10);
   doc.setTextColor(textColor[0], textColor[1], textColor[2]);
   doc.setFont('Helvetica', 'normal');
   doc.text('View all projects on portfolio: ', margin, yPosition);
@@ -233,7 +233,7 @@ export const generateCVPDF = (language: Language = 'en') => {
   if (typeof window !== 'undefined' && window.location.origin.includes('github.io')) {
     portfolioProjectsUrl = typeof window !== 'undefined' ? `${window.location.origin}/afrasiyabkk/projects` : `${process.env.NEXT_PUBLIC_PORTFOLIO_URL || 'https://afrasiyabkk.github.io'}/afrasiyabkk/projects`;
   }
-  doc.text(portfolioProjectsUrl, margin + 40, yPosition);
+  doc.text(portfolioProjectsUrl, margin + 50, yPosition);
   yPosition += 5;
 
   projects.forEach((project) => {
@@ -250,20 +250,20 @@ export const generateCVPDF = (language: Language = 'en') => {
     doc.setTextColor(textColor[0], textColor[1], textColor[2]);
     doc.setFont('Helvetica', 'normal');
     const projDescLines = doc.splitTextToSize(project.shortDescription, contentWidth);
-    doc.text(projDescLines, margin, yPosition);
+    doc.text(projDescLines, margin + 2, yPosition);
     yPosition += projDescLines.length * 3.5 + 3;
 
     doc.setFontSize(9);
     doc.setTextColor(primaryColor[0], primaryColor[1], primaryColor[2]);
     doc.setFont('Helvetica', 'bold');
-    doc.text('Technologies:', margin, yPosition);
+    doc.text('Technologies:', margin + 2, yPosition);
     yPosition += 4;
 
     const projTechText = project.technologies.join(', ');
     const projTechLines = doc.splitTextToSize(projTechText, contentWidth - 2);
     doc.setTextColor(textColor[0], textColor[1], textColor[2]);
     doc.setFont('Helvetica', 'normal');
-    doc.text(projTechLines, margin + 2, yPosition);
+    doc.text(projTechLines, margin + 4, yPosition);
     yPosition += projTechLines.length * 3 + 5;
   });
 

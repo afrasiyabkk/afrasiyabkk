@@ -29,3 +29,13 @@ export const getImagePath = (path: string): string => {
   const cacheBuster = process.env.NODE_ENV === 'production' ? '?v=1' : '';
   return basePath + path + cacheBuster;
 };
+
+/**
+ * Get the correct page path with basePath prefix for production
+ * Locally: /projects, /experience, etc.
+ * Production (GitHub Pages): /afrasiyabkk/projects, /afrasiyabkk/experience, etc.
+ */
+export const getPagePath = (path: string): string => {
+  const basePath = process.env.NODE_ENV === 'production' ? '/afrasiyabkk' : '';
+  return basePath + path;
+};

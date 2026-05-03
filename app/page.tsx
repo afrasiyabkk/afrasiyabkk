@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { getImagePath } from '@/lib/utils';
+import { getImagePath, getPagePath } from '@/lib/utils';
 import { createPortal } from 'react-dom';
 import { MainLayout } from '@/components/layout/MainLayout';
 import { CVDownloadButton } from '@/components/common/CVDownloadButton';
@@ -103,25 +103,25 @@ export default function Home() {
           <section className="action-buttons">
             <CVDownloadButton />
             <a
-              href="/projects"
+              href={getPagePath('/projects')}
               className="action-btn"
             >
               View Projects
             </a>
             <a
-              href="/experience"
+              href={getPagePath('/experience')}
               className="action-btn"
             >
               Experience
             </a>
             <a
-              href="/skills"
+              href={getPagePath('/skills')}
               className="action-btn"
             >
               Skills
             </a>
             <a
-              href="/contact"
+              href={getPagePath('/contact')}
               className="action-btn primary"
             >
               Get in Touch

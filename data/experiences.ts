@@ -26,7 +26,7 @@ export interface ExperiencePageData {
 export const EXPERIENCES_EN: Experience[] = [
   {
     id: 'current-team-lead',
-    title: 'Full Stack Developer → Team Lead',
+    title: 'Full Stack Developer / Team Lead',
     company: 'BSS S.r.l.',
     location: 'Ragusa, Italia',
     startDate: 'September 2022',

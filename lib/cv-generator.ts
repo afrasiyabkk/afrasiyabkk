@@ -21,27 +21,26 @@ export const generateCVPDF = (language: Language = 'en') => {
 
   const pageWidth = doc.internal.pageSize.getWidth();
   const pageHeight = doc.internal.pageSize.getHeight();
-  let yPosition = 15;
+  let yPosition = 20;
   const margin = 12;
   const contentWidth = pageWidth - margin * 2;
 
   // Colors
-  const primaryColor = [41, 98, 255]; // Professional blue
-  const secondaryColor = [80, 80, 80]; // Dark gray
-  const textColor = [50, 50, 50]; // Dark text
-  const lightGray = [200, 200, 200]; // Light gray for lines
+  const primaryColor = [41, 98, 255];
+  const secondaryColor = [80, 80, 80];
+  const textColor = [50, 50, 50];
+  const lightGray = [200, 200, 200];
 
   // Helper function to add section title
   const addSectionTitle = (title: string) => {
+    doc.setFont('Helvetica', 'bold');
     doc.setFontSize(13);
     doc.setTextColor(primaryColor[0], primaryColor[1], primaryColor[2]);
-    doc.setFont('', 'bold');
     doc.text(title, margin, yPosition);
 
-    // Underline
     doc.setDrawColor(primaryColor[0], primaryColor[1], primaryColor[2]);
-    doc.line(margin, yPosition + 1.5, pageWidth - margin, yPosition + 1.5);
-    yPosition += 6;
+    doc.line(margin, yPosition + 2, pageWidth - margin, yPosition + 2);
+    yPosition += 8;
   };
 
   // Helper function to check page break
@@ -52,140 +51,148 @@ export const generateCVPDF = (language: Language = 'en') => {
     }
   };
 
-  // ===== HEADER =====
+  // HEADER
+  doc.setFont('Helvetica', 'bold');
   doc.setFontSize(24);
   doc.setTextColor(primaryColor[0], primaryColor[1], primaryColor[2]);
-  doc.setFont('', 'bold');
   doc.text(personalInfo.fullName, margin, yPosition);
   yPosition += 10;
 
-  // Designation
+  doc.setFont('Helvetica', 'normal');
   doc.setFontSize(12);
   doc.setTextColor(secondaryColor[0], secondaryColor[1], secondaryColor[2]);
-  doc.setFont('', 'normal');
   doc.text(personalInfo.designation, margin, yPosition);
   yPosition += 6;
 
-  // Contact info
   doc.setFontSize(10);
   doc.setTextColor(textColor[0], textColor[1], textColor[2]);
   const contactInfo = `${personalInfo.email} | ${personalInfo.phone}`;
   doc.text(contactInfo, margin, yPosition);
   yPosition += 4;
 
-  // Portfolio link subtly
+  // Portfolio link
   doc.setFontSize(9);
-  doc.setTextColor(100, 100, 100);
+  doc.setTextColor(textColor[0], textColor[1], textColor[2]);
+  doc.setFont('Helvetica', 'normal');
+  doc.text('Portfolio: ', margin, yPosition);
+  
+  doc.setTextColor(primaryColor[0], primaryColor[1], primaryColor[2]);
   let portfolioUrl = typeof window !== 'undefined' ? window.location.origin : (process.env.NEXT_PUBLIC_PORTFOLIO_URL || 'https://afrasiyabkk.github.io');
-  // Add /afrasiyabkk only if on GitHub Pages
   if (typeof window !== 'undefined' && window.location.origin.includes('github.io')) {
     portfolioUrl += '/afrasiyabkk';
   }
-  doc.text(`Portfolio: ${portfolioUrl}`, margin, yPosition);
-  yPosition += 6;
+  doc.text(portfolioUrl, margin + 18, yPosition);
+  yPosition += 7;
 
-  // ===== PROFESSIONAL SUMMARY =====
+  // PROFESSIONAL SUMMARY
   checkPageBreak(30);
+  yPosition += 3;
   addSectionTitle('PROFESSIONAL SUMMARY');
   
   doc.setFontSize(10);
   doc.setTextColor(textColor[0], textColor[1], textColor[2]);
-  doc.setFont('', 'normal');
+  doc.setFont('Helvetica', 'normal');
   
   const bioText = getBioWithYears(language);
   const bioLines = doc.splitTextToSize(bioText, contentWidth);
   doc.text(bioLines, margin, yPosition);
-  yPosition += bioLines.length * 3.5 + 4;
+  yPosition += bioLines.length * 3.5 + 6;
 
-  // ===== EXPERIENCE =====
+  // EXPERIENCE
   checkPageBreak(40);
+  yPosition += 3;
   addSectionTitle('PROFESSIONAL EXPERIENCE');
 
-  experiences.forEach((exp, index) => {
+  experiences.forEach((exp) => {
     checkPageBreak(18);
+    yPosition += 2;
 
-    // Job Title and Company
     doc.setFontSize(11);
     doc.setTextColor(primaryColor[0], primaryColor[1], primaryColor[2]);
-    doc.setFont('', 'bold');
+    doc.setFont('Helvetica', 'bold');
     doc.text(exp.title, margin, yPosition);
     yPosition += 4;
 
-    // Company and dates
     doc.setFontSize(10);
     doc.setTextColor(secondaryColor[0], secondaryColor[1], secondaryColor[2]);
-    doc.setFont('', 'normal');
+    doc.setFont('Helvetica', 'normal');
     doc.text(`${exp.company} | ${exp.startDate} - ${exp.endDate}`, margin, yPosition);
     yPosition += 4;
 
-    // Location
     doc.setFontSize(9);
     doc.setTextColor(textColor[0], textColor[1], textColor[2]);
+    doc.setFont('Helvetica', 'normal');
     doc.text(exp.location, margin, yPosition);
+    yPosition += 3;
+
+    doc.setFontSize(10);
+    doc.setTextColor(textColor[0], textColor[1], textColor[2]);
+    doc.setFont('Helvetica', 'normal');
+    const expDescLines = doc.splitTextToSize(exp.description, contentWidth);
+    doc.text(expDescLines, margin, yPosition);
+    yPosition += expDescLines.length * 3.5 + 3;
+
+    doc.setFontSize(9);
+    doc.setTextColor(primaryColor[0], primaryColor[1], primaryColor[2]);
+    doc.setFont('Helvetica', 'bold');
+    doc.text('Key Responsibilities:', margin, yPosition);
     yPosition += 4;
 
-    // Description
-    doc.setFontSize(10);
-    const descLines = doc.splitTextToSize(exp.description, contentWidth);
-    doc.text(descLines, margin, yPosition);
-    yPosition += descLines.length * 3.5 + 2;
-
-    // Key Responsibilities
-    doc.setFontSize(9);
-    doc.setFont('', 'bold');
-    doc.text('Key Responsibilities:', margin, yPosition);
-    yPosition += 3;
-
     exp.responsibilities.forEach((resp) => {
-      doc.setFont('', 'normal');
+      doc.setTextColor(textColor[0], textColor[1], textColor[2]);
+      doc.setFont('Helvetica', 'normal');
       const respLines = doc.splitTextToSize(`• ${resp}`, contentWidth - 2);
       doc.text(respLines, margin + 2, yPosition);
-      yPosition += respLines.length * 3 + 1;
+      yPosition += respLines.length * 3 + 2;
     });
 
-    // Technologies
-    doc.setFont('', 'bold');
+    yPosition += 2;
+
+    doc.setTextColor(primaryColor[0], primaryColor[1], primaryColor[2]);
+    doc.setFont('Helvetica', 'bold');
     doc.setFontSize(9);
     doc.text('Technologies:', margin, yPosition);
-    yPosition += 3;
+    yPosition += 4;
 
-    const techText = exp.technologies.join(', ');
-    const techLines = doc.splitTextToSize(techText, contentWidth - 2);
-    doc.setFont('', 'normal');
-    doc.text(techLines, margin + 2, yPosition);
-    yPosition += techLines.length * 3 + 4;
+    const expTechText = exp.technologies.join(', ');
+    const expTechLines = doc.splitTextToSize(expTechText, contentWidth - 2);
+    doc.setTextColor(textColor[0], textColor[1], textColor[2]);
+    doc.setFont('Helvetica', 'normal');
+    doc.text(expTechLines, margin + 2, yPosition);
+    yPosition += expTechLines.length * 3 + 6;
   });
 
-  // ===== EDUCATION =====
+  // EDUCATION
   checkPageBreak(30);
+  yPosition += 3;
   addSectionTitle('EDUCATION');
 
   educations.forEach((edu) => {
     checkPageBreak(15);
+    yPosition += 2;
 
-    // Degree
     doc.setFontSize(11);
     doc.setTextColor(primaryColor[0], primaryColor[1], primaryColor[2]);
-    doc.setFont('', 'bold');
+    doc.setFont('Helvetica', 'bold');
     doc.text(edu.degree, margin, yPosition);
     yPosition += 4;
 
-    // Institution and dates
     doc.setFontSize(10);
     doc.setTextColor(secondaryColor[0], secondaryColor[1], secondaryColor[2]);
-    doc.setFont('', 'normal');
+    doc.setFont('Helvetica', 'normal');
     doc.text(`${edu.institution} | ${edu.startDate} - ${edu.endDate}`, margin, yPosition);
     yPosition += 4;
 
-    // Location
     doc.setFontSize(9);
     doc.setTextColor(textColor[0], textColor[1], textColor[2]);
+    doc.setFont('Helvetica', 'normal');
     doc.text(edu.location, margin, yPosition);
-    yPosition += 5;
+    yPosition += 7;
   });
 
-  // ===== SKILLS =====
+  // SKILLS
   checkPageBreak(40);
+  yPosition += 3;
   addSectionTitle('TECHNICAL SKILLS');
 
   const skillCategories = Array.from(new Set(skills.map(s => s.category)));
@@ -198,63 +205,69 @@ export const generateCVPDF = (language: Language = 'en') => {
 
     doc.setFontSize(10);
     doc.setTextColor(primaryColor[0], primaryColor[1], primaryColor[2]);
-    doc.setFont('', 'bold');
+    doc.setFont('Helvetica', 'bold');
     doc.text(`${category}:`, margin, yPosition);
     yPosition += 3;
 
     doc.setFontSize(9);
     doc.setTextColor(textColor[0], textColor[1], textColor[2]);
-    doc.setFont('', 'normal');
+    doc.setFont('Helvetica', 'normal');
     const skillLines = doc.splitTextToSize(skillNames, contentWidth - 4);
     doc.text(skillLines, margin + 2, yPosition);
-    yPosition += skillLines.length * 3 + 3;
+    yPosition += skillLines.length * 3 + 4;
   });
-  // ===== PROJECTS =====
+
+  // PROJECTS
   checkPageBreak(40);
+  yPosition += 3;
   addSectionTitle('PROJECTS');
 
-  // Portfolio link (once, with padding)
   yPosition += 2;
   doc.setFontSize(8);
-  doc.setTextColor(120, 120, 120);
+  doc.setTextColor(textColor[0], textColor[1], textColor[2]);
+  doc.setFont('Helvetica', 'normal');
+  doc.text('View all projects on portfolio: ', margin, yPosition);
+  
+  doc.setTextColor(primaryColor[0], primaryColor[1], primaryColor[2]);
   let portfolioProjectsUrl = typeof window !== 'undefined' ? `${window.location.origin}/projects` : `${process.env.NEXT_PUBLIC_PORTFOLIO_URL || 'https://afrasiyabkk.github.io'}/projects`;
-  // Add /afrasiyabkk only if on GitHub Pages
   if (typeof window !== 'undefined' && window.location.origin.includes('github.io')) {
     portfolioProjectsUrl = typeof window !== 'undefined' ? `${window.location.origin}/afrasiyabkk/projects` : `${process.env.NEXT_PUBLIC_PORTFOLIO_URL || 'https://afrasiyabkk.github.io'}/afrasiyabkk/projects`;
   }
-  doc.text(`View all projects on portfolio: ${portfolioProjectsUrl}`, margin, yPosition);
-  yPosition += 4;
+  doc.text(portfolioProjectsUrl, margin + 40, yPosition);
+  yPosition += 5;
 
   projects.forEach((project) => {
     checkPageBreak(12);
+    yPosition += 2;
 
-    // Project Title
     doc.setFontSize(11);
     doc.setTextColor(primaryColor[0], primaryColor[1], primaryColor[2]);
-    doc.setFont('', 'bold');
+    doc.setFont('Helvetica', 'bold');
     doc.text(project.title, margin, yPosition);
     yPosition += 4;
 
-    // Project Description
     doc.setFontSize(10);
     doc.setTextColor(textColor[0], textColor[1], textColor[2]);
-    doc.setFont('', 'normal');
-    const descLines = doc.splitTextToSize(project.shortDescription, contentWidth);
-    doc.text(descLines, margin, yPosition);
-    yPosition += descLines.length * 3.5 + 2;
+    doc.setFont('Helvetica', 'normal');
+    const projDescLines = doc.splitTextToSize(project.shortDescription, contentWidth);
+    doc.text(projDescLines, margin, yPosition);
+    yPosition += projDescLines.length * 3.5 + 3;
 
-    // Technologies
     doc.setFontSize(9);
-    doc.setFont('', 'bold');
+    doc.setTextColor(primaryColor[0], primaryColor[1], primaryColor[2]);
+    doc.setFont('Helvetica', 'bold');
     doc.text('Technologies:', margin, yPosition);
-    yPosition += 3;
+    yPosition += 4;
 
-    const techText = project.technologies.join(', ');
-    const techLines = doc.splitTextToSize(techText, contentWidth - 2);
-    doc.setFont('', 'normal');
-    doc.text(techLines, margin + 2, yPosition);
-    yPosition += techLines.length * 3 + 3;
+    const projTechText = project.technologies.join(', ');
+    const projTechLines = doc.splitTextToSize(projTechText, contentWidth - 2);
+    doc.setTextColor(textColor[0], textColor[1], textColor[2]);
+    doc.setFont('Helvetica', 'normal');
+    doc.text(projTechLines, margin + 2, yPosition);
+    yPosition += projTechLines.length * 3 + 5;
   });
+
+  // PAGE NUMBERS
   doc.setFontSize(8);
   doc.setTextColor(lightGray[0], lightGray[1], lightGray[2]);
   const totalPages = (doc as any).internal.pages.length - 1;
@@ -267,6 +280,5 @@ export const generateCVPDF = (language: Language = 'en') => {
     );
   }
 
-  // Download the PDF
   doc.save(`${personalInfo.fullName.replace(/\s+/g, '_')}_CV.pdf`);
 };

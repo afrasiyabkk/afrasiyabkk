@@ -22,11 +22,16 @@ export const getYearsOfExperience = (startMonth: number = 11, startYear: number 
 /**
  * Get the correct image path with basePath prefix for production
  * Locally: /media/image.png
- * Production (GitHub Pages): /afrasiyabkk/media/image.png?v=1 (with cache-buster)
+ * Production (GitHub Pages): /afrasiyabkk/media/image.png?v=202605 (with monthly cache-buster)
+ * Cache buster updates monthly to force fresh downloads
  */
 export const getImagePath = (path: string): string => {
   const basePath = process.env.NODE_ENV === 'production' ? '/afrasiyabkk' : '';
-  const cacheBuster = process.env.NODE_ENV === 'production' ? '?v=1' : '';
+  // Use date-based cache buster (YYYYMM format) that updates monthly
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = String(today.getMonth() + 1).padStart(2, '0');
+  const cacheBuster = process.env.NODE_ENV === 'production' ? `?v=${year}${month}` : '';
   return basePath + path + cacheBuster;
 };
 

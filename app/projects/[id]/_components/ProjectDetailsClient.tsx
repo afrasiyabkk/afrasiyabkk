@@ -98,7 +98,7 @@ export default function ProjectDetailsClient({
                 {project.images.map((image, index) => (
                   <img
                     key={index}
-                    src={image}
+                    src={getImagePath(image)}
                     alt={`${project.title} - Image ${index + 1}`}
                     className={`thumbnail ${index === currentImageIndex ? 'active' : ''}`}
                     onClick={() => setCurrentImageIndex(index)}

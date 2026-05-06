@@ -4,19 +4,20 @@ import { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { getImagePath } from '@/lib/utils';
-import { Project, ProjectDetailsPageData } from '@/data/projects';
+import { useProjects, useProjectDetailsPageData } from '@/hooks/usePersonalInfo';
 
 interface ProjectDetailsClientProps {
-  project: Project;
-  pageData: ProjectDetailsPageData;
+  projectId: string;
 }
 
 export default function ProjectDetailsClient({
-  project,
-  pageData,
+  projectId,
 }: ProjectDetailsClientProps) {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const projects = useProjects();
+  const pageData = useProjectDetailsPageData();
+  const project = projects.find((p) => p.id === projectId);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -44,15 +45,29 @@ export default function ProjectDetailsClient({
 
   const goToPrevious = () => {
     setCurrentImageIndex((prev) =>
-      prev === 0 ? project.images.length - 1 : prev - 1
+      prev === 0 ? project!.images.length - 1 : prev - 1
     );
   };
 
   const goToNext = () => {
     setCurrentImageIndex((prev) =>
-      prev === project.images.length - 1 ? 0 : prev + 1
+      prev === project!.images.length - 1 ? 0 : prev + 1
     );
   };
+
+  if (!project) {
+    return (
+      <div className="project-details-container">
+        <div className="project-not-found">
+          <h1>{pageData.projectNotFound}</h1>
+          <p>{pageData.projectNotFoundMessage}</p>
+          <Link href="/projects" className="back-btn">
+            {pageData.backToProjects}
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <>

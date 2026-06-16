@@ -36,8 +36,8 @@ export const PROJECTS_EN: Project[] = [
   {
     id: 'jbo',
     title: 'Jstore Back Office - Financial Module',
-    shortDescription: 'Accounting and Cash Management Module with Dynamic Document Generation',
-    description: 'A sophisticated accounting module developed entirely from scratch within the Jstore back office management system. This specialized financial system manages cashbook and cash ledger operations with intelligent document generation. The module features a flexible AccountingReasons template system that allows configuration of different accounting heads based on business requirements. Users create configurations specifying debit and credit accounting reasons, which the system uses to automatically generate financial documents by integrating real-time sales data from external supermarket services. The system maintains separate database integrity with full support for multi-cashier and multi-register environments, shows total debits and total credits value and the reconciliation (difference between debit and credit). Other then the financial module, I contributed along with a team of other developers in developing other modules of the JBO Managerment system such as Warehouse module, Inventory module, Article module. The financial module seamlessly integrates with the larger ecosystem.',
+    shortDescription: 'Accounting and Cash Management Module with Dynamic Document Generation - Software used by multiple retail giants including PAM, Despar, ARD, and Unicomm Group',
+    description: 'A sophisticated accounting module developed entirely from scratch within the Jstore back office management system. This specialized financial system manages cashbook and cash ledger operations with intelligent document generation. The module features a flexible AccountingReasons template system that allows configuration of different accounting heads based on business requirements. Users create configurations specifying debit and credit accounting reasons, which the system uses to automatically generate financial documents by integrating real-time sales data from external supermarket services. The system maintains separate database integrity with full support for multi-cashier and multi-register environments, shows total debits and total credits value and the reconciliation (difference between debit and credit). The software is being used by multiple retail giants including PAM, Despar, ARD, and Unicomm Group. Other then the financial module, I contributed along with a team of other developers in developing other modules of the JBO Managerment system such as Warehouse module, Inventory module, Article module. The financial module seamlessly integrates with the larger ecosystem.',
     technologies: [getSkillName('java'), getSkillName('springboot'), getSkillName('postgresql'), getSkillName('rest-api'), getSkillName('vuejs'), getSkillName('html'), getSkillName('css'), getSkillName('syncfusion')],
     categories: [PROJECT_CATEGORIES.WEB_APP],
     company: EXPERIENCES[0].company,
@@ -59,6 +59,7 @@ export const PROJECTS_EN: Project[] = [
       'Full backend and frontend development from scratch',
       'Microservices architecture for service isolation and independent deployment',
       'Deploy the Microservices to client\'s servers',
+      'Multi-organization support for diverse business requirements',
     ],
   },
   {
@@ -472,8 +473,8 @@ export const PROJECTS_IT: Project[] = [
   {
     id: 'jbo',
     title: 'Jstore Back Office - Modulo Finanziario',
-    shortDescription: 'Modulo Contabilità e Gestione Cassa con Generazione Dinamica di Documenti',
-    description: 'Un modulo contabile sofisticato sviluppato da zero nel sistema di gestione back office Jstore. Questo sistema finanziario specializzato gestisce operazioni di cassa e giornale di cassa con generazione intelligente di documenti. Il modulo presenta un sistema di template flessibile AccountingReasons che consente la configurazione di diverse voci di contabilità in base ai requisiti aziendali. Gli utenti creano configurazioni specificando le ragioni di addebito e accredito, che il sistema utilizza per generare automaticamente documenti finanziari integrando i dati di vendita in tempo reale da servizi di supermercato esterni. Il sistema mantiene l\'integrità del database separato con supporto completo per ambienti multi-cassa e multi-registratore, mostra il valore totale debiti e crediti e la riconciliazione (differenza tra debiti e crediti). Oltre al modulo finanziario, ho contribuito insieme a un team di altri sviluppatori nello sviluppo di altri moduli del sistema di gestione JBO come modulo Magazzino, modulo Inventario, modulo Articoli. Il modulo finanziario si integra perfettamente nell\'ecosistema più ampio.',
+    shortDescription: 'Modulo Contabilità e Gestione Cassa con Generazione Dinamica di Documenti - Software utilizzato da molteplici giganti del retail tra cui PAM, Despar, ARD e Unicomm Group',
+    description: 'Un modulo contabile sofisticato sviluppato da zero nel sistema di gestione back office Jstore. Questo sistema finanziario specializzato gestisce operazioni di cassa e giornale di cassa con generazione intelligente di documenti. Il modulo presenta un sistema di template flessibile AccountingReasons che consente la configurazione di diverse voci di contabilità in base ai requisiti aziendali. Gli utenti creano configurazioni specificando le ragioni di addebito e accredito, che il sistema utilizza per generare automaticamente documenti finanziari integrando i dati di vendita in tempo reale da servizi di supermercato esterni. Il sistema mantiene l\'integrità del database separato con supporto completo per ambienti multi-cassa e multi-registratore, mostra il valore totale debiti e crediti e la riconciliazione (differenza tra debiti e crediti). Il software è utilizzato da molteplici giganti del retail tra cui PAM, Despar, ARD e Unicomm Group. Oltre al modulo finanziario, ho contribuito insieme a un team di altri sviluppatori nello sviluppo di altri moduli del sistema di gestione JBO come modulo Magazzino, modulo Inventario, modulo Articoli. Il modulo finanziario si integra perfettamente nell\'ecosistema più ampio.',
     technologies: [getSkillName('java'), getSkillName('springboot'), getSkillName('postgresql'), getSkillName('rest-api'), getSkillName('vuejs'), getSkillName('html'), getSkillName('css'), getSkillName('syncfusion')],
     categories: [PROJECT_CATEGORIES.WEB_APP],
     company: EXPERIENCES[0].company,
@@ -495,6 +496,7 @@ export const PROJECTS_IT: Project[] = [
       'Sviluppo completo backend e frontend da zero',
       'Architettura microservizi per isolamento dei servizi e deployment indipendente',
       'Distribuzione dei microservizi sui server del cliente',
+      'Supporto multi-organizzazione per diversi requisiti aziendali',
     ],
   },
   {

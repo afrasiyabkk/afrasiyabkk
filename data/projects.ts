@@ -65,7 +65,7 @@ export const PROJECTS_EN: Project[] = [
   {
     id: 'spedizione-web',
     title: 'Spedizione Web',
-    shortDescription: 'Integrated shipping management with SOAP API integration and marketplace order synchronization',
+    shortDescription: 'Integrated shipping management with marketplace (woocommerce) order synchronization and Developed a microservice integrating the Poste Italiane SOAP API for registered mail (raccomandata) operations',
     description: 'Spedizione Web is a comprehensive shipping management platform developed that enables users to calculate shipping costs, select from multiple courier services (BRT, SDA, Poste Italiane, etc.), and manage shipments. I developed two critical microservices for this platform: (1) A microservice that integrates with Poste Italiane\'s SOAP API to enable users to directly send registered mail (raccomandata) online with streamlined document generation and tracking. (2) An Orders Management microservice using REST API that synchronizes orders from e-commerce marketplaces (Woocommerce, with expandable support for Amazon, eBay, and others) directly into the shipping system, automating shipping those orders.',
     technologies: [getSkillName('java'), getSkillName('springboot'), getSkillName('postgresql'), getSkillName('soap-api'), getSkillName('rest-api'), getSkillName('microservices')],
     categories: [PROJECT_CATEGORIES.WEB_APP],
@@ -502,7 +502,7 @@ export const PROJECTS_IT: Project[] = [
   {
     id: 'spedizione-web',
     title: 'Spedizione Web',
-    shortDescription: 'Gestione spedizioni integrata con integrazione SOAP API e sincronizzazione ordini marketplace',
+    shortDescription: 'Gestione spedizioni integrata con sincronizzazione ordini marketplace (woocommerce) e microservizio che integra l\'API SOAP di Poste Italiane per operazioni di raccomandata',
     description: 'Spedizione Web è una piattaforma completa di gestione spedizioni sviluppata che consente agli utenti di calcolare i costi di spedizione, selezionare da più servizi corriere (BRT, SDA, Poste Italiane, ecc.) e gestire spedizioni. Ho sviluppato due microservizi critici per questa piattaforma: (1) Un microservizio che si integra con l\'API SOAP di Poste Italiane per consentire agli utenti di inviare direttamente raccomandate online con generazione di documenti e tracciamento snelliti. (2) Un microservizio di gestione ordini usando API REST che sincronizza gli ordini dai marketplace di e-commerce (Woocommerce, con supporto espandibile per Amazon, eBay e altri) direttamente nel sistema di spedizione, automatizzando le spedizioni di quegli ordini.',
     technologies: [getSkillName('java'), getSkillName('springboot'), getSkillName('postgresql'), getSkillName('soap-api'), getSkillName('rest-api'), getSkillName('microservices')],
     categories: [PROJECT_CATEGORIES.WEB_APP],

@@ -37,7 +37,7 @@ export const EXPERIENCES_EN: Experience[] = [
     responsibilities: [
       'Responsible for the development and maintenance of multiple projects, ensuring high-quality code and timely delivery',
       'Direct and constant communication with client, including functional analysis, priority definition, and presentation of developments',
-      'Worked with major retail clients including PAM, Despar, ARD, and Unicomm Group to deliver enterprise solutions',
+      'Worked with Poste Italiane and major retail clients including PAM, Despar, ARD, and Unicomm Group to deliver enterprise solutions',
       'Coordination and supervision of junior developers, task definitions, and code reviews',
       'Backend and frontend development of enterprise web applications based on modern architecture',
       'Design and implementation of API integrations and REST/SOAP services focused on performance and scalability',
@@ -142,7 +142,7 @@ export const EXPERIENCES_IT: Experience[] = [
     responsibilities: [
       'Responsabile dello sviluppo e della manutenzione di molteplici progetti, garantendo codice di alta qualità e consegne puntuali',
       'Comunicazione diretta e costante con il cliente, inclusa analisi funzionale, definizione delle priorità e presentazione degli sviluppi',
-      'Lavorato con importanti clienti retail tra cui PAM, Despar, ARD e Unicomm Group per fornire soluzioni aziendali',
+      'Lavorato con Poste Italiane e importanti clienti retail tra cui PAM, Despar, ARD e Unicomm Group per fornire soluzioni aziendali',
       'Coordinamento e supervisione degli sviluppatori junior, definizione dei compiti e revisione del codice',
       'Sviluppo backend e frontend di applicazioni web aziendali basate su architetture moderne',
       'Design e implementazione di integrazioni API e servizi REST/SOAP focalizzati su performance e scalabilità',
